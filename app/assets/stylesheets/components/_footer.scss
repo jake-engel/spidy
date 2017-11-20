@@ -1,0 +1,34 @@
+.footer {
+  background: #F4F4F4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5vh;
+  padding: 20px 50px;
+  color: rgba(0,0,0,0.3);
+  border-top: 2px solid $spidy-green;
+  margin-top: 50px;
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+.footer-links a {
+  color: #999999;
+  opacity: 0.6;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 0px 10px;
+  transition: all 150ms ease;
+  &:hover {
+    color: $spidy-green;
+    opacity: 1;
+  }
+}
+
+.footer .fa-heart {
+  color: #D23333;
+}
