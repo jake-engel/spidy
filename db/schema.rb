@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120152009) do
+ActiveRecord::Schema.define(version: 20171120153835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20171120152009) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "freelancers_id"
+    t.index ["freelancers_id"], name: "index_experiences_on_freelancers_id"
   end
 
   create_table "freelancers", force: :cascade do |t|
@@ -35,10 +37,6 @@ ActiveRecord::Schema.define(version: 20171120152009) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "experience_id"
-    t.bigint "skill_id"
-    t.index ["experience_id"], name: "index_freelancers_on_experience_id"
-    t.index ["skill_id"], name: "index_freelancers_on_skill_id"
     t.index ["user_id"], name: "index_freelancers_on_user_id"
   end
 
@@ -73,6 +71,8 @@ ActiveRecord::Schema.define(version: 20171120152009) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "freelancers_id"
+    t.index ["freelancers_id"], name: "index_skills_on_freelancers_id"
   end
 
   create_table "users", force: :cascade do |t|
