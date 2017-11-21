@@ -10,7 +10,8 @@
   justify-content: space-between;
   position: relative;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
+  font-weight: 500;
+
 }
 
 /* Logo */
@@ -35,6 +36,7 @@
   width: 35px;
   border-radius: 50%;
 }
+
 
 .avatar {
   height: 50px;
@@ -105,8 +107,7 @@
   }
 }
 
-.searchIcon
-{
+.searchIcon {
   color: #fff;
 }
 
@@ -167,3 +168,4 @@
     padding-right: 5px;
   }
 }
+
