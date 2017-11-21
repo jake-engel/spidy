@@ -2,9 +2,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :offers
-  has_many :messages
-  has_one :freelancer
+  has_many :offers, dependent: :destroy
+  has_many :messages, dependent: :destroy
+  has_one :freelancer, dependent: :destroy
 
   devise :omniauthable, omniauth_providers: [:facebook]
 
