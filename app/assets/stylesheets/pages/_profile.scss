@@ -1,0 +1,59 @@
+.profile-container {
+  margin-top: 1px;
+  background-color: #dddddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 85vh;
+}
+
+.profile-avatar {
+  border-radius: 50%;
+  width: 250px;
+}
+
+.profile-header-card {
+  width: 25vw;
+  background-color: $light-gray;
+  margin: 15px;
+  border-radius: 2px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
+}
+
+.profile-skills-card {
+  width: 45vw;
+  background-color: $light-gray;
+  margin: 15px;
+  border-radius: 2px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
+}
+
+.profile-experiences-card {
+  width: 85vw;
+  background-color: $light-gray;
+  margin: 15px;
+  border-radius: 2px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 8vh;
+}
+
+.profiles-experience-listing {
+  width: 70vw;
+  background-color: white;
+  border: solid black;
+  margin-bottom: 10px;
+}
+
+.edit-profile-card {
+  width: 90vw;
+  background-color: $light-gray;
+  margin: 15px;
+  border-radius: 2px;
+  padding: 15px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
+}
