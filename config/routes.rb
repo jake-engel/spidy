@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
+
   devise_for :users,
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   authenticated do
-    root to: 'jobs#index'
+    root to: 'freelancers#index'
   end
   root to: 'pages#home'
-
-  devise_for :users
 
   resources :profiles, only: [ :show, :edit, :update ]
 
