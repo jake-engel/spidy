@@ -1,4 +1,4 @@
-<div class="container">
+<div class="freelancer-index-container">
   <div class="row">
     <h1 class="col-xs-10 col-xs-offset-1">
       \\ Nearby Jobs
@@ -6,7 +6,7 @@
   </div>
   <div class="row">
     <% @freelancers.each do |freelancer| %>
-    <%= render "shared/freelancer_card", user: freelancer.user, freelancer: freelancer %>
+        <%= render "shared/freelancer_card", user: freelancer.user, freelancer: freelancer %>
     <% end %>
   </div>
 </div>

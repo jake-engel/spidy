@@ -1,3 +1,19 @@
+.freelancer-index-container {
+  height: calc(100% - 70px);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: $light-gray;
+  margin-bottom: 5vh;
+}
+
+.freelancer-index-card {
+  width: 75vw;
+  background-color: $white;
+  padding: 15px;
+  margin: 15px;
+}
+
 .gold {
   color: gold;
 }
