@@ -1,7 +1,6 @@
 
 <div class="navbar-spidy">
   <!-- Logo -->
-
   <div class="logos">
     <%= link_to root_path, class: "navbar-spidy-brand" do %>
     <%= image_tag "spidy-logo.svg" %>
@@ -12,11 +11,16 @@
   <div class="navbar-spidy-right hidden-xs hidden-sm">
 
     <% if user_signed_in? %>
-    <!-- Links when logged in -->
-    <%= link_to "Create Job", "#", class: "navbar-spidy-item navbar-spidy-link text-center" %>
-    <%= link_to "Nearby Jobs", "#", class: "navbar-spidy-item navbar-spidy-link text-center" %>
+    <% if current_user.freelancer.nil? %>
+    <%= link_to "Become a Freelancer", "#", class: "navbar-spidy-item navbar-spidy-link text-center" %>
+    <% end %>
+    <%= link_to "Nearby Freelancers", freelancers_path, class: "navbar-spidy-item navbar-spidy-link text-center" %>
+    <%= link_to "Pending Requests", "#", class: "navbar-spidy-item navbar-spidy-link text-center" %>
     <%= link_to "About Us", "#", class: "navbar-spidy-item navbar-spidy-link text-center" %>
     <%= link_to "Help", "#", class: "navbar-spidy-item navbar-spidy-link text-center" %>
+    <%= link_to "#" do %>
+    <i class="navbar-spidy-item navbar-spidy-link fa fa-envelope"></i>
+    <% end %>
     <%= link_to "#" do %>
     <i class="navbar-spidy-item navbar-spidy-link fa fa-bell"></i>
     <% end %>
@@ -35,26 +39,20 @@
           </li>
           <li>
             <%= link_to "#" do %>
-            <i class="fa fa-comments"></i> <%= t(".profile", default: "Messages") %>
+            <i class="fa fa-connectdevelop"></i> <%= t(".profile", default: "My Cobweb") %>
             <% end %>
           </li>
           <li>
             <%= link_to "#" do %>
-            <i class="fa fa-book"></i>  <%= t(".profile", default: "Submitted Contracts") %>
+            <i class="fa fa-heart"></i>  <%= t(".profile", default: "Favorites") %>
             <% end %>
           </li>
           <li>
             <%= link_to "#" do %>
-            <i class="fa fa-clock-o"></i>  <%= t(".profile", default: "My Jobs") %>
+            <i class="fa fa-credit-card"></i> <%= t(".profile", default: "Payments") %>
             <% end %>
           </li>
           <li>
-            <%= link_to "#" do %>
-            <i class="fa fa-star"></i>  <%= t(".profile", default: "Favorites") %>
-            <% end %>
-          </li>
-          <li>
-
             <%= link_to edit_user_registration_path do %>
             <i class="fa fa-cog"></i>  <%= t(".sign_out", default: "Settings") %>
             <% end %>
@@ -70,6 +68,8 @@
     <% else %>
     <!-- Login link (when logged out) -->
     <%= link_to "Become a Freelancer", "#", class: "navbar-spidy-item navbar-spidy-link" %>
+    <%= link_to "Nearby Freelancers", freelancers_path, class: "navbar-spidy-item navbar-spidy-link text-center" %>
+    <%= link_to "About Us", "#", class: "navbar-spidy-item navbar-spidy-link text-center" %>
     <%= link_to "Help", "#", class: "navbar-spidy-item navbar-spidy-link" %>
     <%= link_to "Sign-up", "#", class: "navbar-spidy-item navbar-spidy-link" %>
     <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-spidy-item navbar-spidy-link" %>
@@ -80,49 +80,54 @@
   <div class="navbar-spidy-item hidden-md hidden-lg">
     <% if user_signed_in? %>
     <%= link_to "#" do %>
+    <i class="navbar-spidy-item navbar-spidy-link fa fa-envelope"></i>
+    <% end %>
+    <%= link_to "#" do %>
     <i class="navbar-spidy-item navbar-spidy-link fa fa-bell"></i>
     <% end %>
     <% end %>
     <div class="dropdown">
       <% if user_signed_in? %>
-      <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+      <% avatar_url = current_user.facebook_picture_url || current_user.photo %>
       <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-spidy-menu", "data-toggle" => "dropdown" %>
       <ul class="dropdown-menu dropdown-menu-right navbar-spidy-dropdown-menu">
+        <% if current_user.freelancer.nil? %>
+        <li>
+          <%= link_to "#" do %>
+          <i class="fa fa-users"></i> <%= t(".profile", default: "Become a Freelancer") %>
+          <% end %>
+        </li>
+        <% end %>
         <li>
           <%= link_to profile_path(current_user) do %>
           <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
           <% end %>
         </li>
         <li>
-          <%= link_to "#" do %>
-          <i class="fa fa-certificate"></i> <%= t(".profile", default: "Create a Job") %>
+          <%= link_to freelancers_path do %>
+          <i class="fa fa-street-view"></i> <%= t(".profile", default: "Nearby Freelancers") %>
           <% end %>
         </li>
         <li>
           <%= link_to "#" do %>
-          <i class="fa fa-street-view"></i> <%= t(".profile", default: "Nearby Jobs") %>
+          <i class="fa fa-book"></i>  <%= t(".profile", default: "Pending Requests") %>
           <% end %>
         </li>
         <li>
           <%= link_to "#" do %>
-          <i class="fa fa-comments"></i> <%= t(".profile", default: "Messages") %>
+          <i class="fa fa-connectdevelop"></i>  <%= t(".profile", default: "My Cobweb") %>
           <% end %>
         </li>
         <li>
           <%= link_to "#" do %>
-          <i class="fa fa-book"></i>  <%= t(".profile", default: "Submitted Contracts") %>
+          <i class="fa fa-heart"></i>  <%= t(".profile", default: "Favorites") %>
           <% end %>
         </li>
         <li>
-          <%= link_to "#" do %>
-          <i class="fa fa-clock-o"></i>  <%= t(".profile", default: "Previous Jobs") %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to "#" do %>
-          <i class="fa fa-star"></i>  <%= t(".profile", default: "Favorites") %>
-          <% end %>
-        </li>
+            <%= link_to "#" do %>
+            <i class="fa fa-credit-card"></i> <%= t(".profile", default: "Payments") %>
+            <% end %>
+          </li>
         <li>
           <%= link_to edit_user_registration_path do %>
           <i class="fa fa-cog"></i>  <%= t(".sign_out", default: "Settings") %>
@@ -148,16 +153,22 @@
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-spidy-dropdown-menu">
         <li>
-          <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-spidy-item navbar-spidy-link" %>
+          <%= link_to "Become a Freelancer", "#", class: "navbar-spidy-item navbar-spidy-link text-center" %>
         </li>
         <li>
-          <%= link_to "Nearby Jobs", "#", class: "navbar-spidy-item navbar-spidy-link" %>
+          <%= link_to "Nearby Freelancers", freelancers_path, class: "navbar-spidy-item navbar-spidy-link text-center" %>
         </li>
         <li>
           <%= link_to "About Us", "#", class: "navbar-spidy-item navbar-spidy-link" %>
         </li>
         <li>
           <%= link_to "Help", "#", class: "navbar-spidy-item navbar-spidy-link" %>
+        </li>
+        <li>
+          <%= link_to "Sign-up", "#", class: "navbar-spidy-item navbar-spidy-link" %>
+        </li>
+        <li>
+          <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-spidy-item navbar-spidy-link" %>
         </li>
       </ul>
       <% end %>

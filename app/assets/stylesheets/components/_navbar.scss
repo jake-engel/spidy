@@ -3,7 +3,7 @@
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: white;
   transition: all 0.3s ease;
-  height: 10vh;
+  height: 70px;
   padding: 0px 30px;
   display: flex;
   align-items: center;
@@ -15,7 +15,7 @@
 
 /* Logo */
 .navbar-spidy-brand img {
-  height: 70px;
+  height: 75px;
   position: absolute;
   top: 0;
   left: 0;
@@ -59,9 +59,10 @@
 .navbar-spidy-link {
   color: #616668;
   font-size: 14px;
+  transition: color 0.3s ease;
   &:hover {
     color: $spidy-green;
-    text-decoration: underline;
+    text-decoration: none;
   }
   &:active {
     text-decoration: none;
@@ -78,33 +79,30 @@
   margin-top: 15px;
   box-shadow: 1px 1px 4px #E6E6E6;
   border-color: #E6E6E6;
-}
-
-.navbar-spidy-dropdown-menu li > a {
-  transition: color 0.3s ease;
-  font-weight: lighter !important;
-  color: #7c7c7c !important;
-  font-size: 15px !important;
-  line-height: 22px !important;
-  padding: 10px 20px;
-}
-
-.navbar-spidy-dropdown-menu li > a:hover {
-  background: transparent !important;
-  color: black !important;
-}
-
-.navbar-spidy-dropdown-menu:before {
-  content: ' ';
-  height: 10px;
-  width: 10px;
-  position: absolute;
-  right: 10px;
-  top: -6px;
-  background-color: white;
-  transform: rotate(45deg);
-  border-left: 1px solid #E6E6E6;
-  border-top: 1px solid #E6E6E6;
+  li > a {
+    transition: color 0.3s ease;
+    font-weight: lighter !important;
+    color: #7c7c7c !important;
+    font-size: 15px !important;
+    line-height: 22px !important;
+    padding: 10px 20px;
+    &:hover {
+      background: transparent !important;
+      color: $spidy-green !important;
+    }
+  }
+  &:before {
+    content: ' ';
+    height: 10px;
+    width: 10px;
+    position: absolute;
+    right: 10px;
+    top: -6px;
+    background-color: white;
+    transform: rotate(45deg);
+    border-left: 1px solid #E6E6E6;
+    border-top: 1px solid #E6E6E6;
+  }
 }
 
 .searchIcon
