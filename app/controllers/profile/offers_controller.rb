@@ -1,1 +1,0 @@
-offers_controller.rb
