@@ -1,45 +1,33 @@
-<div class="navbar-wagon">
+
+<div class="navbar-spidy">
   <!-- Logo -->
 
   <div class="logos">
-    <%= link_to "#", class: "navbar-wagon-brand" do %>
-    <%= image_tag "spidy-logo.svg" %>
+    <%= link_to "#", class: "navbar-spidy-brand" do %>
+    <%= image_tag "SpidyLogo.svg" %>
     <% end %>
   </div>
 
-  <!-- Search Bar -->
-  <div class="search-bar">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search Spidy...">
-      <span class="input-group-btn">
-        <button class="btn btn-defaul searchButton" type="button">
-          <span class=" glyphicon glyphicon-search searchIcon" ></span>
-        </button>
-      </span>
-    </div>
-  </div>
-
-
   <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
+  <div class="navbar-spidy-right hidden-xs hidden-sm">
 
     <% if user_signed_in? %>
     <!-- Links when logged in -->
-    <%= link_to "Create Job", "#", class: "navbar-wagon-item navbar-wagon-link text-center" %>
-    <%= link_to "Nearby Jobs", "#", class: "navbar-wagon-item navbar-wagon-link text-center" %>
-    <%= link_to "About Us", "#", class: "navbar-wagon-item navbar-wagon-link text-center" %>
-    <%= link_to "Help", "#", class: "navbar-wagon-item navbar-wagon-link text-center" %>
+    <%= link_to "Create Job", "#", class: "navbar-spidy-item navbar-spidy-link text-center" %>
+    <%= link_to "Nearby Jobs", "#", class: "navbar-spidy-item navbar-spidy-link text-center" %>
+    <%= link_to "About Us", "#", class: "navbar-spidy-item navbar-spidy-link text-center" %>
+    <%= link_to "Help", "#", class: "navbar-spidy-item navbar-spidy-link text-center" %>
     <%= link_to "#" do %>
-    <i class="navbar-wagon-item navbar-wagon-link fa fa-bell"></i>
+    <i class="navbar-spidy-item navbar-spidy-link fa fa-bell"></i>
     <% end %>
 
 
     <!-- Avatar with dropdown menu -->
-    <div class="navbar-wagon-item">
+    <div class="navbar-spidy-item">
       <div class="dropdown">
         <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
-        <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-spidy-menu", "data-toggle" => "dropdown" %>
+        <ul class="dropdown-menu dropdown-menu-right navbar-spidy-dropdown-menu">
           <li>
             <%= link_to "#" do %>
             <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
@@ -81,28 +69,25 @@
     </div>
     <% else %>
     <!-- Login link (when logged out) -->
-    <%= link_to "Nearby Jobs", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-    |
-    <%= link_to "About Us", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-    |
-    <%= link_to "Help", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-    |
-    <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Become a Freelancer", "#", class: "navbar-spidy-item navbar-spidy-link" %>
+    <%= link_to "Help", "#", class: "navbar-spidy-item navbar-spidy-link" %>
+    <%= link_to "Sign-up", "#", class: "navbar-spidy-item navbar-spidy-link" %>
+    <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-spidy-item navbar-spidy-link" %>
     <% end %>
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
+  <div class="navbar-spidy-item hidden-md hidden-lg">
     <% if user_signed_in? %>
     <%= link_to "#" do %>
-    <i class="navbar-wagon-item navbar-wagon-link fa fa-bell"></i>
+    <i class="navbar-spidy-item navbar-spidy-link fa fa-bell"></i>
     <% end %>
     <% end %>
     <div class="dropdown">
       <% if user_signed_in? %>
       <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
-      <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+      <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-spidy-menu", "data-toggle" => "dropdown" %>
+      <ul class="dropdown-menu dropdown-menu-right navbar-spidy-dropdown-menu">
         <li>
           <%= link_to "#" do %>
           <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
@@ -161,18 +146,18 @@
       </ul>
       <% else %>
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+      <ul class="dropdown-menu dropdown-menu-right navbar-spidy-dropdown-menu">
         <li>
-          <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-spidy-item navbar-spidy-link" %>
         </li>
         <li>
-          <%= link_to "Nearby Jobs", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to "Nearby Jobs", "#", class: "navbar-spidy-item navbar-spidy-link" %>
         </li>
         <li>
-          <%= link_to "About Us", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to "About Us", "#", class: "navbar-spidy-item navbar-spidy-link" %>
         </li>
         <li>
-          <%= link_to "Help", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to "Help", "#", class: "navbar-spidy-item navbar-spidy-link" %>
         </li>
       </ul>
       <% end %>
