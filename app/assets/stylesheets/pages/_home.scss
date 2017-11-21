@@ -1,1 +1,144 @@
 // Specific CSS for your home-page
+
+.wrapper {
+  text-align: left;
+  display: absolute;
+  width: 100%;
+}
+
+.container {
+  margin: 0 auto;
+  width: 970px;
+  height: 800px;
+  position: relative;
+}
+
+.banner {
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  top: 50%;
+  height: 100px;
+  margin-top: -150px;
+}
+
+.btn-treehouse {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #6AD58B;
+  transition: background 0.3s ease;
+  position: absolute;
+  right: 10px;
+}
+.btn-treehouse:hover {
+  opacity: 1;
+  background: #3ac162;
+  text-decoration: none;
+  color: white;
+}
+
+
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 60px;
+  color: $spidy-green;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  color: $spidy-grey-text;
+}
+
+.search-container{
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+  display: flex;
+}
+
+.search-container input#search{
+  width: 400px;
+  height: 60px;
+  background: white;
+  border: none;
+  font-size: 18pt;
+  float: left;
+  color: #262626;
+  padding-left: 50px;
+  color: gray;
+  position: absolute;
+
+  -webkit-transition: width .55s ease;
+  -moz-transition: width .55s ease;
+  -ms-transition: width .55s ease;
+  -o-transition: width .55s ease;
+  transition: width .55s ease;
+}
+
+.search-container input#search::-webkit-input-placeholder {
+   color: #65737e;
+}
+
+.search-container input#search:-moz-placeholder { /* Firefox 18- */
+   color: #65737e;
+}
+
+.search-container input#search::-moz-placeholder {  /* Firefox 19+ */
+   color: #65737e;
+}
+
+.search-container input#search:-ms-input-placeholder {
+   color: #65737e;
+}
+
+.search-container .icon{
+  position: absolute;
+  top: 50%;
+  margin-left: 17px;
+  margin-top: 17px;
+  z-index: 1;
+  color: #93a2ad;
+}
+
+.search-container input#search:focus, .search-container input#search:active{
+  outline:none;
+  width: 850px;
+}
+
+.search-container:hover input#search{
+width: 850px;
+}
+
+.search-container:hover .icon{
+  color: gray;
+}
+
+.banner-mp {
+  color: white;
+  text-align: center;
+  height: 60vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner-mp h1 {
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+.banner-mp p {
+  font-size: 25px;
+  font-weight: lighter;
+  color: rgb(255, 255, 255);
+  opacity: 0.6;
+  margin-bottom: 30px;
+}
