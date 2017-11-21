@@ -1,5 +1,5 @@
 Offer.destroy_all
-Mesage.destroy_all
+Message.destroy_all
 Skill.destroy_all
 Experience.destroy_all
 Freelancer.destroy_all

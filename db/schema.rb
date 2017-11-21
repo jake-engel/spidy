@@ -19,13 +19,13 @@ ActiveRecord::Schema.define(version: 20171121113434) do
     t.string "title"
     t.string "company"
     t.string "starting_date"
-    t.string "ending_date"
     t.string "location"
     t.string "picture", default: "SpidyLogo.svg"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "freelancer_id"
+    t.string "ending_date"
     t.index ["freelancer_id"], name: "index_experiences_on_freelancer_id"
   end
 
