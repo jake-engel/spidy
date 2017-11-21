@@ -1,0 +1,23 @@
+.gold {
+  color: gold;
+}
+
+.fa-share {
+  color: $spidy-green;
+  transition: opacity 150ms ease;
+  &:hover {
+    opacity: 0.4;
+  }
+}
+
+.freelancer-links:hover {
+  text-decoration: none;
+}
+
+.fa-heart {
+  color: red;
+  transition: opacity 150ms ease;
+  &:hover {
+    opacity: 0.4;
+  }
+}

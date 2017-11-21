@@ -1,5 +1,12 @@
-<% Freelancer.all.each do |freelancer| %>
-  <% user = freelancer.user %>
-  <%= render "shared/freelancer_card", user: user %>
-  <%= render "shared/button", text: "Delete", type: "delete" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <h1 class="col-xs-10 col-xs-offset-1">
+      \\ Nearby Jobs
+    </h1>
+  </div>
+  <div class="row">
+    <% @freelancers.each do |freelancer| %>
+    <%= render "shared/freelancer_card", user: freelancer.user, freelancer: freelancer %>
+    <% end %>
+  </div>
+</div>
