@@ -1,17 +1,19 @@
 // Specific CSS for your home-page
 
+
 .home-wrapper {
   text-align: left;
-  display: absolute;
+  display: flex;
   width: 100%;
+  align-items: center;
   height: calc(100% - 70px);
   min-height: calc(95vh - 70px);
   margin-bottom: 5vh;
 }
-
+ */
 .container {
   margin: 0 auto;
-  width: 970px;
+  width: 1080px;
   height: 800px;
   position: relative;
 }
@@ -43,7 +45,6 @@
 }
 
 
-
 h1 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
@@ -53,9 +54,9 @@ h1 {
 
 p {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-  font-size: 30px;
-  color: $spidy-grey-text;
+  font-weight: 600;
+  font-size: 45px;
+  color: #9C999E;
 }
 
 .search-container{
@@ -126,23 +127,205 @@ width: 850px;
 
 .banner-mp {
   color: white;
-  text-align: center;
-  height: 60vh;
+  text-align: left;
+  height: 600px;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
+  display: flex;
+  position: relative;
+}
+
+.banner-mp-container {
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+
+  height: 100px;
+   position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+
+}
+
+.mp-container{
+  margin: 0 auto;
+  width: 1080px;
+  height: 80vh;
+  position: relative;
+}
+
+.banner-mp-content h1 span {
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  background-color: $spidy-green;
+}
+
+.banner-mp-content p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  color: rgb(255, 255, 255);
+  margin-bottom: 30px;
+}
+
+.first-card-wrapper .container {
+  margin: 0 auto;
+  width: 1080px;
+  height: 500px;
+  position: relative;
+}
+
+.card {
+  padding-top: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.text-card p {
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  color: $spidy-green;
+  margin-bottom: 0;
+}
+
+.card img {
+height: 150px;
+}
+
+.text-card h2 {
+  text-align: center;
+  margin-top: 0;
+}
+
+.text-card h2 span {
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  background-color: $spidy-green;
+}
+
+.maps-wrapper {
+  width: 100%;
+}
+
+.maps-wrapper .container {
+  /* padding-bottom: 10px; */
+  height: 600px;
+}
+
+.maps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 1080px;
+  height: 500px;
+  background-color: #E0DCE3;
+}
+
+hr {
+     color: gray;
+     background: $spidy-green;
+     width: 100%;
+     height: 1px;
+     position: absolute;
+     margin-top: 150px;
+     margin-bottom: 90px;
+}
+
+.second-cards-wrapper .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  height: 500px;
+}
+
+.s-card {
+padding-top: 0px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.p-card {
+  padding-top: 0px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.s-card img {
+height: 150px;
+}
+
+.p-card img {
+height: 60px;
+}
+
+.bottom-banner {
+  background-color: #E0DCE3;
+  text-align: left;
+  height: 600px;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  /* background-size: cover !important; */
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.banner-mp h1 {
-  font-size: 50px;
-  font-weight: bold;
-  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-}
-.banner-mp p {
+
+.bottom-banner p {
   font-size: 25px;
   font-weight: lighter;
   color: rgb(255, 255, 255);
   opacity: 0.6;
   margin-bottom: 30px;
+}
+
+.bottom-banner .banner-content .container {
+  width: 1080px;
+  height: 600px;
+}
+
+.bottom-banner .banner-content .container h1 span {
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  background-color: $spidy-green;
+}
+
+.bottom-banner .banner-content .container h2 {
+  color: white;
+  font-weight: 300;
+}
+
+.bottom-banner .banner-content .container p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  color: rgb(255, 255, 255);
+  margin-bottom: 30px;
+}
+
+.btn-primary {
+  background-color: $spidy-green;
+  border: none;
+}
+
+.btn-medium:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: #ABFFD7;
+}
+
+.line .container {
+  margin: 0 auto;
+  width: 1080px;
+  height: 300px;
+  position: relative;
 }
