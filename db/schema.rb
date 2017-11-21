@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171121113434) do
+ActiveRecord::Schema.define(version: 20171121115413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 20171121113434) do
     t.string "photo", default: "https://developer.appway.com/filesystem/d6912741f1280a6128b983842c487477225fc90a34614d857290b935c8c2e54a736ac48da2a39d13db50853310e7a9807e5611b45cc9e299/avatar.svg"
     t.string "location"
     t.boolean "admin", default: false
-    t.boolean "freelancer", default: false
+    t.boolean "has_freelancer", default: false
     t.string "provider"
     t.string "uid"
     t.string "facebook_picture_url"

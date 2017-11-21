@@ -13,7 +13,7 @@ User.destroy_all
     email: Faker::Internet.email,
     phone_number: Faker::PhoneNumber.cell_phone,
     location: Faker::Address.city,
-    freelancer: true
+    has_freelancer: true
   )
 
   freelancer = Freelancer.new(
