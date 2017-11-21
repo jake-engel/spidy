@@ -1,4 +1,6 @@
 module FreelancerHelper
+  require 'json'
+
   def status(offer)
     case freelancer.status
     when 0
@@ -26,5 +28,4 @@ module FreelancerHelper
     (5 - value).round.times { output << "<i class=\"fa fa-star-o gold\" aria-hidden=\"true\"></i>" }
     output.html_safe
   end
-
 end
