@@ -1,9 +1,11 @@
 // Specific CSS for your home-page
 
-.wrapper {
+.home-wrapper {
   text-align: left;
   display: absolute;
   width: 100%;
+  height: calc(100% - 70px);
+  margin-bottom: 5vh;
 }
 
 .container {
