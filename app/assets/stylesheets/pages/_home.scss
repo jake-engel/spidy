@@ -9,7 +9,7 @@
   margin-bottom: 5vh;
 }
 
-.container {
+.home-page-container {
   margin: 0 auto;
   width: 1080px;
   height: 800px;
@@ -169,7 +169,7 @@ width: 850px;
   margin-bottom: 30px;
 }
 
-.first-card-wrapper .container {
+.first-card-wrapper .home-page-container {
   margin: 0 auto;
   width: 1080px;
   height: 500px;
@@ -211,7 +211,7 @@ height: 150px;
   width: 100%;
 }
 
-.maps-wrapper .container {
+.maps-wrapper .home-page-container {
   /* padding-bottom: 10px; */
   height: 600px;
 }
@@ -236,7 +236,7 @@ hr {
      margin-bottom: 90px;
 }
 
-.second-cards-wrapper .container {
+.second-cards-wrapper .home-page-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -285,24 +285,24 @@ height: 60px;
   margin-bottom: 30px;
 }
 
-.bottom-banner .banner-content .container {
+.bottom-banner .banner-content .home-page-container {
   width: 1080px;
   height: 600px;
 }
 
-.bottom-banner .banner-content .container h1 span {
+.bottom-banner .banner-content .home-page-container h1 span {
   font-size: 50px;
   font-weight: bold;
   color: white;
   background-color: $spidy-green;
 }
 
-.bottom-banner .banner-content .container h2 {
+.bottom-banner .banner-content .home-page-container h2 {
   color: white;
   font-weight: 300;
 }
 
-.bottom-banner .banner-content .container p {
+.bottom-banner .banner-content .home-page-container p {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
   font-size: 40px;
@@ -321,7 +321,7 @@ height: 60px;
   color: #ABFFD7;
 }
 
-.line .container {
+.line .home-page-container {
   margin: 0 auto;
   width: 1080px;
   height: 300px;
