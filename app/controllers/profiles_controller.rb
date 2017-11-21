@@ -28,11 +28,7 @@ class ProfilesController < ApplicationController
   private
 
   def set_profile
-    if user_signed_in? && current_user.id == User.find(params[:id])
-      @profile = current_user
-    else
-      @profile = User.find(params[:id])
-    end
+    @profile = User.find(params[:id])
   end
 
   def profile_params

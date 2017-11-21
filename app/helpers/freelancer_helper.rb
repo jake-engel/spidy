@@ -1,6 +1,4 @@
 module FreelancerHelper
-  require 'json'
-
   def status(offer)
     case freelancer.status
     when 0

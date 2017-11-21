@@ -14,7 +14,9 @@ class FreelancersController < ApplicationController
     @freelancer = Freelancer.new(freelancer_params)
     @freelancer.user = current_user
     if @freelancer.save
-      redirect_to profile_path(@user)
+      current_user.has_freelancer = true
+      current_user.save
+      redirect_to profile_path(current_user)
     else
       render :new
     end
@@ -22,7 +24,7 @@ class FreelancersController < ApplicationController
 
   private
 
-  def job_contract_params
-    params.require(:freelancer).permit()
+  def freelancer_params
+    params.require(:freelancer).permit(:position, :currency, :hourly_pay, :summary)
   end
 end
