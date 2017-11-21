@@ -1,10 +1,14 @@
 // Specific CSS for your home-page
 
-/* .wrapper {
+
+.home-wrapper {
   text-align: left;
   display: flex;
   width: 100%;
   align-items: center;
+  height: calc(100% - 70px);
+  min-height: calc(95vh - 70px);
+  margin-bottom: 5vh;
 }
  */
 .container {
@@ -61,6 +65,7 @@ p {
   white-space: nowrap;
   position: relative;
   display: flex;
+  margin-bottom: 50px;
 }
 
 .search-container input#search{

@@ -1,0 +1,49 @@
+<div class="col-xs-10 col-xs-offset-1">
+  <div class="freelancer-index-card">
+    <div class="card-image">
+      <% picture = user.facebook_picture_url || user.photo %>
+      <%= link_to profile_path(user) do %>
+      <img class="card-user avatar" src=<%= picture %>>
+      <% end %>
+    </div>
+    <%= link_to profile_path(freelancer) do %>
+    <%= "#{user.first_name} #{user.last_name}" %>
+    <% end %>
+    <!-- <br> -->
+    <em>
+      <%= freelancer.position %>
+      <!-- <br> -->
+      <%= user.location %>
+    </em>
+    <br>
+    <%= link_to "#", class: "freelancer-links" do %>
+    <i class="fa fa-heart index-heart" aria-hidden="true"></i>
+    <% end %>
+    <%= link_to "#", class: "freelancer-links" do %>
+    <i class="fa fa-share" aria-hidden="true"></i>
+    <% end %>
+    <br>
+    <hr/>
+    <ul class="list-inline product-controls hidden-sm hidden-xs">
+      <%= render_stars(freelancer.avg_rating) %> (<%= freelancer.offers.length %>)
+      <% unless freelancer.offers.empty? %>
+      <li> | </li>
+      <li><strong>Last Spidy Position:</strong> <%= freelancer.offers.last.updated_at %></a></li>
+      <% end %>
+    </ul>
+    <% freelancer.skills.each do |skill| %>
+    <ul>
+      <li>
+        <%= skill.name %>
+      </li>
+    </ul>
+    <hr>
+    <%= freelancer.currency %><%= freelancer.hourly_pay %>/hr
+    <% end %>
+    <!-- STILL MUST ADD PUNDIT TO THIS -->
+    <br>
+    <%= link_to "#" do %>
+    <%= render "shared/button", text: "Hire #{user.first_name}", type: "apply" %>
+    <% end %>
+  </div>
+</div>

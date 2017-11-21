@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171121091517) do
+ActiveRecord::Schema.define(version: 20171121120913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,13 +18,14 @@ ActiveRecord::Schema.define(version: 20171121091517) do
   create_table "experiences", force: :cascade do |t|
     t.string "title"
     t.string "company"
-    t.string "date"
+    t.string "starting_date"
     t.string "location"
     t.string "picture", default: "SpidyLogo.svg"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "freelancer_id"
+    t.string "ending_date"
     t.index ["freelancer_id"], name: "index_experiences_on_freelancer_id"
   end
 
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 20171121091517) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "position"
     t.index ["user_id"], name: "index_freelancers_on_user_id"
   end
 
@@ -94,7 +96,7 @@ ActiveRecord::Schema.define(version: 20171121091517) do
     t.string "photo", default: "https://developer.appway.com/filesystem/d6912741f1280a6128b983842c487477225fc90a34614d857290b935c8c2e54a736ac48da2a39d13db50853310e7a9807e5611b45cc9e299/avatar.svg"
     t.string "location"
     t.boolean "admin", default: false
-    t.boolean "freelancer", default: false
+    t.boolean "has_freelancer", default: false
     t.string "provider"
     t.string "uid"
     t.string "facebook_picture_url"

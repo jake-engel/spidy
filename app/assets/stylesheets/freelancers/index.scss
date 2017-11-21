@@ -1,0 +1,40 @@
+.freelancer-index-container {
+  height: calc(100% - 70px);
+  min-height: calc(95vh - 70px);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: $light-gray;
+  margin-bottom: 5vh;
+}
+
+.freelancer-index-card {
+  width: 75vw;
+  background-color: $white;
+  padding: 15px;
+  margin: 15px;
+}
+
+.gold {
+  color: gold;
+}
+
+.fa-share {
+  color: $spidy-green;
+  transition: opacity 150ms ease;
+  &:hover {
+    opacity: 0.4;
+  }
+}
+
+.freelancer-links:hover {
+  text-decoration: none;
+}
+
+.index-heart {
+  color: red;
+  transition: opacity 150ms ease;
+  &:hover {
+    opacity: 0.4;
+  }
+}
