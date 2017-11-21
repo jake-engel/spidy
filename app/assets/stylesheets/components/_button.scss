@@ -77,6 +77,24 @@
   }
 }
 
+.register {
+  background: $spidy-green;
+  &:hover {
+    background: darken($spidy-green, 10%);
+  }
+  &:active,
+  &:focus {
+    background: darken($spidy-green, 20%);
+  }
+  &:after {
+    content: "\f0ad";
+  }
+  &:hover:after {
+    -webkit-animation: bounceright .3s alternate ease infinite;
+    animation: bounceright .3s alternate ease infinite;
+  }
+}
+
 .response {
   background: $spidy-green;
   &:hover {

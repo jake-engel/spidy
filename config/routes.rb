@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [ :show, :edit, :update ]
 
-  resources :freelancers, only: [ :index ] do
+  resources :freelancers, only: [ :index, :new, :create ] do
     resources :offers, only: [ :new, :create, :update ]
   end
 
