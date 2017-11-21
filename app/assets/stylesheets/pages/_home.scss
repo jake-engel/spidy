@@ -5,6 +5,7 @@
   display: absolute;
   width: 100%;
   height: calc(100% - 70px);
+  min-height: calc(95vh - 70px);
   margin-bottom: 5vh;
 }
 

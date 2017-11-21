@@ -1,5 +1,6 @@
 .freelancer-index-container {
   height: calc(100% - 70px);
+  min-height: calc(95vh - 70px);
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
