@@ -10,7 +10,7 @@ class ProfilesController < ApplicationController
     end
 
     if (@profile.facebook_picture_url) == nil
-      @profile_picture_url = current_user.photo
+      @profile_picture_url = @profile.photo
     else
       url_temp = @profile.facebook_picture_url[0..-7]
       @profile_picture_url = "#{url_temp}large"
