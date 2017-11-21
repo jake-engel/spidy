@@ -1,12 +1,21 @@
 <div class="freelancer-index-container">
+
   <div class="row">
     <h1 class="col-xs-10 col-xs-offset-1">
       Nearby Freelancers
     </h1>
+      <div class="search-box">
+          <div class="search-container">
+            <span class="icon"><i class="fa fa-search"></i></span>
+            <input type="search" id="search" placeholder="What are you looking for?" />
+          </div>
+        </div>
   </div>
+
   <div class="row">
     <% @freelancers.each do |freelancer| %>
         <%= render "shared/freelancer_card", user: freelancer.user, freelancer: freelancer %>
     <% end %>
   </div>
+
 </div>
