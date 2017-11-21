@@ -17,17 +17,19 @@
     </em>
     <br>
     <%= link_to "#", class: "freelancer-links" do %>
-      <i class="fa fa-heart" aria-hidden="true"></i>
+    <i class="fa fa-heart" aria-hidden="true"></i>
     <% end %>
     <%= link_to "#", class: "freelancer-links" do %>
-      <i class="fa fa-share" aria-hidden="true"></i>
+    <i class="fa fa-share" aria-hidden="true"></i>
     <% end %>
     <br>
     <hr/>
     <ul class="list-inline product-controls hidden-sm hidden-xs">
       <%= render_stars(freelancer.avg_rating) %> (<%= freelancer.offers.length %>)
+      <% unless freelancer.offers.empty? %>
       <li> | </li>
       <li><strong>Last Spidy Position:</strong> <%= freelancer.offers.last.updated_at %></a></li>
+      <% end %>
     </ul>
     <% freelancer.skills.each do |skill| %>
     <ul>
