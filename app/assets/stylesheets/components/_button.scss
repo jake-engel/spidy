@@ -1,0 +1,130 @@
+.button {
+  display: inline-block;
+  font-family: "Montserrat", "Trebuchet MS", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  padding: .8em 1.4em;
+  padding-right: 4.7em;
+  background: #009ED8;
+  border: none;
+  color: white;
+  transition: .2s;
+  border-radius: 0;
+  box-shadow: 0 0 5px gray;
+  &:before,
+  &:after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding-top: inherit;
+    padding-bottom: inherit;
+    width: 2.8em;
+    content: "\00a0";
+    font-family: 'FontAwesome', sans-serif;
+    font-size: 1.2em;
+    text-align: center;
+
+    transition: .2s;
+    transform-origin: 50% 60%;
+  }
+  &:before {
+    background: fadeout(#000, 90%);
+  }
+  &:hover {
+    background: darken(#009ED8, 10%);
+  }
+  &:active,
+  &:focus {
+    background: darken(#009ED8, 30%);
+    outline: none;
+  }
+}
+
+.delete {
+  background: #ED6A5A;
+  &:hover {
+    background: darken(#ED6A5A, 10%);
+  }
+  &:active,
+  &:focus {
+    background: darken(#ED6A5A, 30%);
+  }
+  &:after {
+    content: "\F1F8";
+  }
+  &:hover:after {
+    -webkit-animation: wiggle-trash .3s alternate ease infinite;
+    animation: wiggle-trash .3s alternate ease infinite;
+  }
+}
+
+.apply {
+  background: $spidy-green;
+  &:hover {
+    background: darken($spidy-green, 10%);
+  }
+  &:active,
+  &:focus {
+    background: darken($spidy-green, 20%);
+  }
+  &:after {
+    content: "\f0f2";
+  }
+  &:hover:after {
+    -webkit-animation: wiggle-phone .3s alternate ease infinite;
+    animation: wiggle-phone .3s alternate ease infinite;
+  }
+}
+
+.response {
+  background: $spidy-green;
+  &:hover {
+    background: darken($spidy-green, 10%);
+  }
+  &:active,
+  &:focus {
+    background: darken($spidy-green, 20%);
+  }
+  &:after {
+    content: "\F0E0";
+  }
+  &:hover:after {
+    -webkit-animation: none;
+    -webkit-transform: skew(-20deg);
+    animation: none;
+    transform: skew(-20deg);
+    text-indent: .1em;
+  }
+}
+
+@-webkit-keyframes bounceright {
+  from { -webkit-transform: translateX(0); }
+  to   { -webkit-transform: translateX(3px); }
+}
+
+@-webkit-keyframes wiggle-trash {
+  from { -webkit-transform: rotate(0deg); }
+  to   { -webkit-transform: rotate(45deg); }
+}
+
+@-webkit-keyframes wiggle-phone {
+  from { -webkit-transform: rotate(0deg); }
+  to   { -webkit-transform: rotate(30deg); }
+}
+
+@keyframes bounceright {
+  from { transform: translateX(0); }
+  to   { transform: translateX(3px); }
+}
+
+@keyframes wiggle-trash {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(45deg); }
+}
+
+@keyframes wiggle-phone {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(30deg); }
+}
+

@@ -1,1 +1,5 @@
-Freelancer Index
+<% Freelancer.all.each do |freelancer| %>
+  <% user = freelancer.user %>
+  <%= render "shared/freelancer_card", user: user %>
+  <%= render "shared/button", text: "Delete", type: "delete" %>
+<% end %>
