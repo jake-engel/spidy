@@ -20,11 +20,14 @@ iter = 0
 
 20.times do
   freelancer = Freelancer.new(
+    position: Faker::Job.title,
     hourly_pay: (0..100).to_a.sample,
     summary: Faker::Company.catch_phrase,
     )
   user = users[iter]
   freelancer.user = user
+  freelancer.user.has_freelancer = true
+  freelancer.user.save!
   freelancer.save!
   5.times do
     skill = Skill.new(
@@ -32,7 +35,6 @@ iter = 0
       )
     skill.freelancer = freelancer
     skill.save!
-
 
     experience = Experience.new(
       title: Faker::Job.title,

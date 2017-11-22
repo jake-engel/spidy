@@ -12,7 +12,7 @@
 
     <% if user_signed_in? %>
     <% if current_user.freelancer.nil? %>
-    <%= link_to "Register as Freelancer", "#", class: "navbar-spidy-item navbar-spidy-link text-center" %>
+    <%= link_to "Register as Freelancer", new_freelancer_path, class: "navbar-spidy-item navbar-spidy-link text-center" %>
     <% end %>
     <%= link_to "Nearby Freelancers", freelancers_path, class: "navbar-spidy-item navbar-spidy-link text-center" %>
     <%= link_to "Pending Requests", "#", class: "navbar-spidy-item navbar-spidy-link text-center" %>
@@ -92,7 +92,7 @@
       <ul class="dropdown-menu dropdown-menu-right navbar-spidy-dropdown-menu">
         <% if current_user.freelancer.nil? %>
         <li>
-          <%= link_to "#" do %>
+          <%= link_to new_freelancer_path do %>
           <i class="fa fa-users"></i> <%= t(".profile", default: "Register as Freelancer") %>
           <% end %>
         </li>

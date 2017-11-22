@@ -2,12 +2,4 @@ Hello <%= @freelancer.user.first_name %>,
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please fill out the following information to register and update your profile as a freelancer!
 
-<%= simple_form_for [@freelancer] do |f| %>
-  <%= f.input :position %>
-  <div class="form-group form-inline">
-    <%= f.input :currency, label: "Base Hourly Pay: ", collection: %w[€ $ ¥ ₹], selected: @freelancer.currency %>
-    <%= f.input :hourly_pay, label: false, input_html: { min: '8', step: 'any', value: 8} %>
-  </div>
-  <%= f.input :summary, label: "Profile Summary: " %>
-  <%= f.button :submit %>
-<% end %>
+<%= render "freelancers/forms/new_freelancer" %>
