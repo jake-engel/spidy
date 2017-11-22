@@ -22,7 +22,7 @@
   <% if @profile.has_freelancer %>
   <div class="profile-skills-card">
     <h3>Skills:</h3>
-    <% @skills.each do |skill| %>
+    <% @profile.freelancer.skills.each do |skill| %>
     <ul style="list-style: none;">
       <li><%= skill.name %></li>
     </ul>
@@ -33,7 +33,7 @@
     <h2>
       Experiences:
     </h2>
-    <% @experiences.each do |experience| %>
+    <% @profile.freelancer.experiences.each do |experience| %>
     <ul style="list-style: none;">
       <div class="profiles-experience-listing">
         <li>
