@@ -3,6 +3,8 @@ ruby '2.3.5'
 
 gem 'faker'
 gem 'omniauth-facebook'
+gem "cocoon"
+gem "pundit"
 
 gem 'devise'
 gem 'figaro'
@@ -19,7 +21,6 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
-gem "cocoon"
 
 group :development, :test do
   gem 'pry-byebug'
