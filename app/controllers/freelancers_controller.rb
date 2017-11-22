@@ -8,7 +8,6 @@ class FreelancersController < ApplicationController
   def new
     @freelancer = Freelancer.new
     @freelancer.user = current_user
-    @skill = Skill.new
   end
 
   def create
@@ -26,6 +25,8 @@ class FreelancersController < ApplicationController
   private
 
   def freelancer_params
-    params.require(:freelancer).permit(:position, :currency, :hourly_pay, :summary)
+    params.require(:freelancer).permit(:position, :currency, :hourly_pay, :summary,
+      skills_attributes: [ :id, :name, :destroy ],
+      experiences_attributes: [ :id, :title, :company, :location, :description, :destroy ])
   end
 end
