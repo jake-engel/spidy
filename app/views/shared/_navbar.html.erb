@@ -16,7 +16,6 @@
     <% end %>
     <%= link_to "Nearby Freelancers", freelancers_path, class: "navbar-spidy-item navbar-spidy-link text-center" %>
     <%= link_to "Pending Requests", "#", class: "navbar-spidy-item navbar-spidy-link text-center" %>
-    <%= link_to "About Us", "#", class: "navbar-spidy-item navbar-spidy-link text-center" %>
     <%= link_to "Help", "#", class: "navbar-spidy-item navbar-spidy-link text-center" %>
     <%= link_to "#" do %>
     <i class="navbar-spidy-item navbar-spidy-link fa fa-envelope"></i>
@@ -68,7 +67,6 @@
     <% else %>
     <!-- Login link (when logged out) -->
     <%= link_to "Nearby Freelancers", freelancers_path, class: "navbar-spidy-item navbar-spidy-link text-center" %>
-    <%= link_to "About Us", "#", class: "navbar-spidy-item navbar-spidy-link text-center" %>
     <%= link_to "Help", "#", class: "navbar-spidy-item navbar-spidy-link" %>
     <%= link_to "Sign-up", "#", class: "navbar-spidy-item navbar-spidy-link" %>
     <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-spidy-item navbar-spidy-link" %>
@@ -134,11 +132,6 @@
         </li>
         <li>
           <%= link_to "#" do %>
-          <i class="fa fa-info"></i>  <%= t(".profile", default: "About Us") %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to "#" do %>
           <i class="fa fa-question"></i>  <%= t(".profile", default: "Help") %>
           <% end %>
         </li>
@@ -153,9 +146,6 @@
       <ul class="dropdown-menu dropdown-menu-right navbar-spidy-dropdown-menu">
         <li>
           <%= link_to "Nearby Freelancers", freelancers_path, class: "navbar-spidy-item navbar-spidy-link text-center" %>
-        </li>
-        <li>
-          <%= link_to "About Us", "#", class: "navbar-spidy-item navbar-spidy-link" %>
         </li>
         <li>
           <%= link_to "Help", "#", class: "navbar-spidy-item navbar-spidy-link" %>
