@@ -13,4 +13,8 @@ class UserPolicy < ApplicationPolicy
     record == user
   end
 
+  def update?
+    edit?
+  end
+
 end
