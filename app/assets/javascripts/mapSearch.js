@@ -1,11 +1,11 @@
 const button = document.getElementById("home-search-map-submit");
 const form = document.getElementById("home-map-search");
-const key = document.querySelector('meta[name="google-app-id"]')['content'];
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+
   const search = document.getElementById("home-search-bar").value;
-  fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${search}&key=${key}`)
+  fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${search}`)
     .then(response => response.json())
     .then((data) => {
       const currentLat = data.results[0].geometry.location.lat;
@@ -24,7 +24,7 @@ form.addEventListener("submit", (event) => {
 button.addEventListener("click", (event) => {
   event.preventDefault();
   const search = document.getElementById("home-search-bar").value;
-  fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${search}&key=${key}`)
+  fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${search}`)
     .then(response => response.json())
 
     .then((data) => {
