@@ -1,0 +1,20 @@
+<% @user = @offer.user %>
+<% @freelancer = @offer.freelancer %>
+
+<h1>
+  Create a new Job Request for <%= @user.first_name %>!
+</h1>
+
+<%= simple_form_for [@freelancer, @offer] do |f| %>
+  <div class="form-inline form-group">
+    <%= f.input :price, label: "Pay: #{@freelancer.currency}", input_html: { min: '8', step: 'any', value: 8 } %>
+    <%= f.input :price_unit, label: false, collection: %w(contract hr day week), selected: "hr" %>
+  </div>
+  <div class="set-budget">
+    <%= f.input :budget, label: "Budget: #{@freelancer.currency}", input_html: {width: 30} %>
+  </div>
+  <br><br>
+  <%= f.input :description %>
+  <%= f.submit "Apply for Contract", class: "btn btn-success" %>
+  <%= link_to "Cancel", :back, {:class=>"btn btn-default"} %>
+<% end %>

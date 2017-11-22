@@ -42,8 +42,12 @@
     <% end %>
     <!-- STILL MUST ADD PUNDIT TO THIS -->
     <br>
-    <%= link_to "#" do %>
-    <%= render "shared/button", text: "Hire #{user.first_name}", type: "apply" %>
+
+    <% if policy(Offer.new(freelancer: freelancer)).new? %>
+      <%= link_to new_freelancer_offer_path(freelancer) do %>
+      <%= render "shared/button", text: "Apply to Hire #{user.first_name}", type: "apply" %>
+      <% end %>
     <% end %>
+
   </div>
 </div>
