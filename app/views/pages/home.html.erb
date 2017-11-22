@@ -7,7 +7,7 @@
         <div class="search-box">
           <div class="search-container">
             <span class="icon"><i class="fa fa-search"></i></span>
-            <input type="search" id="search" placeholder="What are you looking for?" />
+            <input type="search" class="search-bar" placeholder="What are you looking for?" />
             <ul id="results" class="dropdown-menu dropdown-menu-right navbar-spidy-dropdown-menu"></ul>
           </div>
         </div>
@@ -39,20 +39,27 @@
     </div>
   </div>
 </div>
+
+
 <div class="maps-wrapper">
   <div class="home-page-container">
-    <div class="maps">
-      There is a map here
+    <div class="maps" id="home-map">
+      See local professionals near you!
     </div>
     <div class="maps-search-box">
       <div class="search-container">
-        <span class="icon"><i class="fa fa-search"></i></span>
-        <input type="search" id="search" placeholder="Where are you looking for?" />
+
+        <form id="home-map-search">
+          <input type="text" id="home-search-bar" class="search-bar" onFocus="geolocate()" placeholder="Where are you looking for?" />
+          <span class="icon" type="submit" id="home-search-map-submit"><i class="fa fa-search"></i></span>
+        </form>
       </div>
     </div>
     <div class="hr"><hr /></div>
   </div>
 </div>
+
+
 
 <div class="second-cards-wrapper">
   <div class="home-page-container">
@@ -104,9 +111,7 @@
 </div>
 </div>
 
-
-
-
-
-
-
+<%= content_for(:after_js) do %>
+ <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_ID"] %>&libraries=places&callback=initAutocomplete"
+        async defer></script>
+<% end %>

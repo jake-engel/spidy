@@ -12,7 +12,7 @@
 .home-page-container {
   margin: 0 auto;
   width: 1080px;
-/*   height: 800px; */
+  height: 800px;
   position: relative;
 }
 
@@ -66,7 +66,7 @@ p {
   margin-bottom: 50px;
 }
 
-.search-container input#search{
+.search-container input.search-bar{
   width: 400px;
   height: 60px;
   background: white;
@@ -85,19 +85,19 @@ p {
   transition: width .55s ease;
 }
 
-.search-container input#search::-webkit-input-placeholder {
+.search-container input.search-bar::-webkit-input-placeholder {
    color: #65737e;
 }
 
-.search-container input#search:-moz-placeholder { /* Firefox 18- */
+.search-container input.search-bar:-moz-placeholder { /* Firefox 18- */
    color: #65737e;
 }
 
-.search-container input#search::-moz-placeholder {  /* Firefox 19+ */
+.search-container input.search-bar::-moz-placeholder {  /* Firefox 19+ */
    color: #65737e;
 }
 
-.search-container input#search:-ms-input-placeholder {
+.search-container input.search-bar:-ms-input-placeholder {
    color: #65737e;
 }
 
@@ -110,12 +110,12 @@ p {
   color: #93a2ad;
 }
 
-.search-container input#search:focus, .search-container input#search:active{
+.search-container input.search-bar:focus, .search-container input.search-bar:active{
   outline:none;
   width: 850px;
 }
 
-.search-container:hover input#search{
+.search-container:hover input.search-bar{
 width: 850px;
 }
 
@@ -126,7 +126,7 @@ width: 850px;
 .banner-mp {
   color: white;
   text-align: left;
-  /* height: 600px; */
+  height: 600px;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
@@ -172,7 +172,7 @@ width: 850px;
 .first-card-wrapper .home-page-container {
   margin: 0 auto;
   width: 1080px;
-  /* height: 500px; */
+  height: 500px;
   position: relative;
 }
 
@@ -207,26 +207,8 @@ height: 150px;
   background-color: $spidy-green;
 }
 
-.maps-wrapper {
-  width: 100%;
-}
-
-.maps-wrapper .home-page-container {
-  /* padding-bottom: 10px; */
-  height: 600px;
-}
-
-.maps {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 1080px;
-  height: 500px;
-  background-color: #E0DCE3;
-}
-
 hr {
+     color: gray;
      background: $spidy-green;
      width: 100%;
      height: 1px;
@@ -286,7 +268,7 @@ height: 60px;
 
 .bottom-banner .banner-content .home-page-container {
   width: 1080px;
-/*   height: 600px; */
+  height: 600px;
 }
 
 .bottom-banner .banner-content .home-page-container h1 span {
@@ -296,10 +278,9 @@ height: 60px;
   background-color: $spidy-green;
 }
 
-h2 {
+.bottom-banner .banner-content .home-page-container h2 {
   color: white;
-  font-size: 60px;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 .bottom-banner .banner-content .home-page-container p {
@@ -315,23 +296,15 @@ h2 {
   border: none;
 }
 
-.btn-primary:hover {
-  background-color: $spidy-green;
-  opacity: 0.8;
+.btn-medium:hover {
+  opacity: 1;
   text-decoration: none;
+  color: #ABFFD7;
 }
 
 .line .home-page-container {
   margin: 0 auto;
-  width: 100%;
-  height: 100px;
+  width: 1080px;
+  height: 300px;
   position: relative;
 }
-
-.line .home-page-container hr {
-  background: gray;
-  margin-bottom: 0px;
-  margin-top: 40px;
-}
-
-

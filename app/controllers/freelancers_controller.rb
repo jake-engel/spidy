@@ -3,6 +3,13 @@ class FreelancersController < ApplicationController
 
   def index
     @freelancers = Freelancer.all.sort_by(&:created_at).reverse
+
+    @listed = User.all.where.not(latitude: nil, longitude: nil)
+
+    @list = Gmaps4rails.build_markers(@listed) do |freelancer, marker|
+      marker.lat freelancer.latitude
+      marker.lng freelancer.longitude
+    end
   end
 
   def new
