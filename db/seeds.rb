@@ -11,14 +11,16 @@ User.destroy_all
     email: Faker::Internet.email,
     phone_number: Faker::PhoneNumber.cell_phone,
     location: "Amsterdam",
-    has_freelancer: true
   )
 
   freelancer = Freelancer.new(
+    position: Faker::Job.title,
     hourly_pay: (0..100).to_a.sample,
-    summary: Faker::Company.catch_phrase,
+    summary: Faker::Company.catch_phrase
   )
   freelancer.user = user
+  freelancer.user.has_freelancer = true
+  freelancer.user.save!
   freelancer.save!
   5.times do
   skill = Skill.new(
@@ -34,7 +36,8 @@ User.destroy_all
     location: Faker::Address.city,
     starting_date: Faker::Date.between((1..30).to_a.sample.days.ago, Date.today),
     ending_date: Faker::Date.between(Date.today, Date.today),
-    description: Faker::Lorem.sentence(3)
+    description: Faker::Lorem.sentence(3),
+    picture: Faker::Company.logo
     )
   experience.freelancer = freelancer
   experience.save!

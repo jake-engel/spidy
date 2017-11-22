@@ -8,6 +8,7 @@ class FreelancersController < ApplicationController
   def new
     @freelancer = Freelancer.new
     @freelancer.user = current_user
+    @skill = Skill.new
   end
 
   def create
