@@ -2,7 +2,7 @@ class FreelancersController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
 
   def index
-    @freelancers = Freelancer.all.sort_by(&:created_at).reverse
+    @freelancers = policy_scope(Freelancer).order(created_at: :desc)
   end
 
   def new
@@ -25,6 +25,8 @@ class FreelancersController < ApplicationController
   private
 
   def freelancer_params
-    params.require(:freelancer).permit(:position, :currency, :hourly_pay, :summary)
+    params.require(:freelancer).permit(:position, :currency, :hourly_pay, :summary,
+      skills_attributes: [ :id, :name, :destroy ],
+      experiences_attributes: [ :id, :title, :company, :location, :description, :destroy ])
   end
 end

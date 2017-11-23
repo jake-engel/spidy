@@ -3,6 +3,8 @@ ruby '2.3.5'
 
 gem 'faker'
 gem 'omniauth-facebook'
+gem "cocoon"
+gem "pundit"
 
 gem 'devise'
 gem 'figaro'
