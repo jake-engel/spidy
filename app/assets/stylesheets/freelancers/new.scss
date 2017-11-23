@@ -3,15 +3,30 @@ abbr[title] {
   border: none;
 }
 
-.add-skill, .add-experience, .remove-experience, .remove-skill {
+.new-freelancer-container {
+  background-color: white;
+  width: 40%;
+  box-shadow: 0px 0px 10px #79c8a178;
+  margin-left: 30%;
+  padding: 0 35px;
+  padding-bottom: 30px;
+  margin-top: 40px;
+}
+
+.welcome-message-new-freelancer {
+  padding-top: 15px;
+}
+
+.spidy-strong {
   color: $spidy-green;
-  transition: transform 150ms ease;
-  &:hover {
-    text-decoration: none;
-    opacity: 0.8;
-    transform: scale(1.1)
-  }
-  &:focus {
-    outline: none;
-  }
+}
+
+#freelancer_hourly_pay {
+  width: 30%;
+}
+
+.add_fields {
+  padding: 10px 20px;
+  background-color: $spidy-green;
+  color: white;
 }
