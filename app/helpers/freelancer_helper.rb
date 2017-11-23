@@ -1,6 +1,6 @@
 module FreelancerHelper
   def status(offer)
-    case freelancer.status
+    case offer.status
     when 0
       "Declined"
     when 1
