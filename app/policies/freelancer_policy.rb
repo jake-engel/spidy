@@ -5,8 +5,12 @@ class FreelancerPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    !user.has_freelancer
+  end
+
   def create?
-    user.has_freelancer
+    new?
   end
 
   def update?

@@ -1,1 +1,32 @@
-This page will list all your current offers.
+<% fromFreelancers = @offers.select do |offer| %>
+<% offer.status != 3 && offer.freelancer.user == current_user %>
+<% end %>
+<% toFreelancers = @offers.select do |offer| %>
+<% offer.status != 3 && offer.user == current_user %>
+<% end %>
+
+<%= toFreelancers.length %>
+<%= fromFreelancers.length %>
+<%= @offers.length %>
+
+<%= render "shared/tab" %>
+
+<div class="offer-card-from-freelancer">
+  <h5>
+    FROM FREELANCERS TO YOU: <br>
+    <% fromFreelancers.each do |offer| %>
+    FREELANCER: (SHOULD BE CURRENT USER) <%= offer.freelancer.user.first_name %> <br>
+    USER: <%= offer.user.first_name %> <br>
+    <% end %>
+  <h5>
+</div>
+
+<div class="offer-card-to-freelancer hidden">
+  <h5>
+    TO FREELANCERS FROM YOU: <br>
+    <% toFreelancers.each do |offer| %>
+    FREELANCER: <%= offer.freelancer.user.first_name %> <br>
+    USER: (SHOULD BE CURRENT USER)<%= offer.user.first_name %> <br>
+    <% end %>
+  </h5>
+</div>
