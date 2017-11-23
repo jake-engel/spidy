@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'offers/new'
+
+  get 'offers/create'
+
+  get 'offers/update'
+
   devise_for :users,
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
@@ -14,7 +20,7 @@ Rails.application.routes.draw do
     resources :offers, only: [ :new, :create, :update ]
   end
 
-  namespace :profile do
+  namespace :my do
     resources :offers, only: [ :index, :update, :destroy ] do
       resources :messages, only: [ :index, :create, :update, :destroy ]
 

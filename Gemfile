@@ -11,6 +11,8 @@ end
 gem 'geocoder'
 gem 'faker'
 gem 'omniauth-facebook'
+gem "cocoon"
+gem "pundit"
 
 gem 'devise'
 gem 'figaro'

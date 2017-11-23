@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171122121035) do
+
+ActiveRecord::Schema.define(version: 20171122121618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +21,7 @@ ActiveRecord::Schema.define(version: 20171122121035) do
     t.string "company"
     t.string "starting_date"
     t.string "location"
-    t.string "picture", default: "SpidyLogo.svg"
+    t.string "picture", default: "spidy-logo.svg"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,19 +1,13 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:show, :edit, :update]
+  before_action :set_profile
   skip_before_action :authenticate_user!, only: [ :show ]
 
   def show
-    if @profile.has_freelancer
-      @freelancer = Freelancer.where(user_id: @profile.id)
-      @skills = Skill.where(freelancer_id: @freelancer.ids)
-      @experiences = Experience.where(freelancer_id: @freelancer.ids)
-    end
-
-    if (@profile.facebook_picture_url) == nil
-      @profile_picture_url = @profile.photo
+    if @profile.facebook_picture_url.nil?
+      @profile_picture = "avatar.svg"
     else
       url_temp = @profile.facebook_picture_url[0..-7]
-      @profile_picture_url = "#{url_temp}large"
+      @profile_picture = "#{url_temp}large"
     end
   end
 
@@ -29,6 +23,7 @@ class ProfilesController < ApplicationController
 
   def set_profile
     @profile = User.find(params[:id])
+    authorize @profile
   end
 
   def profile_params
