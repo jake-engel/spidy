@@ -1,26 +1,38 @@
-<div class="new-freelancer-form">
-  <%= simple_form_for @freelancer do |f| %>
-    <%= f.input :position, label: "Register As (Cook, Photographer, Etc.): " %>
-    <div class="form-inline">
-      <%= f.input :hourly_pay, label: "Minimum Hourly Pay: #{@freelancer.currency}", input_html: { min: '8', step: 'any', value: 8 } %>
+<%= simple_form_for @freelancer do |f| %>
+  <%= f.input :position %>
+  <div class="form-group form-inline">
+    <%= f.input :currency, label: "Base Pay: ", collection: %w[€ $ ¥ ₹], selected: @freelancer.currency %>
+    <%= f.input :hourly_pay, label: false, input_html: { min: '8', step: 'any', value: 8} %>
+    /hr
+  </div>
+  <%= f.input :summary, label: "Profile Summary: " %>
+  <h4>
+    Soft Skills:
+  </h4>
+  <h5>
+      (One minimum required)
+  </h5>
+  <div id='skills'>
+    <%= f.simple_fields_for :skills do |skill| %>
+      <%= render 'freelancers/forms/skill_fields', :f => skill %>
+    <% end %>
+    <div class='links'>
+      <%= link_to_add_association 'Add Skill', f, :skills, partial: "freelancers/forms/skill_fields" %>
     </div>
-    <%= f.input :summary, label: "Profile Summary: " %>
-    <div id='skills'>
-      <%= f.simple_fields_for :skills do |skill| %>
-        <%= render 'freelancers/forms/skill_fields', :f => skill %>
-      <% end %>
-      <div class='links'>
-        <%= link_to_add_association 'Add Skill', f, :skills, partial: "freelancers/forms/skill_fields" %>
-      </div>
+  </div>
+  <h4>
+    Previous Experience
+  </h4>
+  <h5>
+    (One minimum required)
+  </h5>
+  <div id="experiences">
+    <%= f.simple_fields_for :experiences do |experience| %>
+      <%= render 'freelancers/forms/experience_fields', :f => experience %>
+    <% end %>
+    <div class='links'>
+      <%= link_to_add_association 'Add Professional Experience', f, :experiences, partial: "freelancers/forms/experience_fields" %>
     </div>
-    <div id="experiences">
-      <%= f.simple_fields_for :experiences do |experience| %>
-        <%= render 'freelancers/forms/experience_fields', :f => experience %>
-      <% end %>
-      <div class='links'>
-        <%= link_to_add_association 'Add Professional Experience', f, :experiences, partial: "freelancers/forms/experience_fields" %>
-      </div>
-    </div>
-    <%= f.submit 'Save' %>
-  <% end %>
-</div>
+  </div>
+  <%= f.submit 'Save' %>
+<% end %>
