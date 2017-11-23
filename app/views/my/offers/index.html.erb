@@ -39,8 +39,8 @@
       <strong>Status: </strong> <%= status(offer) %> <br>
       <strong>Job Description: </strong> <%= offer.description[0..100] %> <%= "..." if offer.description.length >= 100 %> <br>
       <br>
+    <% end %>
   </div>
-  <% end %>
 <% else %>
   <h3>
     <%= "You Have No Messages To Freelancers" if toFreelancers.empty? %>
