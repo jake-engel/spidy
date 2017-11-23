@@ -1,77 +1,142 @@
-<div class="profile-container text-center">
-
-  <div class="profile-header-card">
-
-    <% user_picture_url = @profile_picture_url %>
-    <img class="profile-avatar" src=<%= user_picture_url %>>
-    <br>
-    <%= "#{@profile.first_name} #{@profile.last_name}" %>
-    <%= @profile.phone_number %>
-    <br>
-    <%= @profile.email %>
-    <br>
-
-    <% if current_user == @profile %>
-    <%= link_to edit_profile_path(@profile.id) do %>
-    <i class="fa fa-pencil-square-o"></i> <%= t(".edit", default: "Edit Profile") %>
-    <% end %>
-    <% end %>
-
+<div class="profile-top-wrapper">
+  <div class="banner-top" style="background-image: linear-gradient(-225deg, rgba(0,30,40,0.6) 0%, rgba(0,5,0,0.6) 50%), url('http://res.cloudinary.com/djf9mipph/image/upload/v1511256082/banner_profile_cbyznw.jpg');">
   </div>
-
-  <% if @profile.has_freelancer %>
-  <div class="profile-skills-card">
-    <h3>Skills:</h3>
-    <% @profile.freelancer.skills.each do |skill| %>
-    <ul style="list-style: none;">
-      <li><%= skill.name %></li>
-    </ul>
-    <% end %>
-  </div>
-
-  <div class="profile-experiences-card">
-    <h2>
-      Experiences:
-    </h2>
-    <% @profile.freelancer.experiences.each do |experience| %>
-    <ul style="list-style: none;">
-      <div class="profiles-experience-listing">
-        <li>
-          <h3>
-            <strong>Title:</strong> <%= experience.title %>
-          </h3>
-          <h4>
-            <strong>Company:</strong> <%= experience.company %>
-          </h4>
-          <h4>
-            <strong>City:</strong> <%= experience.location %>
-          </h4>
-          <h5>
-            <strong>Period:</strong> <%= experience.starting_date %> - to - <%= experience.ending_date %>
-          </h5>
-          <h6>
-            <strong>Description:</strong> <%= experience.description %>
-          </h6>
-        </li>
-      </div>
-    </ul>
-    <%= image_tag experience.picture %>
-    <% end %>
-  </div>
-
-  <% else %>
-  <div class="profile-body-card">
-    <h4>
-      <strong>
-        Not a Registered Freelancer.
-      </strong>
-    </h4>
-    <br>
-    <%= link_to new_freelancer_path do %>
-    <%= render 'shared/button', text: "Register As Freelancer", type: "register" %>
-    <% end %>
-  </div>
-
-  <% end %>
-
 </div>
+
+<div class="profile-info-wrapper">
+  <div class="profile-container">
+    <div class="container container-basic-info">
+     <div class="profile-header-card">
+      <% user_picture_url = @profile_picture_url %>
+      <div class="avatar-wrapper">
+        <div class="availab-circle"></div>
+        <%= image_tag "avatar.svg", class: "profile-avatar" %>
+      </div>
+      <div class="text-info-avatar text-center">
+        <h2><br> <%= "#{@profile.first_name} #{@profile.last_name}" %> <br></h2>
+        <h3>FREELANCER</h3>
+        <span class="line"></span>
+        <p>
+          <%= @profile.phone_number %>
+          <br>
+          <%= @profile.email %>
+          <br>
+        </p>
+
+        <% if current_user == @profile %>
+        <%= link_to edit_profile_path(@profile.id) do %>
+        <i class="fa fa-pencil-square-o"></i> <%= t(".edit", default: "Edit Profile") %>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row content">
+      <div class="col-sm-3 sidenav">
+
+        <h4>About</h4>
+        <ul class="nav nav-pills nav-stacked">
+
+
+          <li>Education</li>
+          <li>Website</li>
+          <li>Behance</li>
+          <li>Linkedin</li>
+          <li>Facebook</li>
+
+        </ul>
+      </div>
+
+      <div class= container>
+        <div class="col-sm-9">
+          <h2 style= "margin-bottom: 25px;">Background</h2>
+          <span class="line-wide" style="border-bottom: 2px solid gray;width: 100%;display: block; border-width: 0.4px;/*! margin: 0 45px; */"></span>
+
+          <h2>Summary</h2>
+
+          <span><p text-align: left;>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  <span class="line-wide" style=" margin-top: 20px; border-bottom: 2px solid gray;width: 100%;display: block; border-width: 0.4px;/*! margin: 0 45px; */"></span></p></span>
+
+          <div class="container-central">
+           <h2>
+            Experiences:
+          </h2>
+          <div class="profile-experiences-card">
+
+            <% @experiences.each do |experience| %>
+            <ul style="list-style: none;">
+              <div class="profiles-experience-listing">
+                <li>
+                  <h5>
+                    <%= experience.title %>
+                  </h5>
+                  <h5>
+                    Company: <%= experience.company %>
+                  </h5>
+                     <h4>
+                    <span>City:</span> <%= experience.location %>
+                    </h4>
+                  <h4>
+                    <span>Period:</span> <%= experience.starting_date %> - to - <%= experience.ending_date %>
+                  </h4>
+                  <h6>
+                    <span>Description:</span> <%= experience.description %>
+                  </h6>
+                </li>
+              </div>
+            </ul>
+            <% end %>
+          </div>
+
+        </div>
+
+
+        <h4>Reviews:</h4>
+        <form role="form">
+          <div class="form-group">
+            <textarea class="form-control" rows="3" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+        <br><br>
+
+        <p><span class="badge">2</span> Review:</p><br>
+
+        <div class="row">
+          <div class="col-sm-2 text-center">
+            <img src="bandmember.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+          </div>
+          <div class="col-sm-10">
+            <h4>Anja <small>Sep 29, 2017, 9:12 PM</small></h4>
+            <p>Keep up the GREAT work! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+            <br>
+          </div>
+          <div class="col-sm-2 text-center">
+            <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+          </div>
+          <div class="col-sm-10">
+            <h4>John Row <small>Sep 25, 2017, 8:25 PM</small></h4>
+            <p>I am so happy for you man! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <br>
+            <p><span class="badge">1</span> Review:</p><br>
+            <div class="row">
+              <div class="col-sm-2 text-center">
+               <%= image_tag "avatar.svg", class: "img-circle" %>
+              </div>
+              <div class="col-xs-10">
+                <h4>Nested Bro <small>Sep 25, 2017, 8:28 PM</small></h4>
+                <p>Me too! WOW!</p>
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
