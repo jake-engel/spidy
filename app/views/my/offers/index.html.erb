@@ -12,39 +12,38 @@
 -->
 
 <% if current_user.has_freelancer %>
-<div class="tab">
-  <%= render "shared/tab" %>
-</div>
+  <div class="tab">
+    <%= render "shared/tab" %>
+  </div>
+  <div class="offer-card-from-freelancer">
+    <h3>
+      <%= "You Have No Messages From Freelancers" if fromFreelancers.empty? %>
+    </h3>
+    <% fromFreelancers.each do |offer| %>
+      <strong>FROM:</strong> <%= offer.user.first_name %> <br>
+      <strong>Current Price: </strong> <%= offer.freelancer.currency %> <%= offer.price %>/<%= offer.price_unit %> <br>
+      <strong>Status: </strong> <%= status(offer) %> <br>
+      <strong>Job Description: </strong> <%= offer.description[0..100] %> <%= "..." if offer.description.length >= 100 %> <br>
+      <br>
+    <% end %>
+  </div>
+
+  <div class="offer-card-to-freelancer hidden">
+    <h3>
+      <%= "You Have No Messages To Freelancers" if toFreelancers.empty? %>
+    </h3>
+    <% toFreelancers.each do |offer| %>
+      <strong>FROM:</strong> <%= offer.freelancer.user.first_name %> <br>
+      <strong>Current Price: </strong> <%= offer.freelancer.currency %> <%= offer.price %>/<%= offer.price_unit %> <br>
+      <strong>Your Budget: </strong> <%= offer.freelancer.currency %> <%= offer.budget %><br>
+      <strong>Status: </strong> <%= status(offer) %> <br>
+      <strong>Job Description: </strong> <%= offer.description[0..100] %> <%= "..." if offer.description.length >= 100 %> <br>
+      <br>
+  </div>
+  <% end %>
 <% else %>
   <h3>
     <%= "You Have No Messages To Freelancers" if toFreelancers.empty? %>
-  </h3>
-<% toFreelancers.each do |offer| %>
-    <strong>FROM:</strong> <%= offer.freelancer.user.first_name %> <br>
-    <strong>Current Price: </strong> <%= offer.freelancer.currency %> <%= offer.price %>/<%= offer.price_unit %> <br>
-    <strong>Your Budget: </strong> <%= offer.freelancer.currency %> <%= offer.budget %><br>
-    <strong>Status: </strong> <%= status(offer) %> <br>
-    <strong>Job Description: </strong> <%= offer.description[0..100] %> <%= "..." if offer.description.length >= 100 %> <br>
-    <br>
-  <% end %>
-<% end %>
-
-<div class="offer-card-from-freelancer">
-  <h3>
-    <%= "You Have No Messages From Freelancers" if fromFreelancers.empty? && user_signed_in? %>
-  </h3>
-  <% fromFreelancers.each do |offer| %>
-    <strong>FROM:</strong> <%= offer.user.first_name %> <br>
-    <strong>Current Price: </strong> <%= offer.freelancer.currency %> <%= offer.price %>/<%= offer.price_unit %> <br>
-    <strong>Status: </strong> <%= status(offer) %> <br>
-    <strong>Job Description: </strong> <%= offer.description[0..100] %> <%= "..." if offer.description.length >= 100 %> <br>
-    <br>
-  <% end %>
-</div>
-
-<div class="offer-card-to-freelancer hidden">
-  <h3>
-    <%= "You Have No Messages To Freelancers" if toFreelancers.empty? && user_signed_in? %>
   </h3>
   <% toFreelancers.each do |offer| %>
     <strong>FROM:</strong> <%= offer.freelancer.user.first_name %> <br>
@@ -54,4 +53,5 @@
     <strong>Job Description: </strong> <%= offer.description[0..100] %> <%= "..." if offer.description.length >= 100 %> <br>
     <br>
   <% end %>
-</div>
+<% end %>
+
