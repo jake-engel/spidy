@@ -16,6 +16,9 @@
   <%= render "shared/tab" %>
 </div>
 <% else %>
+  <h3>
+    <%= "You Have No Messages To Freelancers" if toFreelancers.empty? %>
+  </h3>
 <% toFreelancers.each do |offer| %>
     <strong>FROM:</strong> <%= offer.freelancer.user.first_name %> <br>
     <strong>Current Price: </strong> <%= offer.freelancer.currency %> <%= offer.price %>/<%= offer.price_unit %> <br>
@@ -27,6 +30,9 @@
 <% end %>
 
 <div class="offer-card-from-freelancer">
+  <h3>
+    <%= "You Have No Messages From Freelancers" if fromFreelancers.empty? %>
+  </h3>
   <% fromFreelancers.each do |offer| %>
     <strong>FROM:</strong> <%= offer.user.first_name %> <br>
     <strong>Current Price: </strong> <%= offer.freelancer.currency %> <%= offer.price %>/<%= offer.price_unit %> <br>
@@ -37,6 +43,9 @@
 </div>
 
 <div class="offer-card-to-freelancer hidden">
+  <h3>
+    <%= "You Have No Messages To Freelancers" if toFreelancers.empty? %>
+  </h3>
   <% toFreelancers.each do |offer| %>
     <strong>FROM:</strong> <%= offer.freelancer.user.first_name %> <br>
     <strong>Current Price: </strong> <%= offer.freelancer.currency %> <%= offer.price %>/<%= offer.price_unit %> <br>
