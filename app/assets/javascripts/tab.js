@@ -1,8 +1,8 @@
-document.addEventListener("click", (event) => {
-  let normalTab = document.querySelector(".spidy-tab.non-active");
-  let activeTab = document.querySelector(".spidy-tab.active");
-  let fromText = document.querySelector(".offer-card-from-freelancer")
-  let toText = document.querySelector(".offer-card-to-freelancer")
+document.addEventListener("click", function (event) {
+  var normalTab = document.querySelector(".spidy-tab.non-active");
+  var activeTab = document.querySelector(".spidy-tab.active");
+  var fromText = document.querySelector(".offer-card-from-freelancer");
+  var toText = document.querySelector(".offer-card-to-freelancer");
 
   if (event.target === normalTab || event.target.parentNode === normalTab) {
     normalTab.classList.toggle("non-active");
@@ -13,4 +13,3 @@ document.addEventListener("click", (event) => {
     toText.classList.toggle("hidden");
   }
 });
-
