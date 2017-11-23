@@ -1,32 +1,39 @@
 <% fromFreelancers = @offers.select do |offer| %>
-<% offer.status != 3 && offer.freelancer.user == current_user %>
+<% offer.status != 3 && offer.status != 0 && offer.freelancer.user == current_user %>
 <% end %>
 <% toFreelancers = @offers.select do |offer| %>
-<% offer.status != 3 && offer.user == current_user %>
+<% offer.status != 3 && offer.status != 0 && offer.user == current_user %>
 <% end %>
-
+<!--
+  MUST CHECK THIS LATER AND CORRECT PUNDIT WITH NAMESPACE
 <%= toFreelancers.length %>
 <%= fromFreelancers.length %>
 <%= @offers.length %>
+-->
 
-<%= render "shared/tab" %>
+<% if current_user.has_freelancer %>
+<div class="tab">
+  <%= render "shared/tab" %>
+</div>
+<% end %>
 
 <div class="offer-card-from-freelancer">
-  <h5>
-    FROM FREELANCERS TO YOU: <br>
-    <% fromFreelancers.each do |offer| %>
-    FREELANCER: (SHOULD BE CURRENT USER) <%= offer.freelancer.user.first_name %> <br>
-    USER: <%= offer.user.first_name %> <br>
-    <% end %>
-  <h5>
+  <% fromFreelancers.each do |offer| %>
+    <strong>FROM:</strong> <%= offer.user.first_name %> <br>
+    <strong>Current Price: </strong> <%= offer.freelancer.currency %> <%= offer.price %>/<%= offer.price_unit %> <br>
+    <strong>Status: </strong> <%= status(offer) %> <br>
+    <strong>Job Description: </strong> <%= offer.description[0..100] %> <%= "..." if offer.description.length >= 100 %> <br>
+    <br>
+  <% end %>
 </div>
 
 <div class="offer-card-to-freelancer hidden">
-  <h5>
-    TO FREELANCERS FROM YOU: <br>
-    <% toFreelancers.each do |offer| %>
-    FREELANCER: <%= offer.freelancer.user.first_name %> <br>
-    USER: (SHOULD BE CURRENT USER)<%= offer.user.first_name %> <br>
-    <% end %>
-  </h5>
+  <% toFreelancers.each do |offer| %>
+    <strong>FROM:</strong> <%= offer.freelancer.user.first_name %> <br>
+    <strong>Current Price: </strong> <%= offer.freelancer.currency %> <%= offer.price %>/<%= offer.price_unit %> <br>
+    <strong>Your Budget: </strong> <%= offer.freelancer.currency %> <%= offer.budget %><br>
+    <strong>Status: </strong> <%= status(offer) %> <br>
+    <strong>Job Description: </strong> <%= offer.description[0..100] %> <%= "..." if offer.description.length >= 100 %> <br>
+    <br>
+  <% end %>
 </div>
