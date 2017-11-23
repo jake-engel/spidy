@@ -1,14 +1,14 @@
 h2 {
   color: gray;
   font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
 }
 
 p {
   color: gray;
   font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
   margin-top: 5px;
 }
@@ -16,7 +16,7 @@ p {
 h4 {
   color: gray;
   font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 300;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -31,7 +31,7 @@ h5 {
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   font-weight: 600;
-  margin-top: 10px;
+  margin: 2px;
   span {
     font-weight: 600;
     color:#BFBFBF;
@@ -41,10 +41,11 @@ h5 {
 h6 {
   color: gray;
   font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 300;
   margin-top: 10px;
 }
+
 
 ul {
   padding-left: 0;
@@ -53,6 +54,10 @@ ul {
 
 .container {
   background-color: white;
+}
+
+.text-info-avatar {
+  position: relative;
 }
 
 
@@ -76,9 +81,18 @@ ul {
 .text-info-avatar p {
   color: gray;
   font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 300;
   margin-top: 10px;
+}
+
+h7 {
+  color: gray;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 5px;
+  margin-bottom: 15px;
 }
 
 .line{
@@ -89,6 +103,51 @@ ul {
   margin: auto;
 }
 
+/* .statistic-box {
+  width: 100%;
+  flex-wrap: wrap;
+} */
+
+.statistic {
+  /* position: relative; */
+  display: flex;
+  justify-content: space-around;
+  align-item: center;
+
+  li {
+    margin: 10px;
+  }
+
+  br {
+    display: block;
+    margin: 1px 0;
+  }
+
+  p {
+    margin-top: 0px;
+  }
+
+  h3 {
+    margin-bottom: 0px;
+  }
+}
+
+.right-buttons {
+position: absolute;
+right: 10px;
+top: -20px;
+}
+
+.pay-rate {
+position: absolute;
+left: 100px;
+top: 20px;
+}
+
+.pay-rate button {
+  margin-top:10px;
+  width: 200px;
+}
 
 .banner-top {
   width: 100%;
@@ -99,7 +158,7 @@ ul {
 }
 
 .container-basic-info {
-  height: 500px;
+  height: 320px;
 }
 
 .profile-container {
@@ -136,12 +195,16 @@ ul {
   border: 2px solid white;
 }
 
-.profile-skills-card {
-  width: 20%;
-  background-color: white;
-  margin: 15px;
-  border-radius: 2px;
-  /* box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2); */
+.profile-skills-card li {
+  position: relative;
+  border:2px;
+  border-style:solid;
+  padding: 0.5em;
+  border-color: $spidy-green;
+  /* width: inherit; */
+  /* background-color: white; */
+  margin: 5px;
+  color: $spidy-green;
 }
 
 .profile-avatar {
@@ -155,7 +218,7 @@ ul {
 .profile-header-card {
  /*  width: 25vw; */
  background-color: white;
- margin: 15px;
+ /* margin: 15px; */
  margin-top: 0px;
  border-radius: 2px;
  height: inherit;
