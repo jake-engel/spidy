@@ -1,12 +1,8 @@
 <div class="new-freelancer-form">
   <%= simple_form_for @freelancer do |f| %>
     <%= f.input :position, label: "Register As (Cook, Photographer, Etc.): " %>
-    <div class="form-group form-inline">
-      <%= f.input :currency, label: "Minimum Base Pay: ", collection: %w[€ $ ¥ ₹], selected: @freelancer.currency %>
-      <%= f.input :hourly_pay, label: false, input_html: { min: '8', step: 'any', value: 8 } %>
-      <h4>
-        /hr
-      </h4>
+    <div class="form-inline">
+      <%= f.input :hourly_pay, label: "Minimum Hourly Pay: #{@freelancer.currency}", input_html: { min: '8', step: 'any', value: 8 } %>
     </div>
     <%= f.input :summary, label: "Profile Summary: " %>
     <div id='skills'>
