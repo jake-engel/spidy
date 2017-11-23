@@ -22,7 +22,7 @@
           <br>
         </p>
 
-        <% if current_user == @profile %>
+        <% if policy(Offer.new(freelancer: @profile.freelancer)).new? && user_signed_in? %>
         <%= link_to edit_profile_path(@profile.id) do %>
         <i class="fa fa-pencil-square-o"></i> <%= t(".edit", default: "Edit Profile") %>
         <% end %>
@@ -30,9 +30,12 @@
 
 
         <div class="pay-rate">
+
           <h3 style="font-size: 30px; font-weight: 700; margin: 2px">$50.00</h3><p style="font-size: 20px; font-weight: 500; margin: 2px;">Hourly rate</p>
-          <%= link_to new_freelancer_offer_path(@profile.freelancer) do %>
-            <button type="hire" class="btn btn-success">Apply to Hire</button>
+          <% unless current_user == @profile %>
+            <%= link_to new_freelancer_offer_path(@profile.freelancer) do %>
+              <button type="hire" class="btn btn-success">Apply to Hire</button>
+            <% end %>
           <% end %>
         </div>
 
