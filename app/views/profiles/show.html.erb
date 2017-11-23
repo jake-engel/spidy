@@ -32,18 +32,17 @@
         <div class="pay-rate">
           <h3 style="font-size: 30px; font-weight: 700; margin: 2px">$50.00</h3><br style="display: block;
           margin: 1px 0;"><p style="font-size: 20px; font-weight: 500; margin: 2px;">Hourly rate</p>
-         <button type="hire" class="btn btn-success">Hire</button>
+          <%= link_to new_freelancer_offer_path(@profile.freelancer) do %>
+            <button type="hire" class="btn btn-success">Apply to Hire</button>
+          <% end %>
         </div>
-
 
         <div class="right-buttons">
           <a href=""><i class="fa fa-heart" style="font-size:30px; margin-right: 10px; color: #C83B30;"></i></a>
           <a href=""><i class="fa fa-share" style="font-size:30px; margin-right: 10px; color:#BFBFBF;"></i></a>
         </div>
 
-
-
-        <span class="line-wide" style="border-bottom: 1px solid gray;width: 100%;display: block; border-width: 0.4px; margin-top: 35px; margin-bottom: 25px;"></span>
+        <span class="line-wide" style="border-bottom: 1px solid lightgray;width: 100%;display: block; border-width: 1px; margin-top: 35px; margin-bottom: 25px;"></span>
         <div class= "statistic-box">
           <ul class="statistic" >
             <li><h3 style="font-size: 20px; font-weight: 700;">5/5</h3><br><p>Review rating</p></li>
