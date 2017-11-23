@@ -43,7 +43,7 @@
     <!-- STILL MUST ADD PUNDIT TO THIS -->
     <br>
 
-    <% if policy(Offer.new(freelancer: freelancer)).new? %>
+    <% if policy(Offer.new(freelancer: freelancer)).new? && user_signed_in? %>
       <%= link_to new_freelancer_offer_path(freelancer) do %>
       <%= render "shared/button", text: "Apply to Hire #{user.first_name}", type: "apply" %>
       <% end %>

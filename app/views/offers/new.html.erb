@@ -11,7 +11,7 @@
     <%= f.input :price_unit, label: false, collection: %w(contract hr day week), selected: "hr" %>
   </div>
   <div class="set-budget">
-    <%= f.input :budget, label: "Budget: #{@freelancer.currency}", input_html: {width: 30} %>
+    <%= f.input :budget, label: "Budget: #{@freelancer.currency}", input_html: {width: 30, min: 8, value: 50} %>
   </div>
   <br><br>
   <%= f.input :description %>
