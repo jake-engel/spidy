@@ -10,7 +10,7 @@ User.destroy_all
     password: 'password',
     email: Faker::Internet.email,
     phone_number: Faker::PhoneNumber.cell_phone,
-    location: "Amsterdam",
+    location: ["Amsterdam", "Amsterdam Centraal, Stationsplein, Amsterdam, Netherlands", "Westerstraat, Amsterdam, Netherlands"].sample,
     has_freelancer: true
   )
 

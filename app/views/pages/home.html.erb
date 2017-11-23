@@ -43,16 +43,15 @@
 
 <div class="maps-wrapper">
   <div class="home-page-container">
-    <div class="maps" id="home-map">
-      See local professionals near you!
-    </div>
+    <div class="maps" id="home-map"></div>
     <div class="maps-search-box">
       <div class="search-container">
 
         <form id="home-map-search">
-          <input type="text" id="home-search-bar" class="search-bar" onFocus="geolocate()" placeholder="Where are you looking for?" />
+          <input type="text" name="city" onfocus="geolocate()" id="home-search-bar" class="search-bar" placeholder="Where are you looking for?" />
           <span class="icon" type="submit" id="home-search-map-submit"><i class="fa fa-search"></i></span>
         </form>
+
 
       </div>
     </div>
@@ -112,7 +111,97 @@
 </div>
 </div>
 
-<%= content_for(:after_js) do %>
- <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_ID"] %>&libraries=places&callback=initAutocomplete"
-        async defer></script>
-<% end %>
+
+<% content_for(:after_js) do %>
+      <script>
+        var mapStyle = [
+    {
+        "featureType": "landscape.natural",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#e0efef"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "hue": "#1900ff"
+            },
+            {
+                "color": "#c0e8e8"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "lightness": 100
+            },
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.line",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "lightness": 700
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#7dcdcd"
+            }
+        ]
+    }]
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ internal: { id: 'home-map' },
+                           provider: {
+                            zoom: 14,
+                            center: new google.maps.LatLng(<%= @lat %>, <%= @lng %>),
+                            styles: mapStyle
+                          }
+                        },
+                      function() {
+        markers = handler.addMarkers(<%= raw @list.to_json %>);
+// ONLY UNCOMMENT LINES BELOW TO RECENTER MAP AROUND MARKERS AND NOT USER SET LOCATION:
+        // handler.bounds.extendWith(markers);
+        // handler.fitMapToBounds();
+        // if (markers.length == 0) {
+        //   handler.getMap().setZoom(14);
+        // } else if (markers.length == 1) {
+        //     handler.getMap().setZoom(14);
+        //   }
+        });
+    </script>
+  <% end %>
