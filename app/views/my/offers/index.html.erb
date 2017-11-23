@@ -31,7 +31,7 @@
 
 <div class="offer-card-from-freelancer">
   <h3>
-    <%= "You Have No Messages From Freelancers" if fromFreelancers.empty? %>
+    <%= "You Have No Messages From Freelancers" if fromFreelancers.empty? && user_signed_in? %>
   </h3>
   <% fromFreelancers.each do |offer| %>
     <strong>FROM:</strong> <%= offer.user.first_name %> <br>
@@ -44,7 +44,7 @@
 
 <div class="offer-card-to-freelancer hidden">
   <h3>
-    <%= "You Have No Messages To Freelancers" if toFreelancers.empty? %>
+    <%= "You Have No Messages To Freelancers" if toFreelancers.empty? && user_signed_in? %>
   </h3>
   <% toFreelancers.each do |offer| %>
     <strong>FROM:</strong> <%= offer.freelancer.user.first_name %> <br>
