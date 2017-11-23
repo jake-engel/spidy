@@ -274,6 +274,8 @@ height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-size: cover !important;
+  max-width: 100%;
 }
 
 .bottom-banner p {
@@ -321,14 +323,14 @@ h2 {
   text-decoration: none;
 }
 
-.line .home-page-container {
+.bottomline .home-page-container {
   margin: 0 auto;
   width: 100%;
   height: 100px;
   position: relative;
 }
 
-.line .home-page-container hr {
+.bottomline .home-page-container hr {
   background: gray;
   margin-bottom: 0px;
   margin-top: 40px;

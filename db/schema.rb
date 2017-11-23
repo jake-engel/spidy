@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 20171122121618) do
     t.string "first_name"
     t.string "last_name"
     t.string "phone_number"
-    t.string "photo", default: "https://developer.appway.com/filesystem/d6912741f1280a6128b983842c487477225fc90a34614d857290b935c8c2e54a736ac48da2a39d13db50853310e7a9807e5611b45cc9e299/avatar.svg"
+    t.string "photo", default: "http://res.cloudinary.com/djf9mipph/image/upload/v1511353893/avatar_n9qq3k.svg
     t.string "location"
     t.boolean "admin", default: false, null: false
     t.boolean "has_freelancer", default: false, null: false
