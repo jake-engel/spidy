@@ -222,8 +222,8 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass
-  coffee-rails
   cocoon
+  coffee-rails
   devise
   faker
   figaro
