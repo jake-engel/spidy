@@ -7,10 +7,9 @@
   <div class="profile-container">
     <div class="container container-basic-info">
      <div class="profile-header-card">
-      <% user_picture_url = @profile_picture_url %>
       <div class="avatar-wrapper">
         <div class="availab-circle"></div>
-        <%= image_tag "avatar.svg", class: "profile-avatar" %>
+        <%= image_tag @profile_picture, class: "profile-avatar" %>
       </div>
       <div class="text-info-avatar text-center">
         <h2><br> <%= "#{@profile.first_name} #{@profile.last_name}" %> <br></h2>
@@ -64,7 +63,7 @@
           </h2>
           <div class="profile-experiences-card">
 
-            <% @experiences.each do |experience| %>
+            <% @profile.freelancer.experiences.each do |experience| %>
             <ul style="list-style: none;">
               <div class="profiles-experience-listing">
                 <li>
@@ -123,7 +122,7 @@
             <p><span class="badge">1</span> Review:</p><br>
             <div class="row">
               <div class="col-sm-2 text-center">
-               <%= image_tag "avatar.svg", class: "img-circle" %>
+               <%= image_tag @profile_picture, class: "img-circle" %>
               </div>
               <div class="col-xs-10">
                 <h4>Nested Bro <small>Sep 25, 2017, 8:28 PM</small></h4>
