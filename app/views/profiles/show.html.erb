@@ -30,19 +30,19 @@
 
 
         <div class="pay-rate">
-          <h3 style="font-size: 30px; font-weight: 700; margin: 2px">$50.00</h3><p style="font-size: 20px; font-weight: 500; margin: 2px;">Hourly rate</p>
-         <button type="hire" class="btn btn-success">Hire</button>
+          <h3 style="font-size: 30px; font-weight: 700; margin: 2px">$50.00</h3><br style="display: block;
+          margin: 1px 0;"><p style="font-size: 20px; font-weight: 500; margin: 2px;">Hourly rate</p>
+          <%= link_to new_freelancer_offer_path(@profile.freelancer) do %>
+            <button type="hire" class="btn btn-success">Apply to Hire</button>
+          <% end %>
         </div>
-
 
         <div class="right-buttons">
           <a href=""><i class="fa fa-heart" style="font-size:30px; margin-right: 10px; color: #C83B30;"></i></a>
           <a href=""><i class="fa fa-share" style="font-size:30px; margin-right: 10px; color:#BFBFBF;"></i></a>
         </div>
 
-
-
-        <span class="line-wide"></span>
+        <span class="line-wide" style="border-bottom: 1px solid lightgray;width: 100%;display: block; border-width: 1px; margin-top: 35px; margin-bottom: 25px;"></span>
         <div class= "statistic-box">
           <ul class="statistic" >
             <li><h3 style="font-size: 20px; font-weight: 700;">5/5</h3><br><p>Review rating</p></li>
@@ -56,11 +56,13 @@
       </div>
     </div>
   </div>
+  <% if @profile.has_freelancer %>
+    <div class="container-fluid">
+      <div class="row content">
+        <div class="col-sm-3 sidenav">
 
-  <div class="container-fluid">
-    <div class="row content">
-      <div class="col-sm-3 sidenav">
-
+          <h4>About</h4>
+          <ul class="nav nav-pills nav-stacked">
         <h2 style="margin-bottom: 25px;">About</h2>
         <span class="line-wide"></span>
         <ul class="nav nav-pills nav-stacked">
@@ -112,9 +114,9 @@
                   <h4>
                     <span>Period:</span> <%= experience.starting_date %> - to - <%= experience.ending_date %>
                   </h4>
-                  <h6>
+                  <h4>
                     <span>Description:</span> <%= experience.description %>
-                  </h6>
+                  </h4>
                 </li>
               </div>
             </ul>
@@ -162,7 +164,6 @@
               <%= image_tag "avatar.svg", class: "img-circle" %>
             </div>
             <div class="col-sm-10">
-
               <h4>John Row <small>Sep 25, 2017, 8:25 PM</small></h4>
               <p>I am so happy for you man! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
               <br>
@@ -181,8 +182,7 @@
         </div>
       </div>
     </div>
-  </div>
-
-
+  <% end %>
+</div>
 
 

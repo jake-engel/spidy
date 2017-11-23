@@ -26,15 +26,17 @@
 
     <!-- Avatar with dropdown menu -->
     <div class="navbar-spidy-item">
-      <div class="dropdown">
+      <div class="dropdown ">
         <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
         <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-spidy-menu", "data-toggle" => "dropdown" %>
         <ul class="dropdown-menu dropdown-menu-right navbar-spidy-dropdown-menu">
+          <% if current_user.has_freelancer %>
           <li>
             <%= link_to profile_path(current_user) do %>
             <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
             <% end %>
           </li>
+          <% end %>
           <li>
             <%= link_to "#" do %>
             <i class="fa fa-connectdevelop"></i> <%= t(".profile", default: "My Cobweb") %>
