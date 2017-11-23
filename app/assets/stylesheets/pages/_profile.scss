@@ -1,3 +1,107 @@
+h2 {
+  color: gray;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+p {
+  color: gray;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  margin-top: 5px;
+}
+
+h4 {
+  color: gray;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  span {
+    font-weight: 600;
+    color:#BFBFBF;
+  }
+}
+
+h5 {
+  color: gray;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 10px;
+  span {
+    font-weight: 600;
+    color:#BFBFBF;
+  }
+}
+
+h6 {
+  color: gray;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+ul {
+  padding-left: 0;
+  width: 100%;
+}
+
+.container {
+  background-color: white;
+}
+
+
+.text-info-avatar h2 {
+  color: gray;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: -10px;
+}
+
+.text-info-avatar h3 {
+  color: $spidy-green;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: -12px;
+}
+
+.text-info-avatar p {
+  color: gray;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+.line{
+  border-bottom: 2px solid $spidy-green;
+  width: 15px;
+  display: block;
+  border-width: 0.7px;
+  margin: auto;
+}
+
+
+.banner-top {
+  width: 100%;
+  /* hbackground-image: url(http://res.cloudinary.com/djf9mipph/image/upload/v1511256082/banner_profile_cbyznw.jpg); */
+  height: 405px;
+  background-color: purple;
+  background-position: center;
+}
+
+.container-basic-info {
+  height: 500px;
+}
+
 .profile-container {
   margin-top: 1px;
   background-color: #dddddd;
@@ -10,45 +114,73 @@
   margin-bottom: 5vh
 }
 
-.profile-avatar {
-  border-radius: 50%;
-  width: 250px;
+.avatar-wrapper {
+  width: 150px;
+  margin: 0 auto;
+  position: relative;
 }
 
-.profile-header-card {
-  width: 25vw;
-  background-color: $light-gray;
-  margin: 15px;
-  border-radius: 2px;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
+.availab-circle {
+  width: 20px;
+  height: 20px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background: $spidy-green;
+  margin-top: -4em;
+  position: center;
+  z-index: 99999;
+  position: absolute;
+  right: 0;
+  bottom: 27px;
+  border: 2px solid white;
 }
 
 .profile-skills-card {
-  width: 45vw;
-  background-color: $light-gray;
+  width: 20%;
+  background-color: white;
   margin: 15px;
   border-radius: 2px;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
+  /* box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2); */
 }
 
+.profile-avatar {
+  border-radius: 50%;
+  border: 3px solid ;
+  border-color: white;
+  width: 150px;
+  margin-top: -5em;
+}
+
+.profile-header-card {
+ /*  width: 25vw; */
+ background-color: white;
+ margin: 15px;
+ margin-top: 0px;
+ border-radius: 2px;
+ height: inherit;
+  /* box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2); */
+}
+
+
 .profile-experiences-card {
-  width: 85vw;
-  background-color: $light-gray;
+  /* width: 85vw; */
+  background-color: white;
   margin: 15px;
   border-radius: 2px;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
+  /* box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2); */
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   flex-wrap: wrap;
-  margin: 15px;
+  margin: 0px;
 }
 
 .profiles-experience-listing {
-  width: 70vw;
-  background-color: white;
-  border: solid black;
-  margin-bottom: 10px;
+  width: 100%;
+/*   background-color: white;
+border: solid black;
+margin-bottom: 10px; */
 }
 
 .edit-profile-card {
@@ -57,5 +189,53 @@
   margin: 15px;
   border-radius: 2px;
   padding: 15px;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
+/*   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2); */
 }
+
+.info-container {
+  width: 80%;
+  display: flex;
+}
+
+.container-central {
+  width: 80%;
+}
+
+
+.container-fluid {
+  margin: 10px;
+}
+
+.row.content {
+  height: 1500px
+}
+
+/* Set gray background color and 100% height */
+.sidenav {
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+  background-color: #555;
+  color: white;
+  padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: 15px;
+  }
+  .row.content {height: auto;}
+}
+
+.img-circle {
+  height: 65px;
+  width: 65px;
+}
+
+/* background-color: white;
+height: 200px; */
