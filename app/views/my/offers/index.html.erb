@@ -11,11 +11,9 @@
 <%= @offers.length %>
 -->
 
-<% if current_user.has_freelancer %>
 <div class="tab">
   <%= render "shared/tab" %>
 </div>
-<% end %>
 
 <div class="offer-card-from-freelancer">
   <% fromFreelancers.each do |offer| %>
