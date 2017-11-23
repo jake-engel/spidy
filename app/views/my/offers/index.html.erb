@@ -1,3 +1,4 @@
+<div class="my-offers-container">
 <% fromFreelancers = @offers.select do |offer| %>
 <% offer.status != 3 && offer.status != 0 && offer.freelancer.user == current_user %>
 <% end %>
@@ -54,4 +55,4 @@
     <br>
   <% end %>
 <% end %>
-
+</div>
