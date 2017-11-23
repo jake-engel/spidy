@@ -1,0 +1,19 @@
+.account-setting-container {
+  height: calc(100% - 70px);
+  margin-bottom: 5vh;
+  min-height: calc(95vh - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.account-setting-card {
+  width: 55vw;
+  height: 80vh;
+  background-color: $white;
+  margin: 15px;
+  border-radius: 2px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
+  position: absolute;
+  padding: 20px;
+}
