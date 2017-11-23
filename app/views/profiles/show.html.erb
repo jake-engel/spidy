@@ -31,7 +31,11 @@
 
         <div class="pay-rate">
           <h3 style="font-size: 30px; font-weight: 700; margin: 2px">$50.00</h3><p style="font-size: 20px; font-weight: 500; margin: 2px;">Hourly rate</p>
-         <button type="hire" class="btn btn-success">Hire</button>
+          <% if policy(Offer.new(freelancer: @profile.freelancer)).new? && user_signed_in? %>
+            <%= link_to new_freelancer_offer_path(@profile.freelancer) do %>
+              <button type="hire" class="btn btn-success">Apply to Hire</button>
+            <% end %>
+          <% end %>
         </div>
 
 
@@ -57,10 +61,13 @@
     </div>
   </div>
 
+<% if @profile.has_freelancer %>
   <div class="container-fluid">
     <div class="row content">
       <div class="col-sm-3 sidenav">
 
+
+          <ul class="nav nav-pills nav-stacked">
         <h2 style="margin-bottom: 25px;">About</h2>
         <span class="line-wide"></span>
         <ul class="nav nav-pills nav-stacked">
@@ -181,8 +188,8 @@
         </div>
       </div>
     </div>
-  </div>
-
+        </end>
+</div>
 
 
 

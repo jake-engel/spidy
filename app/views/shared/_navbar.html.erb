@@ -67,7 +67,7 @@
     <!-- Login link (when logged out) -->
     <%= link_to "Nearby Freelancers", freelancers_path, class: "navbar-spidy-item navbar-spidy-link text-center" %>
     <%= link_to "Help", "#", class: "navbar-spidy-item navbar-spidy-link" %>
-    <%= link_to "Sign-up", "#", class: "navbar-spidy-item navbar-spidy-link" %>
+    <%= link_to "Sign-up", new_user_registration_path, class: "navbar-spidy-item navbar-spidy-link" %>
     <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-spidy-item navbar-spidy-link" %>
     <% end %>
   </div>
@@ -150,7 +150,7 @@
           <%= link_to "Help", "#", class: "navbar-spidy-item navbar-spidy-link" %>
         </li>
         <li>
-          <%= link_to "Sign-up", "#", class: "navbar-spidy-item navbar-spidy-link" %>
+          <%= link_to "Sign-up", new_user_registration_path, class: "navbar-spidy-item navbar-spidy-link" %>
         </li>
         <li>
           <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-spidy-item navbar-spidy-link" %>
