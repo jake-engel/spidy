@@ -21,6 +21,10 @@ class OfferPolicy < ApplicationPolicy
     create?
   end
 
+  def cobweb?
+    true
+  end
+
   def create?
     record.freelancer.offers.each do |offer|
       return false if offer.user == user
