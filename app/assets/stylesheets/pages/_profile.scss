@@ -310,5 +310,13 @@ footer {
   width: 65px;
 }
 
+.fa-heart {
+  color: #BFBFBF;
+  transition: color 300ms ease;
+  &:hover {
+    color: #C83B30;
+  }
+}
+
 /* background-color: white;
 height: 200px; */

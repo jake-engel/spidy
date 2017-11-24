@@ -1,0 +1,24 @@
+.btn-facebook {
+  background: $fb-blue;
+  border-radius: 0px;
+  color: #32508E;
+  margin-top: 10px;
+  transition: all ease 0.15s;
+  font-family: 'Raleway';
+  font-weight: 100;
+  font-size: 20px;
+  &:active {
+    box-shadow: 2px 2px 0 rgba(38,57,150,0.8);
+    top: 3px;
+  }
+}
+.btn-facebook:link, .btn-facebook:visited {
+  color: $white;
+}
+.btn-facebook:active, .btn-facebook:hover {
+  background: #263961;
+  color: $white;
+}
+.fa-facebook-f:before, .fa-facebook:before {
+  padding-right: 15px;
+}
