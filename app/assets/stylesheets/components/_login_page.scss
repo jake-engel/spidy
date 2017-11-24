@@ -4,25 +4,8 @@
   outline: none;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  background: #DDD;
-  font-size: 16px;
-  color: #222;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 300;
-}
-
-
- .left-login {
-     padding: 40px;
- }
-
-h1 {
-  margin: 0 0 20px 0;
-  font-weight: 300;
-  font-size: 28px;
+.left-login {
+  padding: 40px;
 }
 
 // input[type="text"],
@@ -157,11 +140,13 @@ h1 {
   background-size: cover;
   background-position: center;
   border-radius: 0 2px 2px 0;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2)
 }
 
 .normal-login {
   width: 50%;
   background-color: white;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2)
 }
 
 .facebook_button {

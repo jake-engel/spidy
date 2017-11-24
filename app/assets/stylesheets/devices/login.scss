@@ -3,38 +3,13 @@
   outline: none;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  background: #DDD;
-  font-size: 16px;
-  color: #222;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 300;
-}
-
-// #signup-box {
-//   // position: relative;
-//   // margin: 5% auto;
-//   // width: 600px;
-//   // height: 400px;
-//   background: #FFF;
-//   border-radius: 2px;
-//   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-// }
-
- .left-signup {
+.left-signup {
 //   // position: absolute;
 //   // top: 0;
 //   // left: 0;
 //   // box-sizing: border-box;
-     padding: 40px;
- }
-
-h1 {
-  margin: 0 0 20px 0;
-  font-weight: 300;
-  font-size: 28px;
+padding: 40px;
+box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2)
 }
 
 // input[type="text"],
@@ -101,19 +76,19 @@ h1 {
   text-align: center;
 }
 
- .right-signup {
-   padding: 40px;
-   align: center;
+.right-signup {
+ padding: 40px;
+ align: center;
 
- }
+}
 
- h1[class="r-signup-text"] {
-   margin: 0 0 20px 0;
-   font-weight: 300;
-   font-size: 28px;
-   color: white;
-   text-align: center;
- }
+h1[class="r-signup-text"] {
+ margin: 0 0 20px 0;
+ font-weight: 300;
+ font-size: 28px;
+ color: white;
+ text-align: center;
+}
 
 // button.social-signin {
 //   margin-bottom: 20px;
@@ -170,6 +145,7 @@ h1 {
   background-size: cover;
   background-position: center;
   border-radius: 0 2px 2px 0;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2)
 }
 
 .normal-signup {
