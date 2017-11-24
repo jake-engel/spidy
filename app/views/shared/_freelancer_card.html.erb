@@ -3,8 +3,7 @@
   <div class="card-image">
     <% picture = user.facebook_picture_url || user.photo %>
     <%= link_to profile_path(user) do %>
-    <%= image_tag "avatar.svg", class: "img-circle" %>
-<!-- <img class="card-user avatar" src=<%= picture %>> -->
+    <%= image_tag picture, class: "img-circle" %>
     <% end %>
   </div>
   <div class="info"></div>
@@ -31,7 +30,7 @@
     <%= render_stars(freelancer.avg_rating) %> (<%= freelancer.offers.where(status: 3).length %>)
     <% unless freelancer.offers.empty? %>
     <li> | </li>
-    <li><strong>Last Spidy Position:</strong> <%= freelancer.offers.last.updated_at %></a></li>
+    <li><strong>Last Spidy Position:</strong> <%= freelancer.offers.last.updated_at.to_date %></a></li>
     <% end %>
   </ul>
 </div>
