@@ -31,7 +31,6 @@
               <span class="icon"><i class="fa fa-calendar"></i></span>
 
               <input type="date" class="f-search-bar" id="f-search" placeholder="When are you looking for?" />
-
             </div>
           </form>
         </div>
@@ -40,27 +39,22 @@
   </div>
 </div>
 </div>
+</div>
 
 <div class="list-page-wrapper">
   <div class="list-page-container">
 
     <div class="maps-wrapper">
       <div class="home-page-container">
+        <div class="maps" id="freelancer-index-map"></div>
 
-        <div class="maps" id="freelancer-index-map">
-        </div>
-      </div>
-        <div class="maps-search-box">
-          <div class="search-container">
             <div class="inline-text">
-
              <h2><span><i class="fa fa-rocket"></i>  <%= @freelancerCount %> PROFESSIONALS</span> FOUND IN YOUR AREA</h2>
             </div>
          <div class="line-list"></div>
-       </div>
 
-
-   </div>
+  </div>
+</div>
 
    <div class="freelancer-row">
     <% @freelancers.each do |freelancer| %>
@@ -71,7 +65,6 @@
 </div>
 </div>
 
-</div>
 
 <% content_for(:after_js) do %>
       <script>
