@@ -1,4 +1,4 @@
-.new-offer-container {
+.account-setting-container {
   height: calc(100% - 70px);
   margin-bottom: 5vh;
   min-height: calc(95vh - 70px);
@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.new-offer-card {
+.account-setting-card {
   width: 55vw;
   height: 80vh;
   background-color: $white;
@@ -16,15 +16,4 @@
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
   position: absolute;
   padding: 20px;
-}
-
-
-.set-budget {
-  label {
-    float: left;
-  }
-  input {
-    width: 10%;
-    float: left;
-  }
 }
