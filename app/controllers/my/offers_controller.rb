@@ -26,6 +26,11 @@ class My::OffersController < ApplicationController
     redirect_to my_offers_path
   end
 
+  def cobweb
+    @offers = Offer.where(status: 3)
+    authorize @offers
+  end
+
   def destroy
   end
 

@@ -29,6 +29,10 @@ Rails.application.routes.draw do
         patch 'decline'
         patch 'complete'
       end
+
+      collection do
+        get 'cobweb'
+      end
     end
   end
 end
