@@ -34,7 +34,7 @@
           <h3 style="font-size: 30px; font-weight: 700; margin: 2px">$50.00</h3><p style="font-size: 20px; font-weight: 500; margin: 2px;">Hourly rate</p>
           <% if policy(Offer.new(freelancer: @profile.freelancer)).new? && user_signed_in? %>
             <%= link_to new_freelancer_offer_path(@profile.freelancer) do %>
-              <button type="hire" class="btn btn-success">Apply to Hire</button>
+              <%= render "shared/button", text: "Hire", type: "apply profile-apply" %>
             <% end %>
           <% end %>
         </div>
@@ -141,7 +141,7 @@
           <span class="line-wide"></span>
 
           <h4>Write a review</h4>
-          <form role="form">
+          <form role="form" action="/">
             <div class="form-group">
               <textarea class="form-control" rows="3" required></textarea>
             </div>
