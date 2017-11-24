@@ -5,6 +5,18 @@ class OfferPolicy < ApplicationPolicy
     end
   end
 
+  def decline?
+    true
+  end
+
+  def accept?
+    true
+  end
+
+  def complete?
+    true
+  end
+
   def new?
     create?
   end
