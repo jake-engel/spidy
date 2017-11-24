@@ -194,6 +194,9 @@
                         },
                       function() {
         markers = handler.addMarkers(<%= raw @list.to_json %>);
+        // google.maps.event.addListener(markers, 'click', function(e) {
+        //   console.log("The marker can be clicked");
+        // });
 // ONLY UNCOMMENT LINES BELOW TO RECENTER MAP AROUND MARKERS AND NOT USER SET LOCATION:
         // handler.bounds.extendWith(markers);
         // handler.fitMapToBounds();
