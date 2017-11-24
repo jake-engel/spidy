@@ -117,7 +117,7 @@
                     <span>City:</span> <%= experience.location %>
                   </h4>
                   <h4>
-                    <span>Period:</span> <%= experience.starting_date %> - to - <%= experience.ending_date %>
+                    <span>Period:</span> <%= toDate(experience.starting_date) %> - to - <%= toDate(experience.ending_date) %>
                   </h4>
                   <h4>
                     <span>Description:</span> <%= experience.description %>
