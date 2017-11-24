@@ -31,7 +31,7 @@
 
         <div class="pay-rate">
 
-          <h3 style="font-size: 30px; font-weight: 700; margin: 2px">$50.00</h3><p style="font-size: 20px; font-weight: 500; margin: 2px;">Hourly rate</p>
+          <h3 style="font-size: 30px; font-weight: 700; margin: 2px"><%= @profile.freelancer.currency %><%= @profile.freelancer.hourly_pay.to_f.round(2) %></h3><p style="font-size: 20px; font-weight: 500; margin: 2px;">Hourly rate</p>
           <% if policy(Offer.new(freelancer: @profile.freelancer)).new? && user_signed_in? %>
             <%= link_to new_freelancer_offer_path(@profile.freelancer) do %>
               <%= render "shared/button", text: "Hire", type: "apply profile-apply" %>
@@ -40,18 +40,17 @@
         </div>
 
         <div class="right-buttons">
-          <a href=""><i class="fa fa-heart" style="font-size:30px; margin-right: 10px; color: #C83B30;"></i></a>
-          <a href=""><i class="fa fa-share" style="font-size:30px; margin-right: 10px; color:#BFBFBF;"></i></a>
+          <i class="fa fa-heart" style="font-size:30px; margin-right: 10px;"></i>
+          <i class="fa fa-share" style="font-size:30px; margin-right: 10px;"></i>
         </div>
 
         <span class="line-wide" style="border-bottom: 1px solid lightgray;width: 100%;display: block; border-width: 1px; margin-top: 35px; margin-bottom: 25px;"></span>
         <div class= "statistic-box">
           <ul class="statistic" >
-            <li><h3 style="font-size: 20px; font-weight: 700;">5/5</h3><br><p>Review rating</p></li>
-            <li><h3 style="font-size: 20px; font-weight: 700;">100%</h3><br><p>Completed tasks</p></li>
-            <li><h3 style="font-size: 20px; font-weight: 700;">10K</h3><br><p>Total earned</p></li>
-            <li><h3 style="font-size: 20px; font-weight: 700;">30</h3><br><p>Jobs</p></li>
-            <li><h3 style="font-size: 20px; font-weight: 700;">200</h3><br><p>Houres worked</p></li>
+            <li><h3 style="font-size: 20px; font-weight: 700;"><%= @profile.freelancer.avg_rating %>/5</h3><br><p>Review rating</p></li>
+            <li><h3 style="font-size: 20px; font-weight: 700;"><%= @profile.freelancer.offers.where(status: 3).length %></h3><br><p>Completed Jobs</p></li>
+            <li><h3 style="font-size: 20px; font-weight: 700;"><%= @profile.freelancer.currency %>69K+</h3><br><p>Total Cash earned</p></li>
+            <li><h3 style="font-size: 20px; font-weight: 700;">200</h3><br><p>Hours worked</p></li>
             <li><h3 style="font-size: 20px; font-weight: 700;">1500</h3><br><p>Profile views</p></li>
           </ul>
         </div>
@@ -73,11 +72,13 @@
           <li><h4><span><i class="fa fa-home" style="font-size:12px; margin-right: 10px;"></i>Website</li></span></h4>
           <h7>www.yourwebsite.com</h7>
           <li><h4><span><i class="fa  fa-behance" style="font-size:12px; margin-right: 10px;"></i>Behance</li></span></h4>
-          <h7>www.yourbehanceprofile.com</h7>
+          <h7><%= @profile.first_name %>s Profile</h7>
           <li><h4><span><i class="fa fa-linkedin-square" style="font-size:12px; margin-right: 10px;"></i>Linkedin</li></span></h4>
-          <h7>www.yourlinkedinprofile.com</h7>
+          <h7><%= @profile.first_name %>s Profile</h7>
           <li><h4><span><i class="fa fa-facebook" style="font-size:12px; margin-right: 10px;"></i>Facebook</li></span></h4>
-          <h7>www.yourfacebookprofile.com</h7>
+          <%= link_to "https://www.facebook.com/#{ @profile.uid }" do %>
+            <h7><%= @profile.first_name %>s Profile</h7>
+          <% end %>
         </ul>
 
         <h2 style="margin-bottom: 25px;">Similar Profile</h2>
@@ -92,7 +93,9 @@
 
           <h2>Summary</h2>
 
-          <span><p text-align: left;>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  <span class="line-wide"></span></p></span>
+          <span><p text-align: left;>
+            <%= @profile.freelancer.summary %>
+          <span class="line-wide"></span></p></span>
 
           <div class="container-central">
            <h2>
