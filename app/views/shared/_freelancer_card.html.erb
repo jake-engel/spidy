@@ -1,53 +1,64 @@
-<div class="col-xs-10 col-xs-offset-1">
-  <div class="freelancer-index-card">
-    <div class="card-image">
-      <% picture = user.facebook_picture_url || user.photo %>
-      <%= link_to profile_path(user) do %>
-      <img class="card-user avatar" src=<%= picture %>>
-      <% end %>
-    </div>
+<div class="freelancer-index-card">
+  <div class="first-line-container">
+  <div class="card-image">
+    <% picture = user.facebook_picture_url || user.photo %>
     <%= link_to profile_path(user) do %>
-    <%= "#{user.first_name} #{user.last_name}" %>
+    <%= image_tag "avatar.svg", class: "img-circle" %>
+<!-- <img class="card-user avatar" src=<%= picture %>> -->
     <% end %>
+  </div>
+  <div class="info"></div>
+  <%= link_to profile_path(user) do %>
+  <%= "#{user.first_name} #{user.last_name}" %>
+  <% end %>
+  <!-- <br> -->
+  <em>
+    <%= freelancer.position %>
     <!-- <br> -->
-    <em>
-      <%= freelancer.position %>
-      <!-- <br> -->
-      <%= user.location %>
-    </em>
-    <br>
-    <%= link_to "#", class: "freelancer-links" do %>
-    <i class="fa fa-heart index-heart" aria-hidden="true"></i>
+    <%= user.location %>
+  </em>
+  <br>
+  <%= link_to "#", class: "freelancer-links" do %>
+  <i class="fa fa-heart index-heart" aria-hidden="true"></i>
+  <% end %>
+  <%= link_to "#", class: "freelancer-links" do %>
+  <i class="fa fa-share" aria-hidden="true"></i>
+  <% end %>
+  <br>
+
+
+  <ul class="list-inline product-controls hidden-sm hidden-xs">
+    <%= render_stars(freelancer.avg_rating) %> (<%= freelancer.offers.where(status: 3).length %>)
+    <% unless freelancer.offers.empty? %>
+    <li> | </li>
+    <li><strong>Last Spidy Position:</strong> <%= freelancer.offers.last.updated_at %></a></li>
     <% end %>
-    <%= link_to "#", class: "freelancer-links" do %>
-    <i class="fa fa-share" aria-hidden="true"></i>
-    <% end %>
-    <br>
-    <hr/>
-    <ul class="list-inline product-controls hidden-sm hidden-xs">
-      <%= render_stars(freelancer.avg_rating) %> (<%= freelancer.offers.where(status: 3).length %>)
-      <% unless freelancer.offers.empty? %>
-      <li> | </li>
-      <li><strong>Last Spidy Position:</strong> <%= freelancer.offers.last.updated_at %></a></li>
+  </ul>
+</div>
+
+
+  <div class="profile-skills-card">
+    <h2>Skills</h2>
+    <h5><ul style="list-style: none;" class="list-inline">
+      <% freelancer.skills.each do |skill| %>
+      <li><%= skill.name %></li>
       <% end %>
-    </ul>
-    <% freelancer.skills.each do |skill| %>
-    <ul>
-      <li>
-        <%= skill.name %>
-      </li>
-    </ul>
-    <hr>
-    <%= freelancer.currency %><%= freelancer.hourly_pay %>/hr
-    <% end %>
-    <!-- STILL MUST ADD PUNDIT TO THIS -->
-    <br>
+    </ul></h5>
+  </div>
+
+  <div class="line-list"></div>
+
+  <!-- STILL MUST ADD PUNDIT TO THIS -->
+  <br>
+  <div class="hire-container"><h3>
+    <%= freelancer.currency %><%= freelancer.hourly_pay %><span>/h</span></h3>
 
     <% if policy(Offer.new(freelancer: freelancer)).new? && user_signed_in? %>
-      <%= link_to new_freelancer_offer_path(freelancer) do %>
-      <%= render "shared/button", text: "Apply to Hire #{user.first_name}", type: "apply" %>
-      <% end %>
+    <%= link_to new_freelancer_offer_path(freelancer) do %>
+    <%= render "shared/button", text: "Hire #{user.first_name}", type: "apply" %>
     <% end %>
-
+    <% end %>
   </div>
+
+
 </div>

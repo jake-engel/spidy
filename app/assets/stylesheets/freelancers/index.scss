@@ -1,3 +1,254 @@
+.first-line-container {
+  display: flex;
+  padding-top: 30px;
+}
+
+
+.line-list {
+  border-bottom: 1px solid $spidy-green;
+  width: 100%;
+  display: block;
+  border-width: 1px;
+/*   margin-top: 15px;
+margin-bottom: 25px; */
+}
+
+.inline-text {
+  width: 100%;
+  display:flex-inline;
+
+  h2 {
+    margin-left: 20px;
+    font-weight: 300;
+
+    span {
+      color: $spidy-green;
+      font-weight: 600;
+
+    }
+  }
+}
+
+.list-page-wrapper {
+  text-align: left;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  height: calc(100% - 70px);
+  min-height: calc(95vh - 70px);
+  margin-bottom: 5vh;
+  background-color: #dddddd;
+}
+
+.freelancer-row {
+  width: inherit;
+  margin-top: 90px;
+}
+
+.list-page-container {
+  margin: 0 auto;
+  width: 1080px;
+  height: 100%px;
+  position: relative;
+  background-color: white;
+}
+
+
+.f-banner-content h8 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 45px;
+  color: white;
+}
+
+.f-banner-mp {
+  color: white;
+  text-align: left;
+  /* height: 600px; */
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  position: relative;
+}
+
+.f-banner-mp-container {
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+
+  height: 100px;
+   position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+
+}
+
+.f-mp-container{
+margin: 0 auto;
+width: 1080px;
+height: 80vh;
+position: relative;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.btn-treehouse {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #6AD58B;
+  transition: background 0.3s ease;
+  position: absolute;
+  right: 10px;
+}
+
+.btn-treehouse:hover {
+  opacity: 1;
+  background: #3ac162;
+  text-decoration: none;
+  color: white;
+}
+
+.f-search-box {
+  padding-bottom: 20px;
+}
+
+.f-date-box {
+  padding-top: 20px;
+}
+
+input[type=date] {
+  height: 35px;
+  margin: 0 auto;
+  width: 100%;
+  font-family: helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: lighten;
+  /* text-transform: uppercase; */
+  background-color: lighten(#2f2f2f,40%);
+  outline: none;
+  border: 0;
+  border-radius: 3px;
+  padding: 0 3px;
+  color: #fff;
+  opacity: 0.5;
+
+  &::-webkit-datetime-edit-month-field {
+    color: red;
+  }
+  &::-webkit-datetime-edit-day-field {
+    color: white;
+  }
+  &::-webkit-datetime-edit-year-field {
+    color: blue;
+  }
+
+  &::-webkit-clear-button {
+    font-size: 18px;
+    height: 30px;
+    position: relative;
+    right: 5px;
+    margin-right: 4px;
+  }
+  &::-webkit-inner-spin-button {
+    height: 30px;
+  }
+  &::-webkit-calendar-picker-indicator {
+    font-size: 18px;
+
+
+    &:hover {
+      background-color: lighten(#2f2f2f,40%);
+      color: darken(#fff, 10%);
+      cursor: pointer;
+    }
+    &:active {
+      color: blue;
+    }
+  }
+}
+
+
+.f-search-container{
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+  display: flex;
+  margin-bottom: 50px;
+  margin-top: 20px;
+}
+
+.f-search-container input.f-search-bar{
+  width: 850px;
+  height: 60px;
+  background: white;
+  border: none;
+  font-size: 18pt;
+  float: left;
+  color: #262626;
+  padding-left: 50px;
+  color: gray;
+  position: absolute;
+  opacity:0.5;
+/*
+  -webkit-transition: width .55s ease;
+  -moz-transition: width .55s ease;
+  -ms-transition: width .55s ease;
+  -o-transition: width .55s ease;
+  transition: width .55s ease; */
+}
+
+
+.f-search-container input.f-search-bar::-webkit-input-placeholder {
+   color: #65737e;
+}
+
+.f-search-container input.f-search-bar:-moz-placeholder { /* Firefox 18- */
+   color: #65737e;
+}
+
+.f-search-container input.f-search-bar::-moz-placeholder {  /* Firefox 19+ */
+   color: #65737e;
+}
+
+.f-search-container input.f-search-bar:-ms-input-placeholder {
+   color: #65737e;
+}
+
+.f-search-container .icon{
+  position: absolute;
+  top: 50%;
+  margin-left: 17px;
+  margin-top: 17px;
+  z-index: 1;
+  color: white;
+  opacity:1;
+}
+
+.date-input {
+  font-family: "Montserrat", sans-serif;
+  width: 11em;
+}
+
+
+/* .f-search-container input.f-search-bar:focus, .f-search-container input.f-search-bar:active{
+  outline:none;
+  width: 850px;
+}
+
+.f-search-container:hover input.f-search-bar{
+width: 850px;
+} */
+
+.f-search-container:hover .icon{
+  color: $spidy-green;
+}
+
 .freelancer-index-container {
   height: calc(100% - 70px);
   min-height: calc(95vh - 70px);
@@ -5,14 +256,35 @@
   justify-content: center;
   flex-wrap: wrap;
   background-color: $light-gray;
-  margin-bottom: 5vh;
+/*   margin-bottom: 5vh; */
 }
 
 .freelancer-index-card {
-  width: 75vw;
-  background-color: $white;
-  padding: 15px;
+  /* width: 75vw; */
+  background-color: $light-gray;
+  padding-left: 35px;
+  padding-right: 35px;
   margin: 15px;
+}
+
+.hire-container{
+display: flex;
+-ms-flex-pack: distribute;
+justify-content: space-between;
+align-item: center;
+padding-bottom: 25px;
+/* align-item: center; */
+
+h3{
+  font-size: 35px;
+  font-weight: 700;
+  margin: 2px;
+  color: $spidy-green;
+  span{
+    color:gray;
+  }
+}
+
 }
 
 .gold {
@@ -38,3 +310,8 @@
     opacity: 0.4;
   }
 }
+
+
+
+
+
