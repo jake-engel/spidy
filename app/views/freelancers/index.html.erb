@@ -1,21 +1,66 @@
-<div class="freelancer-index-container">
 
-  <div class="row">
-    <h1 class="col-xs-10 col-xs-offset-1">
-      Nearby Freelancers
-    </h1>
-      <div class="search-box">
-          <div class="search-container">
+<div class="f-banner-mp" style="background-image: linear-gradient(-225deg, rgba(0,30,40,0.6) 0%, rgba(0,5,0,0.6) 50%), url('http://res.cloudinary.com/djf9mipph/image/upload/v1511256082/banner_search_home_adqwln.jpg');">
+  <div class="f-mp-container">
+    <div class="f-banner-mp-content">
+      <div class="f-banner-content">
+        <h1>spidy</h1>
+        <h8>Find nearby freelancer professionals<br>to solve your problems.</h8>
+        <div class="f-search-box">
+          <div class="f-search-container">
             <span class="icon"><i class="fa fa-search"></i></span>
-            <input type="search" id="search" class="search-bar" placeholder="What are you looking for?" />
+            <input type="f-search" class="f-search-bar" id="f-search" placeholder="What are you looking for?" />
           </div>
         </div>
+        <form id="home-map-search">
+          <div class="f-search-container">
+            <input type="text" name="city" onfocus="geolocate()" id="home-search-bar" class="f-search-bar" placeholder="Where are you looking for?" />
+            <span class="icon" type="submit" id="home-search-map-submit"><i class="fa fa-map-marker"></i></span>
+          </div>
+        </form>
+        <div>
+          <div class="f-date-box">
+           <form>
+            <div class="f-search-container">
+              <span class="icon"><i class="fa fa-calendar"></i></span>
+              <input type="date" class="f-search-bar" id="f-search" placeholder="What are you looking for?" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+</div>
 
-  <div class="row">
+<div class="list-page-wrapper">
+  <div class="list-page-container">
+
+    <div class="maps-wrapper">
+      <div class="home-page-container">
+        <div class="maps" id="home-map"></div>
+        <div class="maps-search-box">
+          <div class="search-container">
+            <div class="inline-text">
+             <h2><span><i class="fa fa-rocket"></i> NUMBER OR PROFESSIONAL</span> FINDS IN YOUR AREA</h2>
+           </div>
+         </div>
+         <div class="line-list"></div>
+       </div>
+     </div>
+   </div>
+
+   <div class="freelancer-row">
     <% @freelancers.each do |freelancer| %>
-        <%= render "shared/freelancer_card", user: freelancer.user, freelancer: freelancer %>
+    <%= render "shared/freelancer_card", user: freelancer.user, freelancer: freelancer %>
     <% end %>
   </div>
 
 </div>
+</div>
+
+</div>
+
+
+
+
+

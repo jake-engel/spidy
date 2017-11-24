@@ -13,6 +13,7 @@ gem 'faker'
 gem 'omniauth-facebook'
 gem "cocoon"
 gem "pundit"
+gem "bourbon"
 
 gem 'devise'
 gem 'figaro'
