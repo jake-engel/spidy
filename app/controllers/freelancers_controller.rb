@@ -10,6 +10,7 @@ class FreelancersController < ApplicationController
 
     @mapFreelancers = Freelancer.where(nil)
     filtering_params(params).each do |key, value|
+      value.capitalize!
       @mapFreelancers = @mapFreelancers.public_send(key, value) if value.present?
     end
 
