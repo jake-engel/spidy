@@ -34,6 +34,7 @@ margin-bottom: 25px; */
   display: flex;
   width: 100%;
   align-items: center;
+  justify-content: center;
   height: calc(100% - 70px);
   min-height: calc(95vh - 70px);
   margin-bottom: 5vh;
@@ -46,7 +47,7 @@ margin-bottom: 25px; */
 }
 
 .list-page-container {
-  margin: 0 auto;
+  margin-top: 15px;
   width: 1080px;
   height: 100%px;
   position: relative;
@@ -75,7 +76,6 @@ margin-bottom: 25px; */
   margin-left: auto;
   margin-right: auto;
   position: absolute;
-
   height: 100px;
    position: fixed;
   top: 50%;
