@@ -93,20 +93,31 @@ margin-bottom: 10px;
 }
 
 
-.f-banner-content h8 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 45px;
-  color: white;
+.f-banner-content {
+ display: flex;
+ flex-direction: column;
+ justify-content: space-around;
+ h8 {
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 600;
+   font-size: 45px;
+   color: white;
+ }
+  h1 {
+    margin-top: 10px;
+  }
+  margin-bottom: 50px;
 }
 
 .f-banner-mp {
   color: white;
   text-align: left;
-  /* height: 600px; */
+  min-height: 600px;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
 }
 
