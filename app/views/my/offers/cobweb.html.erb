@@ -1,0 +1,44 @@
+<% hired_by = @offers.select do |offer| %>
+  <% offer.freelancer.user == current_user %>
+<% end %>
+<% hired_by.compact! %>
+<% you_hired = @offers.select do |offer| %>
+  <% offer.user == current_user %>
+<% end %>
+<% you_hired.compact! %>
+<h1>
+  My Cobweb
+</h1>
+<div class="my-offers-container">
+  <% if current_user.has_freelancer %>
+    <div class="tab">
+      <%= render "shared/tab", tab1: "Hired By", tab2: "You Hired" %>
+    </div>
+    <div class="from-freelancer">
+      <h3>
+        <%= "You Have Not Completed Any Offers" if hired_by.empty? %>
+      </h3>
+      <% hired_by.each do |offer| %>
+        <%= render "shared/freelancer_card", user: offer.user, freelancer: offer.freelancer %>
+      <% end %>
+    </div>
+
+    <div class="to-freelancer hidden">
+      <h3>
+        <%= "You Have Not Yet Hired A Freelancer" if you_hired.empty? %>
+      </h3>
+      <% you_hired.each do |offer| %>
+        <%= render "shared/freelancer_card", user: offer.freelancer.user, freelancer: offer.freelancer %>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="to-freelancer">
+      <h3>
+        <%= "You Have Not Yet Hired A Freelancer" if you_hired.empty? %>
+      </h3>
+      <% you_hired.each do |offer| %>
+        <%= render "shared/freelancer_card", user: offer.freelancer.user, freelancer: offer.freelancer %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

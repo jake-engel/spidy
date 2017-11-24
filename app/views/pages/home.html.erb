@@ -17,9 +17,9 @@
 <div class="banner-mp" style="background-image: linear-gradient(-225deg, rgba(0,30,40,0.6) 0%, rgba(0,5,0,0.6) 50%), url('http://res.cloudinary.com/djf9mipph/image/upload/v1511256314/banner_home_top-min_ba5tzu.jpg');">
     <div class="mp-container">
       <div class="banner-mp-content">
-        <h1><span>The biggest world</span></h1>
-        <h1><span>professionals</span></h1>
-        <h1><span>community</span></h1>
+        <h1><span>The world's largest</span></h1>
+        <h1><span>community of</span></h1>
+        <h1><span>freelancing professionals</span></h1>
         <h9> - </h9>
         <p>wherever and whenever you want.</p>
     </div>
@@ -31,10 +31,11 @@
       <%= image_tag "Design_page-05.svg" %>
     </div>
     <div class="text-card">
-      <p>Find your professional profile<br>
-        closest to your location and pay it at hourly rate<br>
-      for service rended </p>
-      <h2><span>GEOLOCALIZATION // SECURE PAYMENTS</span></h2>
+      <p>Find nearby freelancing professionals<br>
+        and seamlessely request help for <br>
+        any task with <strong>secure payments</strong>
+      </p>
+      <h2><span>GEOLOCALIZATION // SECURE PAYMENTS </span></h2>
     </div>
   </div>
 </div>
@@ -68,8 +69,8 @@
         <%= image_tag "Design_page-06.svg" %>
       </div>
       <div class="text-card">
-        <p>A network of <br> verified professionals </p>
-        <h2><span>PROFILE VERIFICATION</span></h2>
+        <p>A network of verified <br> freelancing professionals </p>
+        <h2><span>SPIDY PROFILE VERIFICATION</span></h2>
       </div>
     </div>
 
@@ -84,9 +85,10 @@
         <%= image_tag "Design_page-07.svg" %>
       </div>
       <div class="text-card">
-        <p>A classic of professional <br>
-          build on the Popularity Ranking Algorithm </p>
-        <h2><span>QUALITY//RECENCY//QUANTITY</span></h2>
+        <p>Search through thousands of <br>
+          freelancing professionals based off <br>
+          YOUR preferences </p>
+        <h2><span>QUALITY//QUANTITY//CONSISTENCY</span></h2>
       </div>
     </div>
   </div>
@@ -95,94 +97,50 @@
   <div class="bottom-banner" style="background-image:url('http://res.cloudinary.com/djf9mipph/image/upload/v1511344645/Banner-bottom-09_ywu89a.png');">
   <div class="banner-content">
     <div class="home-page-container">
-        <h1><span>The biggest world</span></h1>
-        <h1><span>professionals</span></h1>
-        <h1><span>community</span></h1>
-        <h9> - </h9>
-        <p>wherever and whenever you want.</p>
-    <a class="btn btn-primary btn-lg">Start now</a>
+
+      <h1><span>The world's largest</span></h1>
+      <h1><span>community of</span></h1>
+      <h1><span>freelancing professionals</span></h1>
+      <h9> - </h9>
+      <p>wherever and whenever you want.</p>
+      <%= link_to freelancers_path do  %>
+        <button class="btn btn-primary btn-lg">Start now</button>
+      <% end %>
+
     </div>
   </div>
 </div>
 <div class="bottomline">
-<div class="home-page-container">
-    <div class="hr"><hr /></div>
-</div>
 </div>
 
 
 <% content_for(:after_js) do %>
       <script>
-        var mapStyle = [
-    {
+        var mapStyle = [{
         "featureType": "landscape.natural",
         "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "visibility": "on"
-            },
-            {
-                "color": "#e0efef"
-            }
-        ]
-    },
-    {
-        "featureType": "poi",
+        "stylers": [{ "visibility": "on" },
+        { "color": "#e0efef" }]},
+        { "featureType": "poi",
         "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "visibility": "on"
-            },
-            {
-                "hue": "#1900ff"
-            },
-            {
-                "color": "#c0e8e8"
-            }
-        ]
-    },
-    {
-        "featureType": "road",
+        "stylers": [{ "visibility": "on" },
+        { "hue": "#1900ff" },
+        { "color": "#c0e8e8" }]},
+        { "featureType": "road",
         "elementType": "geometry",
-        "stylers": [
-            {
-                "lightness": 100
-            },
-            {
-                "visibility": "simplified"
-            }
-        ]
-    },
-    {
-        "featureType": "road",
+        "stylers": [{ "lightness": 100 },
+        { "visibility": "simplified" }]},
+        { "featureType": "road",
         "elementType": "labels",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "transit.line",
+        "stylers": [{ "visibility": "off" }]},
+        { "featureType": "transit.line",
         "elementType": "geometry",
         "stylers": [
-            {
-                "visibility": "on"
-            },
-            {
-                "lightness": 700
-            }
-        ]
-    },
-    {
-        "featureType": "water",
+        { "visibility": "on" },
+        { "lightness": 700 }]},
+        {"featureType": "water",
         "elementType": "all",
-        "stylers": [
-            {
-                "color": "#7dcdcd"
-            }
-        ]
-    }]
+        "stylers": [{"color": "#7dcdcd"}]}]
         var handler = Gmaps.build('Google');
         handler.buildMap({ internal: { id: 'home-map' },
                            provider: {
@@ -193,14 +151,6 @@
                         },
                       function() {
         markers = handler.addMarkers(<%= raw @list.to_json %>);
-// ONLY UNCOMMENT LINES BELOW TO RECENTER MAP AROUND MARKERS AND NOT USER SET LOCATION:
-        // handler.bounds.extendWith(markers);
-        // handler.fitMapToBounds();
-        // if (markers.length == 0) {
-        //   handler.getMap().setZoom(14);
-        // } else if (markers.length == 1) {
-        //     handler.getMap().setZoom(14);
-        //   }
         });
     </script>
   <% end %>

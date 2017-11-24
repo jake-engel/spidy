@@ -27,7 +27,11 @@ Rails.application.routes.draw do
       member do
         patch 'accept'
         patch 'decline'
-        patch 'pending'
+        patch 'complete'
+      end
+
+      collection do
+        get 'cobweb'
       end
     end
   end

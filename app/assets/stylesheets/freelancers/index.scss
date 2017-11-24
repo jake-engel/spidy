@@ -73,10 +73,10 @@ margin-bottom: 10px;
   display: flex;
   width: 100%;
   align-items: center;
+  justify-content: center;
   height: calc(100% - 70px);
   min-height: calc(95vh - 70px);
   margin-bottom: 5vh;
-  background-color: #dddddd;
 }
 
 .freelancer-row {
@@ -85,7 +85,7 @@ margin-bottom: 10px;
 }
 
 .list-page-container {
-  margin: 0 auto;
+  margin-top: 15px;
   width: 1080px;
   height: 100%px;
   position: relative;
@@ -114,7 +114,6 @@ margin-bottom: 10px;
   margin-left: auto;
   margin-right: auto;
   position: absolute;
-
   height: 100px;
    position: fixed;
   top: 50%;
@@ -189,7 +188,7 @@ justify-content: center;
   padding-left: 50px;
   color: gray;
   position: absolute;
-  opacity:0.5;
+  opacity: 0.7;
 /*
   -webkit-transition: width .55s ease;
   -moz-transition: width .55s ease;
@@ -282,10 +281,10 @@ h3{
 }
 
 .fa-share {
-  color: $spidy-green;
-  transition: opacity 150ms ease;
+  color: #BFBFBF;
+  transition: color 300ms ease;
   &:hover {
-    opacity: 0.4;
+    color: $spidy-green;
   }
 }
 

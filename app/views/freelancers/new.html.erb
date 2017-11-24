@@ -1,5 +1,14 @@
-Hello <%= @freelancer.user.first_name %>,
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please fill out the following information to register and update your profile as a freelancer!
+<div class="new-freelancer-container">
+  <div class="new-freelancer-card">
+  <div class="welcome-message-new-freelancer text-center">
+    <p>
+      Fill out the following information to update your profile and <br>
+      <strong class="spidy-strong">
+        register as a freelancer!
+      </strong>
+    </p>
+  </div>
 
-<%= render "freelancers/forms/new_freelancer" %>
+  <%= render "freelancers/forms/new_freelancer" %>
+</div>
+</div>

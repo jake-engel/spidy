@@ -1,22 +1,23 @@
-
 <div class="f-banner-mp" style="background-image: linear-gradient(-225deg, rgba(0,30,40,0.6) 0%, rgba(0,5,0,0.6) 50%), url('http://res.cloudinary.com/djf9mipph/image/upload/v1511256082/banner_search_home_adqwln.jpg');">
   <div class="f-mp-container">
     <div class="f-banner-mp-content">
       <div class="f-banner-content">
         <h1>spidy</h1>
-        <h8>Find nearby freelancer professionals<br>to solve your problems.</h8>
+        <h8>Find nearby freelancer professionals<br> to solve your problems.</h8>
         <div class="f-search-box">
           <div class="f-search-container">
             <span class="icon"><i class="fa fa-search"></i></span>
             <input type="f-search" class="f-search-bar" id="f-search" placeholder="What are you looking for?" />
           </div>
         </div>
+
         <form id="home-map-search">
           <div class="f-search-container">
             <input type="text" name="city" onfocus="geolocate()" id="home-search-bar" class="f-search-bar" placeholder="Where are you looking for?" />
             <span class="icon" type="submit" id="home-search-map-submit"><i class="fa fa-map-marker"></i></span>
           </div>
         </form>
+
         <div>
           <div class="f-date-box">
            <form>
@@ -39,15 +40,21 @@
 
     <div class="maps-wrapper">
       <div class="home-page-container">
-        <div class="maps" id="home-map"></div>
 
+        <div class="maps" id="freelancer-index-map">
+        </div>
+      </div>
+        <div class="maps-search-box">
+          <div class="search-container">
             <div class="inline-text">
-             <h2><span><i class="fa fa-rocket"></i> NUMBER OF PROFESSIONAL</span> FINDS IN YOUR AREA</h2>
+             <h2><span><i class="fa fa-rocket"></i> 5000+ PROFESSIONALS</span> FOUND IN YOUR AREA</h2>
            </div>
 
          <div class="line-list"></div>
 
+
      </div>
+
    </div>
 
    <div class="freelancer-row">
@@ -61,6 +68,46 @@
 
 </div>
 
+<% content_for(:after_js) do %>
+      <script>
+        var mapStyle = [{
+        "featureType": "landscape.natural",
+        "elementType": "geometry.fill",
+        "stylers": [{ "visibility": "on" },
+        { "color": "#e0efef" }]},
+        { "featureType": "poi",
+        "elementType": "geometry.fill",
+        "stylers": [{ "visibility": "on" },
+        { "hue": "#1900ff" },
+        { "color": "#c0e8e8" }]},
+        { "featureType": "road",
+        "elementType": "geometry",
+        "stylers": [{ "lightness": 100 },
+        { "visibility": "simplified" }]},
+        { "featureType": "road",
+        "elementType": "labels",
+        "stylers": [{ "visibility": "off" }]},
+        { "featureType": "transit.line",
+        "elementType": "geometry",
+        "stylers": [
+        { "visibility": "on" },
+        { "lightness": 700 }]},
+        {"featureType": "water",
+        "elementType": "all",
+        "stylers": [{"color": "#7dcdcd"}]}]
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ internal: { id: 'freelancer-index-map' },
+                           provider: {
+                            zoom: 14,
+                            center: new google.maps.LatLng(<%= @lat %>, <%= @lng %>),
+                            styles: mapStyle
+                          }
+                        },
+                      function() {
+        markers = handler.addMarkers(<%= raw @list.to_json %>);
+        });
+    </script>
+  <% end %>
 
 
 

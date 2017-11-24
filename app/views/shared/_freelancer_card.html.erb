@@ -1,5 +1,6 @@
 <div class="freelancer-index-card">
   <div class="first-line-container">
+
     <div class="card-image">
       <% picture = user.facebook_picture_url || user.photo %>
       <%= link_to profile_path(user) do %>
@@ -17,6 +18,8 @@
       <%= user.location %>
 
       <div class="line-info"></div>
+
+ 
 
       <ul class="list-inline product-controls hidden-sm hidden-xs" style="margin-left:0px;">
         <%= render_stars(freelancer.avg_rating) %> (<%= freelancer.offers.where(status: 3).length %>)

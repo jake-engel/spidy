@@ -1,11 +1,11 @@
-.wrapper {
+.footer-wrapper {
   height: 300px;
-  width: 80%;
+  width: 100%;
   left: 0;
   right: 0;
-  margin: 0 auto;
   position: absolute;
   margin-top: 35px;
+  padding: 0 20px;
 }
 
 .footer-container {
@@ -45,10 +45,6 @@
     color: $spidy-green;
     opacity: 1;
   }
-}
-
-.footer .fa-heart {
-  color: #D23333;
 }
 
 ul {
