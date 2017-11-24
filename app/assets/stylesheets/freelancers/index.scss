@@ -1,16 +1,54 @@
+.card-image {
+  .img-circle {
+    width: 100px;
+    height: 100px;
+  }
+}
+
 .first-line-container {
   display: flex;
   padding-top: 30px;
+  padding-bottom: 30px;
+  align-items: center;
+  position: relative;
 }
 
+.icon-right {
+position: absolute;
+right: 60px;
+/*top: 700px; */
+align-items: center;
+font-size: 25px;
+flex: flex-start;
+right: 3px;
+top: 6px;
+}
+
+.freelancer-links {
+  margin-right: 10px;
+}
+
+.info-text {
+  width: 400px;
+  padding-left: 30px;
+}
 
 .line-list {
-  border-bottom: 1px solid $spidy-green;
+  border-bottom: 1px solid gray;
   width: 100%;
   display: block;
   border-width: 1px;
 /*   margin-top: 15px;
 margin-bottom: 25px; */
+}
+
+.line-info {
+  border-bottom: 1px solid gray;
+  width: 30%;
+  display: block;
+  border-width: 1px;
+margin-top: 10px;
+margin-bottom: 10px;
 }
 
 .inline-text {
@@ -19,6 +57,7 @@ margin-bottom: 25px; */
 
   h2 {
     margin-left: 20px;
+    margin-bottom: 25px;
     font-weight: 300;
 
     span {
@@ -42,7 +81,7 @@ margin-bottom: 25px; */
 
 .freelancer-row {
   width: inherit;
-  margin-top: 90px;
+  margin-top: 50px;
 }
 
 .list-page-container {
@@ -120,56 +159,12 @@ justify-content: center;
   padding-top: 20px;
 }
 
-input[type=date] {
-  height: 35px;
-  margin: 0 auto;
-  width: 100%;
-  font-family: helvetica, sans-serif;
+/* .calendar {
+  font-family: "Montserrat", sans-serif;
   font-size: 14px;
   font-weight: lighten;
-  /* text-transform: uppercase; */
-  background-color: lighten(#2f2f2f,40%);
-  outline: none;
-  border: 0;
-  border-radius: 3px;
-  padding: 0 3px;
-  color: #fff;
-  opacity: 0.5;
 
-  &::-webkit-datetime-edit-month-field {
-    color: red;
-  }
-  &::-webkit-datetime-edit-day-field {
-    color: white;
-  }
-  &::-webkit-datetime-edit-year-field {
-    color: blue;
-  }
-
-  &::-webkit-clear-button {
-    font-size: 18px;
-    height: 30px;
-    position: relative;
-    right: 5px;
-    margin-right: 4px;
-  }
-  &::-webkit-inner-spin-button {
-    height: 30px;
-  }
-  &::-webkit-calendar-picker-indicator {
-    font-size: 18px;
-
-
-    &:hover {
-      background-color: lighten(#2f2f2f,40%);
-      color: darken(#fff, 10%);
-      cursor: pointer;
-    }
-    &:active {
-      color: blue;
-    }
-  }
-}
+} */
 
 
 .f-search-container{
@@ -227,11 +222,6 @@ input[type=date] {
   z-index: 1;
   color: white;
   opacity:1;
-}
-
-.date-input {
-  font-family: "Montserrat", sans-serif;
-  width: 11em;
 }
 
 
