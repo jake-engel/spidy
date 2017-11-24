@@ -10,4 +10,6 @@ class Freelancer < ApplicationRecord
   # Add later when we can figure this out with rails db:seed
   # validates :skills, :length => { :minimum => 1 }
   # validates :experiences, :length => { :minimum => 1 }
+
+  scope :job_title, -> (position) { where("position like ?", "%#{position}%")}
 end
