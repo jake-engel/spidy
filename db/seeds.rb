@@ -10,7 +10,13 @@ User.destroy_all
     password: 'password',
     email: Faker::Internet.email,
     phone_number: Faker::PhoneNumber.cell_phone,
-    location: ["Amsterdam", "Amsterdam Centraal, Stationsplein, Amsterdam, Netherlands", "Westerstraat, Amsterdam, Netherlands"].sample,
+    location: ["Amsterdam", "Amsterdam Centraal, Stationsplein, Amsterdam, Netherlands",
+      "Westerstraat, Amsterdam, Netherlands", "Borssenburgplein 11#{(0..9).to_a.sample}, Amsterdam",
+      "Jisperveldstraat 11#{(0..9).to_a.sample}, Amsterdam", "Argonautenstraat 16#{(0..9).to_a.sample}, Amsterdam",
+      "Van Woustraat 2#{(0..9).to_a.sample}, Amsterdam", "Molukkenstraat 2#{(0..9).to_a.sample}, Amsterdam",
+      "Radarweg 18#{(0..9).to_a.sample}, Amsterdam", "A-Lab, Amsterdam",
+      "Red Light Secrets, Amsterdam", "Body Worlds, Amsterdam", "Sexmuseum, Amsterdam",
+      "Vinkenstraat #{(0..80).to_a.sample}, Amsterdam", "Nicolaas Maesstraat #{(0..150).to_a.sample}"].sample,
     has_freelancer: true
     )
 end
@@ -20,7 +26,7 @@ iter = 0
 
 20.times do
   freelancer = Freelancer.new(
-    position: Faker::Job.title,
+    position: ["Painter", "Cook", "Photographer", "Coach", "Fitness Instructor", "Masseus", "Plumber", "Gardner"].sample,
     hourly_pay: (0..100).to_a.sample,
     summary: Faker::Company.catch_phrase,
     )

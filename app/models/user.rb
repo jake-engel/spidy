@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_one :freelancer, dependent: :destroy
 
+  validates :first_name, :last_name, :email, :encrypted_password, presence: true
+
   devise :omniauthable, omniauth_providers: [:facebook]
 
   geocoded_by :location
