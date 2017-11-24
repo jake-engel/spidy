@@ -26,7 +26,7 @@ iter = 0
 
 20.times do
   freelancer = Freelancer.new(
-    position: ["Painter", "Cook", "Photographer", "Coach", "Fitness Instructor", "Masseus", "Plumber", "Gardner"].sample,
+    position: ["Painter", "Chef", "Photographer", "Coach", "Fitness Instructor", "Masseus", "Plumber", "Gardener"].sample,
     hourly_pay: (0..100).to_a.sample,
     summary: Faker::Company.catch_phrase,
     )
