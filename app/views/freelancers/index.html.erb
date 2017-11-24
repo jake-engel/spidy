@@ -4,26 +4,29 @@
       <div class="f-banner-content">
         <h1>spidy</h1>
         <h8>Find nearby freelancer professionals<br>to solve your problems.</h8>
-        <div class="f-search-box">
-          <div class="f-search-container">
-            <span class="icon"><i class="fa fa-search"></i></span>
-            <input type="f-search" class="f-search-bar" id="f-search" placeholder="What are you looking for?" />
-          </div>
-        </div>
 
         <form id="home-map-search">
+        <div class="f-search-box">
+          <div class="f-search-container">
+            <input type="text" class="f-search-bar" name="job_title" id="f-search" placeholder="What are you looking for?" />
+            <span class="icon"><i class="fa fa-search"></i></span>
+          </div>
+        </div>
           <div class="f-search-container">
             <input type="text" name="city" onfocus="geolocate()" id="home-search-bar" class="f-search-bar" placeholder="Where are you looking for?" />
-            <span class="icon" type="submit" id="home-search-map-submit"><i class="fa fa-map-marker"></i></span>
+            <span class="icon" id="home-search-map-submit"><i class="fa fa-map-marker"></i></span>
           </div>
+          <br>
+          <input type="submit" class="btn btn-primary" value="Search" />
         </form>
+
 
         <div>
           <div class="f-date-box">
            <form>
             <div class="f-search-container">
               <span class="icon"><i class="fa fa-calendar"></i></span>
-              <input type="date" class="f-search-bar" id="f-search" placeholder="What are you looking for?" />
+              <input type="date" class="f-search-bar" id="f-search" placeholder="When are you looking for?" />
             </div>
           </form>
         </div>
@@ -44,11 +47,12 @@
         <div class="maps-search-box">
           <div class="search-container">
             <div class="inline-text">
-             <h2><span><i class="fa fa-rocket"></i> NUMBER OR PROFESSIONALS</span> FOUND IN YOUR AREA</h2>
+             <h2><span><i class="fa fa-rocket"></i>  <%= @freelancerCount %> PROFESSIONALS</span> FOUND IN YOUR AREA</h2>
            </div>
          </div>
          <div class="line-list"></div>
        </div>
+
    </div>
 
    <div class="freelancer-row">
