@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171122121618) do
+ActiveRecord::Schema.define(version: 20171124144837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 20171122121618) do
     t.string "first_name"
     t.string "last_name"
     t.string "phone_number"
-    t.string "photo", default: "https://developer.appway.com/filesystem/d6912741f1280a6128b983842c487477225fc90a34614d857290b935c8c2e54a736ac48da2a39d13db50853310e7a9807e5611b45cc9e299/avatar.svg"
+    t.string "photo", default: "http://www.vritansh.com/wp-content/uploads/2017/10/placeholder-avatar.png"
     t.string "location", default: "Amsterdam"
     t.boolean "admin", default: false, null: false
     t.boolean "has_freelancer", default: false, null: false
