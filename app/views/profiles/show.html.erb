@@ -23,7 +23,7 @@
         </p>
 
         <% if current_user == @profile %>
-        <%= link_to edit_user_registration_path do %>
+        <%= link_to edit_profile_path(@profile) do %>
         <i class="fa fa-pencil-square-o"></i> <%= t(".edit", default: "Edit Profile") %>
         <% end %>
         <% end %>
