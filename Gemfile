@@ -14,6 +14,7 @@ gem 'omniauth-facebook'
 gem "cocoon"
 gem "pundit"
 gem 'cloudinary'
+gem 'carrierwave', '~> 0.11.2'
 
 gem 'devise'
 gem 'figaro'
