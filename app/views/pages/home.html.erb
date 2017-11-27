@@ -43,11 +43,12 @@
 
 <div class="maps-wrapper">
   <div class="home-page-container">
+    <a name="home-map-anchor"></a>
     <div class="maps" id="home-map"></div>
     <div class="maps-search-box">
       <div class="search-container">
 
-        <form id="home-map-search">
+        <form id="home-map-search" action="#home-map-anchor">
           <input type="text" name="city" onfocus="geolocate()" id="home-search-bar" class="search-bar" placeholder="Where are you looking for?" />
           <span class="icon" type="submit" id="home-search-map-submit"><i class="fa fa-search"></i></span>
         </form>

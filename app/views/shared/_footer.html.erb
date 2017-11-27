@@ -1,5 +1,6 @@
 <div class="footer-wrapper">
 
+<div class="footer-top">
 <div class="footer-container">
   <ul>
   <h3><strong>Spidy</strong></h3>
@@ -12,6 +13,29 @@
   </ul>
 </div>
 
+<div class="continer-language-and-badge">
+<div class="language">
+  <dropdown>
+  <input id="toggle2" type="checkbox">
+  <label for="toggle2" class="animate">Language</label>
+  <ul class="animate">
+    <li class="animate">English</li>
+  </ul>
+</dropdown>
+</div>
+
+    <div class="badge-container">
+        <a class="app-store-button" href="#">
+            <img width="100%" src="http://svgshare.com/i/2xo.svg">
+        </a>
+        <a class="google-play-button" href="#">
+            <img width="100%" src="http://svgshare.com/i/2yX.svg">
+        </a>
+    </div>
+    </div>
+</div>
+
+
 <div class="footer">
     <div class="spidy-logo-footer">
     <%= cl_image_tag("Spidy/spidy-logo.svg", :quality=>100, :crop=>"scale") %>
@@ -20,7 +44,9 @@
     Terms
     Privacy
     Sitemap
-  </div>
+   </div>
+   </div>
+
   <div class="footer-links">
     <%= link_to "https://www.facebook.com/#{ current_user.uid if user_signed_in? }" do %>
       <i class="fa fa-facebook"></i>
