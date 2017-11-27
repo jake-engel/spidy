@@ -2,21 +2,27 @@ class FreelancersController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
 
   def index
-    location = params[:city] || "Amsterdam"
+    @location = params[:city] || "Amsterdam"
     # range = params[:distance] || 10
-    coordinates = Geocoder.search(location)[0].data["geometry"]["location"]
+    coordinates = Geocoder.search(@location)[0].data["geometry"]["location"]
     @lat = coordinates["lat"]
     @lng = coordinates["lng"]
 
     @mapFreelancers = Freelancer.where(nil)
     filtering_params(params).each do |key, value|
       value.capitalize!
+      @value = value
       @mapFreelancers = @mapFreelancers.public_send(key, value) if value.present?
     end
 
     # @mapFreelancers = Freelancer.all
     # near(location, 50)
     @freelancerCount = @mapFreelancers.count
+    if @freelancerCount == 1
+      @freelancerWord = "PROFESSIONAL"
+    else
+      @freelancerWord= "PROFESSIONALS"
+    end
 
     @list = Gmaps4rails.build_markers(@mapFreelancers) do |worker, marker|
       if worker.user.facebook_picture_url.nil?
