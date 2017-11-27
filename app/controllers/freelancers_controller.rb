@@ -17,7 +17,7 @@ class FreelancersController < ApplicationController
 
     # @mapFreelancers = Freelancer.all
     # near(location, 50)
-    @freelancerCount = @mapFreelancers.count
+    @freelancerCount = @mapFreelancers.size
     if @freelancerCount == 1
       @freelancerWord = "PROFESSIONAL"
     else
