@@ -1,15 +1,34 @@
+require 'open-uri'
+
 Skill.destroy_all
 Experience.destroy_all
 Freelancer.destroy_all
 User.destroy_all
 
-30.times do
-  user = User.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
+num_users = 1
+random_person_url_nl = "https://randomuser.me/api/?results=#{num_users}&nat=nl"
+random_person_url_us = "https://randomuser.me/api/?results=#{num_users}&nat=us"
+
+rand_users_nl = JSON.parse(open(random_person_url_nl).string)["results"]
+rand_users_nl.each do |rand_user|
+  User.create(
+    first_name: rand_user["name"]["first"],
+    last_name: rand_user["name"]["last"],
     password: 'password',
-    email: Faker::Internet.email,
-    phone_number: Faker::PhoneNumber.cell_phone,
+    email: , "#{rand_user["name"]["first"]}.#{rand_user["name"]["last"]}@gmail.com"
+    phone_number: "+31#{rand_user["cell"]}",
+    location: "#{rand_user["location"]["street"]}, #{rand_user["location"]["city"]}",
+      has_freelancer: true
+    )
+end
+rand_users_nl = JSON.parse(open(random_person_url_us).string)["results"]
+rand_users_us.each do |rand_user|
+  User.create(
+    first_name: rand_user["name"]["first"],
+    last_name: rand_user["name"]["last"],
+    password: 'password',
+    email: , "#{rand_user["name"]["first"]}.#{rand_user["name"]["last"]}@gmail.com"
+    phone_number: "+1#{rand_user["cell"]}",
     location: ["Amsterdam", "Amsterdam Centraal, Stationsplein, Amsterdam, Netherlands",
       "Westerstraat, Amsterdam, Netherlands", "Borssenburgplein 11#{(0..9).to_a.sample}, Amsterdam",
       "Jisperveldstraat 11#{(0..9).to_a.sample}, Amsterdam", "Argonautenstraat 16#{(0..9).to_a.sample}, Amsterdam",
@@ -17,14 +36,14 @@ User.destroy_all
       "Radarweg 18#{(0..9).to_a.sample}, Amsterdam", "A-Lab, Amsterdam",
       "Red Light Secrets, Amsterdam", "Body Worlds, Amsterdam", "Sexmuseum, Amsterdam",
       "Vinkenstraat #{(0..80).to_a.sample}, Amsterdam", "Nicolaas Maesstraat #{(0..150).to_a.sample}"].sample,
-    has_freelancer: true
+      has_freelancer: true
     )
 end
 
-users = User.all.sample(20)
+users = User.all.sample(num_users)
 iter = 0
 
-20.times do
+1.times do
   freelancer = Freelancer.new(
     position: ["Painter", "Chef", "Photographer", "Coach", "Fitness Instructor", "Masseus", "Plumber", "Gardener"].sample,
     hourly_pay: (0..100).to_a.sample,
