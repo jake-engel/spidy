@@ -85,10 +85,10 @@ repeats.times.with_index do |index|
   end
 end
 
-users = User.all.sample(num_users * repeats)
+users = User.all.sample(num_users * repeats + 20)
 iter = 0
 
-(num_users * repeats).times do
+(num_users * repeats + 20).times do
   freelancer = Freelancer.new(
     position: ["Painter", "Photographer", "Plumber", "Event Planner"].sample,
     hourly_pay: (10..45).to_a.sample,
