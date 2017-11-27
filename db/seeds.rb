@@ -5,8 +5,8 @@ Experience.destroy_all
 Freelancer.destroy_all
 User.destroy_all
 
-num_users = 4
-repeats = 1
+num_users = 6
+repeats = 2
 repeats.times.with_index do |index|
   puts "Repeat ##{index + 1}"
   random_person_url_nl = "https://randomuser.me/api/?results=#{num_users}&nat=nl"
@@ -14,8 +14,9 @@ repeats.times.with_index do |index|
   random_person_url_gb = "https://randomuser.me/api/?results=#{num_users}&nat=gb"
   random_person_url_fr = "https://randomuser.me/api/?results=#{num_users}&nat=fr"
 
+  puts "Creating NL users"
   rand_users_nl = JSON.parse(open(random_person_url_nl).string)["results"]
-  rand_users_nl.each_with_index do |rand_user, index|
+  rand_users_nl.each_with_index do |rand_user, index2|
     User.create(
       first_name: rand_user["name"]["first"].capitalize,
       last_name: rand_user["name"]["last"].capitalize,
@@ -33,14 +34,14 @@ repeats.times.with_index do |index|
         "Zeedijk, Amsterdam", "The-DM Studios, Amsterdam", "Warmoesstraat, Amsterdam",
         "Barndesteeg, Amsterdam", "Koestraat, Amsterdam", "Nieuwe Uilenburgerstraat, Amsterdam",
         "Czaar Peterbuurt, Amsterdam", "Haarlemmerbuurt, Amsterdam", "Dam 9, Amsterdam"].sample,
-      has_freelancer: true,
-      photo: rand_user["picture"]["large"]
-      )
-    puts "Creating NL User ##{index + 1}"
+        has_freelancer: true,
+        photo: rand_user["picture"]["large"]
+        )
   end
 
+  puts "Creating US users"
   rand_users_us = JSON.parse(open(random_person_url_us).string)["results"]
-  rand_users_us.each_with_index do |rand_user, index|
+  rand_users_us.each_with_index do |rand_user, index2|
     User.create(
       first_name: rand_user["name"]["first"].capitalize,
       last_name: rand_user["name"]["last"].capitalize,
@@ -51,11 +52,11 @@ repeats.times.with_index do |index|
       has_freelancer: true,
       photo: rand_user["picture"]["large"]
       )
-    puts "Creating US User ##{index + 1}"
   end
 
+  puts "Creating GB users"
   rand_users_gb = JSON.parse(open(random_person_url_gb).string)["results"]
-  rand_users_gb.each_with_index do |rand_user|
+  rand_users_gb.each_with_index do |rand_user, index2|
     User.create(
       first_name: rand_user["name"]["first"].capitalize,
       last_name: rand_user["name"]["last"].capitalize,
@@ -66,11 +67,11 @@ repeats.times.with_index do |index|
       has_freelancer: true,
       photo: rand_user["picture"]["large"]
       )
-    puts "Creating GB User ##{index + 1}"
   end
 
+  puts "Creating FR users"
   rand_users_fr = JSON.parse(open(random_person_url_fr).string)["results"]
-  rand_users_fr.each do |rand_user|
+  rand_users_fr.each do |rand_user, index2|
     User.create(
       first_name: rand_user["name"]["first"].capitalize,
       last_name: rand_user["name"]["last"].capitalize,
@@ -81,17 +82,15 @@ repeats.times.with_index do |index|
       has_freelancer: true,
       photo: rand_user["picture"]["large"]
       )
-    puts "Creating FR User ##{index + 1}"
   end
 end
 
-users = User.all.sample(num_users * repeats + 30)
+users = User.all.sample(num_users * repeats + 20)
 iter = 0
 
-(num_users * repeats + 30).times do
+(num_users * repeats + 20).times do
   freelancer = Freelancer.new(
-    position: ["Painter", "Chef", "Photographer", "Coach", "Fitness Instructor",
-     "Masseus", "Plumber", "Gardener", "Event Planner"].sample,
+    position: ["Painter", "Photographer", "Plumber", "Event Planner"].sample,
     hourly_pay: (10..45).to_a.sample,
     summary: "#{Faker::Company.catch_phrase}. #{Faker::Company.catch_phrase}.",
     )
@@ -100,23 +99,101 @@ iter = 0
   freelancer.user.has_freelancer = true
   freelancer.user.save!
   freelancer.save!
-  5.times do
+
+  (3..7).to_a.sample.times do
     skill = Skill.new(
       name: Faker::Job.key_skill,
       )
     skill.freelancer = freelancer
     skill.save!
+  end
+
+  (3..7).to_a.sample.times do
+    case users[iter].freelancer.position
+    when "Painter"
+      company = ["Benjamin Moore", "Sherwin-Williams", "Valspar Paint", "Behr", "Dutch Boy",
+        "Royal Paint", "Clark + Kensington", "Glidden", "Paint Platoon", "Painters USA", "AAA Painting",
+        "Painters-Online", "Chicago Paint Pros", "USA Painting"].sample
+      title = ["Exterior Painter", "Interior Painter", "Industrial Painter", "Home Painter",
+         "Bridge Painter", "Maintenence Painter, Plant", "Painter-decorator", "Roof Painter"].sample
+      desc = ["Reading blueprints/instructions and examining surfaces to determine the kind and
+              amount of work necessary.", "Making on-site preparations such as building scaffolding,
+              covering fixtures etc.", "Preparing walls and other surfaces for painting by scraping,
+              using sandpaper, removing old paint etc.", "Fill cracks and holes with appropriate material (e.g. plaster).",
+              "Mix paint and other materials to prepare the right color or texture.", "Paint surfaces according to instructions with various tools.",
+              "Apply varnish and other finishes.", "Calculate costs and negotiate prices.",
+              "Take and adhere to all health and safety precautions.", "Maintain logs of Volatile Organic Compound
+              and spray volume", "Determine, cut and apply wallpaper or fabric to walls.", "Remove previous paint by
+              means of sandblasting, scraping, sanding, hydro-blasting and steam-cleaning."].sample
+    when "Photographer"
+      company = ["Pinterest", "AgfaPhoto", "Art Chick Photography", "Boots UK", "Canon",
+          "Photobucket", "Photography Life", "Picture Pub", "Picture People", "Image Shack",
+          "Selfies to Selfies", "USA Pictures", "Photography Blog", "Picture Stitch", "Picture Salon"].sample
+      title = ["Wedding Photographer", "Freelance Photographer", "Magazine Cover Photographer",
+        "Movie Photographer", "Chief Photographer", "Forensic Photographer", "News Photographer",
+        "Photojournalist", "Scientific Photographer", "Street Photographer", "Still Photographer",
+        "Events Photographer", "Medical Photographer", "Multimedia Photographer"].sample
+      desc = ["Working with clients to discuss the images they require and how they want to use them.",
+        "Seeking out appropriate photographic subjects and opportunities.", "Working in different locations
+        and circumstances to get the right image.", "Managing the processing and use of images, discussing
+        technical problems, checking for quality and dealing with clients' concerns.", "Understanding traditional film and
+        digital photography and keeping up to date with industry trends, developments and new techniques.",
+        "Developing expertise with software to digitally enhance images by, for example, changing emphasis, cropping pictures,
+        correcting minor faults or moving objects around.", "Developing a good portfolio, building a network of contacts
+        and achieving a reputation for quality and reliability in order to secure future assignments.",
+        "Preparing proofs for approval.", "Communicating with photographic subjects, putting them at ease,
+        encouraging them and directing them.", "Compiling finished products for sale, such as albums and framed prints."].sample
+    when "Plumber"
+      company = ["Plumbers Stock", "Plumber Magazine", "Plumber.ca", "Ferguson", "Watsco",
+            "Winsupply", "Johnstone Solutions", "Interline Brands", "HVAC", "F.W. Webb",
+            "Plumbing Zone", "Plumbing Supply Now", "Pmmag", "Plumbers Crib", "USA Plumbing"].sample
+      title = ["Apprentice Plumber", "Maintenance and Repair Plumber", "Maintenance and Repair Plumber (Insdustry)",
+        "Pipefitter", "Plumbing Mechanic", "Master Plumber", "Radiator Plumber", "Residential Construction Plumber",
+        "Journeyman Plumber", "Plumbing Installer", "Marine Plumber", "Residential Plumber"].sample
+      desc = ["Assemble pipe sections, tubing and fittings, using couplings, clamps, screws, bolts, cement, plastic solvent,
+        caulking, or soldering, brazing and welding equipment.", "Fill pipes or plumbing fixtures with water or air and observe
+        pressure gauges to detect and locate leaks.", "Review blueprints and building codes and specifications to determine work
+        details and procedures.", "Prepare written work cost estimates and negotiate contracts.",
+        "Study building plans and inspect structures to assess material and equipment needs, to establish the sequence of pipe installations,
+        and to plan installation around obstructions such as electrical wiring.", "Keep records of assignments and produce detailed work reports.",
+        "Perform complex calculations and planning for special or very large jobs.",
+        "Locate and mark the position of pipe installations, connections, passage holes, and fixtures in structures,
+        using measuring instruments such as rulers and levels.", "Measure, cut, thread, and bend pipe to required angle, using hand and power tools or
+        machines such as pipe cutters, pipe-threading machines, and pipe-bending machines.",
+        "Install pipe assemblies, fittings, valves, appliances such as dishwashers and water heaters, and fixtures such as sinks and toilets,
+        using hand and power tools.", "Repair and maintain plumbing, replacing defective washers, replacing or mending broken pipes,
+        and opening clogged drains.", "Direct workers engaged in pipe cutting and preassembly and
+        installation of plumbing systems and components."].sample
+    when "Event Planner"
+      company = ["Bassett Events", "MKG", "Colin Cowie", "David Tutera", "EventBrite",
+              "Eventful", "Rafanelli Events", "Eventive", "Eventvods", "BizBash", "Meetingsnet",
+              "Special Events", "Catersource"].sample
+      title = ["Meeting Planner", "Activities and Events Planner", "Meeting and Event Planner",
+        "Event Operations Manager", "Conference Planner", "Association Event Planner",
+        "Event Planner/Analyst", "Exhibition Coordinator", "Special Events Planner",
+        "Convention Planner", "Legal Marketing and Events Planner", "Senior Event Planner",
+        "Field Events Manager", "Event Coordinator"].sample
+      desc = ["Event planning, design and production within time limits.", "Working with clients to identify
+        their needs and ensure customer satisfaction.", "Organizing facilities and details such as decor, catering, entertainment, transportation, location,
+        invitee list, special guests, equipment, promotional material etc.", "Propose ideas to improve provided services and event quality.",
+        "Liaise with clients to identify their needs and to ensure customer satisfaction.", "Cooperate with marketing and PR to promote and publicize event.",
+        "Proactively handle any arising issues and troubleshoot any emerging problems on the event day.", "Ensure compliance with insurance, legal, health and safety obligations.",
+        "Research market, identify event opportunities and generate interest.", "Specify staff requirements and coordinate their activities.",
+        "Event planning, design and production while managing all project delivery elements within time limits.",
+        "Conduct market research, gather information and negotiate contracts prior to closing any deals."].sample
+    end
 
     experience = Experience.new(
-      title: Faker::Job.title,
-      company: Faker::Company.name,
-      location: "#{Faker::Address.city} #{Faker::Address.state_abbr}",
-      starting_date: Faker::Date.between((3..7).to_a.sample.years.ago, (1..3).to_a.sample.years.ago),
-      ending_date: Faker::Date.between(Date.today, (1..8).to_a.months.ago),
-      description: Faker::Company.catch_phrase
-      )
-    experience.freelancer = freelancer
-    experience.save!
+        title: title,
+        company: company,
+        location: "#{Faker::Address.city} #{Faker::Address.state_abbr}",
+        starting_date: Faker::Date.between((3..5).to_a.sample.years.ago, (5..10).to_a.sample.years.ago),
+        ending_date: Faker::Date.between((1..3).to_a.sample.years.ago, Date.today),
+        description: desc,
+        picture: "http://logo.clearbit.com/#{company.split(" ").join("")}.com?size=40"
+        )
+      experience.freelancer = freelancer
+      experience.save!
   end
   iter += 1
 end
