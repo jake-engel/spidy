@@ -17,6 +17,11 @@ class FreelancersController < ApplicationController
     # @mapFreelancers = Freelancer.all
     # near(location, 50)
     @freelancerCount = @mapFreelancers.count
+    if @freelancerCount == 1
+      @freelancerWord = "PROFESSIONAL"
+    else
+      @freelancerWord= "PROFESSIONALS"
+    end
 
     @list = Gmaps4rails.build_markers(@mapFreelancers) do |worker, marker|
       if worker.user.facebook_picture_url.nil?
