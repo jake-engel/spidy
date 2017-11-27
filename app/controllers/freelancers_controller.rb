@@ -26,7 +26,7 @@ class FreelancersController < ApplicationController
 
     @list = Gmaps4rails.build_markers(@mapFreelancers) do |worker, marker|
       if worker.user.facebook_picture_url.nil?
-        profile_picture = "http://www.vritansh.com/wp-content/uploads/2017/10/placeholder-avatar.png"
+        profile_picture = worker.user.photo
       else
         profile_picture = worker.user.facebook_picture_url
       end
