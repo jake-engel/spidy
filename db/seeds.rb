@@ -48,7 +48,11 @@ repeats.times.with_index do |index|
       password: 'password',
       email: "#{rand_user["name"]["first"]}.#{rand_user["name"]["last"]}@gmail.com",
       phone_number: "+1 #{rand_user["cell"]}",
-      location: "#{rand_user["location"]["city"].capitalize}, #{rand_user["location"]["state"].capitalize}",
+      location: ["Manchester Township, NJ", "West New York, NJ", "Hixson, TN", "Jonesboro, GA",
+       "Hinesville, GA", "Hyattsville, MD", "Woodbridge, VA", "Appleton, WI", "Tullahoma, TN",
+        "Lewiston, ME", "Arlington, MA", "Chicago Heights, IL", "Commack, NY", "Brownsburg, IN",
+        "Loganville, GA", "Fairhope, AL", "Utica, NY", "Los Banos, CA", "Floral Park, NY",
+        "Bismarck, ND", "Port Jefferson Station, NY", "Herndon, VA", "Birmingham, AL", "Addison, IL"].sample,
       has_freelancer: true,
       photo: rand_user["picture"]["large"]
       )
@@ -63,7 +67,12 @@ repeats.times.with_index do |index|
       password: 'password',
       email: "#{rand_user["name"]["first"]}.#{rand_user["name"]["last"]}@gmail.com",
       phone_number: "+44 #{rand_user["cell"]}",
-      location: "#{rand_user["location"]["city"].capitalize}, #{rand_user["location"]["state"].capitalize}",
+      location: ["Spalding, England", "Hever, England", "Usk, England", "Abingdon, England",
+        "Fountains, England", "Hastings, England", "Canderbury, England", "LLawhaden, England",
+        "Darley, England", "Chichester, England", "Ampthill, England", "Bolingbroke, England",
+        "Caister, England", "Hertford, England", "Midurst, England", "Morecambe, England",
+        "Peterborough, England", "Worstead, England", "Wressle, England", "Kirby, England", "Edington, England",
+        "Amersham, England", "Reculver, England", "Stafford, England", "Southampton, England"].sample,
       has_freelancer: true,
       photo: rand_user["picture"]["large"]
       )
@@ -78,7 +87,12 @@ repeats.times.with_index do |index|
       password: 'password',
       email: "#{rand_user["name"]["first"]}.#{rand_user["name"]["last"]}@gmail.com",
       phone_number: "+33 #{rand_user["cell"]}",
-      location: "#{rand_user["location"]["city"].capitalize}, #{rand_user["location"]["state"].capitalize}",
+      location: ["Frigoulet, France", "Francarville, France", "Fronholtz, France", "Robehomme, France",
+        "Bourgnaudin, France", "Mont, France", "Voglans, France", "Chauconin, France",
+        "Bonnieux, France", "Vaudoeuvre, France", "Longeville, France", "Bousseviller, France",
+        "Erre, France", "Migné, France", "Boutancourt, France", "Socoa, France", "Montbert, France",
+        "Xivray, France", "Charbonnier, France", "Mottier, France", "Treyches, France", "Lafaurie, France",
+        "Challain, France", "Houdent, France", "Valeuil"].sample,
       has_freelancer: true,
       photo: rand_user["picture"]["large"]
       )
