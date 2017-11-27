@@ -112,7 +112,7 @@ margin-bottom: 10px;
 .f-banner-mp {
   color: white;
   text-align: left;
-  min-height: 600px;
+  min-height: 800px;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
@@ -142,24 +142,6 @@ position: relative;
 display: flex;
 flex-direction: column;
 justify-content: center;
-}
-
-.btn-treehouse {
-  color: white;
-  padding: 10px 15px;
-  border-radius: 4px;
-  font-weight: bold;
-  background: #6AD58B;
-  transition: background 0.3s ease;
-  position: absolute;
-  right: 10px;
-}
-
-.btn-treehouse:hover {
-  opacity: 1;
-  background: #3ac162;
-  text-decoration: none;
-  color: white;
 }
 
 .f-search-box {
