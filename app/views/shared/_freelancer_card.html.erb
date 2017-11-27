@@ -41,9 +41,11 @@
     </div>
   </div>
 
+
+  <% skills = freelancer.skills.all.sort_by { |skill| skill.name.length}[0..4] %>
   <div class="profile-skills-card">
     <h5><ul style="list-style: none;" class="list-inline">
-      <% freelancer.skills.each do |skill| %>
+      <% skills.each do |skill| %>
       <li><%= skill.name %></li>
       <% end %>
     </ul></h5>
