@@ -5,8 +5,8 @@ Experience.destroy_all
 Freelancer.destroy_all
 User.destroy_all
 
-num_users = 6
-repeats = 2
+num_users = 7
+repeats = 3
 repeats.times.with_index do |index|
   puts "Repeat ##{index + 1}"
   random_person_url_nl = "https://randomuser.me/api/?results=#{num_users}&nat=nl"
@@ -85,13 +85,14 @@ repeats.times.with_index do |index|
   end
 end
 
-users = User.all.sample(num_users * repeats + 20)
+users = User.all.sample(num_users * repeats)
 iter = 0
 
-(num_users * repeats + 20).times do
+(num_users * repeats).times do
   freelancer = Freelancer.new(
     position: ["Painter", "Photographer", "Plumber", "Event Planner"].sample,
     hourly_pay: (10..45).to_a.sample,
+    avg_rating: [2, 2.5, 3, 3.5, 4, 4.5, 5].sample,
     summary: "#{Faker::Company.catch_phrase}. #{Faker::Company.catch_phrase}.",
     )
   user = users[iter]
@@ -99,15 +100,51 @@ iter = 0
   freelancer.user.has_freelancer = true
   freelancer.user.save!
   freelancer.save!
+  (5..500).to_a.sample.times do
+    Offer.create(
+      user: users[rand(User.all.length - 1)],
+      freelancer: freelancer,
+      status: 3,
+      price: (10..50).to_a.sample,
+    )
+  end
 
-  (3..7).to_a.sample.times do
+  puts "Creating Skills"
+  (3..20).to_a.sample.times do
+    skill_rand = ["Able to Listen", "Accept Feedback", "Adaptable", "Artistic Sense", "Assertive", "Attentive",
+      "Business Storytelling", "Business Trend Awareness", "Collaborating", "Communication",
+      "Competitive", "Confident", "Conflict Management", "Conflict Resolution", "Cooperative",
+      "Courteous", "Crisis Management", "Critical Observer", "Critical Thinker", "Customer Service",
+      "Deal Making", "Deal with Difficult Situations", "Deal with Office Politics", "Deals with Difficult People",
+      "Decision Making", "Dedicated", "Delegation", "Dependable", "Design Sense", "Desire to Learn", "Disability Awareness",
+      "Dispute Resolution", "Diversity Awareness", "Effective Communicator", "Emotion Management", "Emotional Intelligence", "Empathetic",
+      "Energetic", "Enthusiastic", "Ergonomic Sensitivity", "Establish Interpersonal Relationships", "Experience Dealing with Difficult Personalities",
+      "Experience", "Facilitating", "Flexible", "Follow Instructions", "Follow Regulations", "Follow Rules", "Friendly",
+      "Functions Well Under Pressure", "Giving Feedback", "Good at Networking", "Good at Storytelling",
+      "Good Attitude", "High Energy", "Highly Organized", "Highly Recommended", "Honest", "Independent",
+      "Persuasive", "Innovator", "Inspiring", "Intercultural Competence", "Interpersonal", "Interviewing",
+      "Knowledge Management", "Leadership", "Listening", "Logical Thinking", "Make Deadlines", "Management",
+      "Managing Difficult Conversations", "Managing Remote Teams", "Managing Virtual Teams", "Meeting Management",
+      "Mentoring", "Motivated", "Motivating", "Multitasking", "Negotiation", "Nonverbal Communication",
+      "Organization", "Patience", "Perform Effectively in a Deadline Environment", "Performance Management",
+      "Perseverance", "Persistence", "Persuasion", "Physical Communication", "Planning", "Positive Work Ethic",
+      "Possess Business Ethics", "Presentation", "Problem Solving", "Process Improvement", "Proper Business Etiquette",
+      "Public Speaking", "Punctual", "Quick-witted", "Read Body Language", "Reliable", "Research", "Resilient",
+      "Resolving Issues", "Respectful", "Respectable", "Results Oriented", "Safety Conscious", "Scheduling",
+      "Self-awareness", "Self-directed", "Self-monitoring", "Self-supervising", "Selling Skills", "Sense of Humor",
+      "Social", "Stay on Task", "Strategic Planning", "Stress Management", "Successful Coach", "Supervising",
+      "Take Criticism", "Talent Management", "Team Building", "Team Player", "Technology Savvy", "Technology Trend Awareness",
+      "Thinks Outside the Box", "Time Management", "Tolerant of Change and Uncertainty", "Train the Trainer", "Trainable", "Training",
+      "Troubleshooter", "Value Education", "Verbal Communication", "Visual Communication", "Well Groomed", "Willing to Accept Feedback",
+      "Willingness to Learn", "Work Well Under Pressure", "Work-Life Balance", "Writing Experience", "Writing Reports and Proposals", "Writing Skills"].sample
     skill = Skill.new(
-      name: Faker::Job.key_skill,
+      name: skill_rand,
       )
     skill.freelancer = freelancer
     skill.save!
   end
 
+  puts "Creating experiences"
   (3..7).to_a.sample.times do
     case users[iter].freelancer.position
     when "Painter"
