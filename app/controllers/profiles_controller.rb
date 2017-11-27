@@ -16,6 +16,11 @@ class ProfilesController < ApplicationController
 
   def update
     @profile.update(profile_params)
+    if @profile.update(restaurant_params)
+      redirect_to profile_path(@profile)
+    else
+      render :edit
+    end
   end
 
   private
