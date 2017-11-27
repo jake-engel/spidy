@@ -3,21 +3,29 @@ class FreelancersController < ApplicationController
 
   def index
     @location = params[:city] || "Amsterdam"
-    # range = params[:distance] || 10
+    @range = params[:distance] || 10
     coordinates = Geocoder.search(@location)[0].data["geometry"]["location"]
     @lat = coordinates["lat"]
     @lng = coordinates["lng"]
 
-    @mapFreelancers = Freelancer.where(nil)
+    freetot = []
+    free = User.near(@location, @range)
+
+    free.each do |worker|
+      freetot << Freelancer.where(user_id: worker.id)[0]
+    end
+
+    freetot.compact!
+
+    @mapFreelancers = Freelancer.where(id: freetot.map(&:id))
+
     filtering_params(params).each do |key, value|
       value.capitalize!
       @value = value
       @mapFreelancers = @mapFreelancers.public_send(key, value) if value.present?
     end
 
-    # @mapFreelancers = Freelancer.all
-    # near(location, 50)
-    @freelancerCount = @mapFreelancers.count
+    @freelancerCount = @mapFreelancers.size
     if @freelancerCount == 1
       @freelancerWord = "PROFESSIONAL"
     else
@@ -30,7 +38,9 @@ class FreelancersController < ApplicationController
       else
         profile_picture = worker.user.facebook_picture_url
       end
+
       star_rating = helpers.render_stars(worker.avg_rating)
+
       user_path = view_context.link_to worker.user.first_name, profile_path(worker.user)
       marker.lat worker.user.latitude
       marker.lng worker.user.longitude
@@ -43,6 +53,7 @@ class FreelancersController < ApplicationController
         #{star_rating}
       </div>"
     end
+
     @freelancers = policy_scope(@mapFreelancers).order(avg_rating: :desc)
   end
 

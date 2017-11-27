@@ -15,6 +15,17 @@
             <span class="icon" id="home-search-map-submit"><i class="fa fa-map-marker"></i></span>
           </div>
           <br>
+            <label for="distance">Range (km) : </label>
+            <select name="distance" style="color: black;" id="search-range">
+              <option value="3">3</option>
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+              <option value="150">50+</option>
+            </select>
+          <br>
+          <br>
           <input type="submit" class="btn btn-primary" value="Search" />
         </form>
     </div>
@@ -73,9 +84,26 @@
         "elementType": "all",
         "stylers": [{"color": "#7dcdcd"}]}]
         var handler = Gmaps.build('Google');
+        let zoomAmount = 20;
+        const range = <%= @range %>
+        if (range == 3) {
+          zoomAmount = 14;
+        } else if (range == 5) {
+          zoomAmount = 13;
+        } else if (range == 10) {
+          zoomAmount = 12;
+        } else if (range == 25) {
+          zoomAmount = 11;
+        } else if (range == 50) {
+          zoomAmount = 10;
+        } else if (range == 150) {
+          zoomAmount = 8.5;
+        } else {
+          zoomAmount = 13;
+        }
         handler.buildMap({ internal: { id: 'freelancer-index-map' },
                            provider: {
-                            zoom: 13,
+                            zoom: zoomAmount,
                             center: new google.maps.LatLng(<%= @lat %>, <%= @lng %>),
                             styles: mapStyle
                           }
