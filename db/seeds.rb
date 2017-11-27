@@ -22,7 +22,7 @@ repeats.times.with_index do |index|
       last_name: rand_user["name"]["last"].capitalize,
       password: 'password',
       email: "#{rand_user["name"]["first"]}.#{rand_user["name"]["last"]}@gmail.com",
-      phone_number: "+31#{rand_user["cell"]}",
+      phone_number: "+31 #{rand_user["cell"]}",
       location: ["Westerstraat, Amsterdam, Netherlands", "Borssenburgplein, Amsterdam",
         "Jisperveldstraat, Amsterdam", "Argonautenstraat, Amsterdam", "Rochussenstraat, Amsterdam",
         "Van Woustraat, Amsterdam", "Molukkenstraat, Amsterdam", "Dam Square, Amsterdam",
@@ -47,7 +47,7 @@ repeats.times.with_index do |index|
       last_name: rand_user["name"]["last"].capitalize,
       password: 'password',
       email: "#{rand_user["name"]["first"]}.#{rand_user["name"]["last"]}@gmail.com",
-      phone_number: "+1#{rand_user["cell"]}",
+      phone_number: "+1 #{rand_user["cell"]}",
       location: "#{rand_user["location"]["city"].capitalize}, #{rand_user["location"]["state"].capitalize}",
       has_freelancer: true,
       photo: rand_user["picture"]["large"]
@@ -62,7 +62,7 @@ repeats.times.with_index do |index|
       last_name: rand_user["name"]["last"].capitalize,
       password: 'password',
       email: "#{rand_user["name"]["first"]}.#{rand_user["name"]["last"]}@gmail.com",
-      phone_number: "+1#{rand_user["cell"]}",
+      phone_number: "+44 #{rand_user["cell"]}",
       location: "#{rand_user["location"]["city"].capitalize}, #{rand_user["location"]["state"].capitalize}",
       has_freelancer: true,
       photo: rand_user["picture"]["large"]
@@ -77,7 +77,7 @@ repeats.times.with_index do |index|
       last_name: rand_user["name"]["last"].capitalize,
       password: 'password',
       email: "#{rand_user["name"]["first"]}.#{rand_user["name"]["last"]}@gmail.com",
-      phone_number: "+1#{rand_user["cell"]}",
+      phone_number: "+33 #{rand_user["cell"]}",
       location: "#{rand_user["location"]["city"].capitalize}, #{rand_user["location"]["state"].capitalize}",
       has_freelancer: true,
       photo: rand_user["picture"]["large"]
