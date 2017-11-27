@@ -1,19 +1,139 @@
-.signup-container {
-  height: calc(100% - 70px);
-  margin-bottom: 5vh;
-  min-height: calc(95vh - 70px);
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700');
+*:focus {
+  outline: none;
+}
+
+.left-login {
+  padding: 40px;
+  border-left: 6px $spidy-green solid;
+}
+
+
+.left-login h1[class="text-center"] {
+   margin: 0 0 50px 0;
+   font-weight: 600;
+   color: $spidy-green;
+   text-align: center;
+   font-size: 30px;
+ }
+
+.container-login {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.signup-card {
-  width: 55vw;
-  height: 80vh;
-  background-color: $white;
-  margin: 15px;
-  border-radius: 2px;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
-  position: absolute;
-  padding: 20px;
+.login-box {
+  width: 1000px;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+
+}
+
+.social-login {
+  width: 50%;
+  padding: 10px;
+  background-color: #79C8A1;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0 2px 2px 0;
+  /* box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2) */
+}
+
+.normal-login {
+  width: 50%;
+  background-color: white;
+  /* box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2) */
+}
+
+.facebook_button {
+  text-align: center;
+  margin: auto;
+}
+
+.banner {
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  height: 75vh;
+}
+
+.btn-facebook {
+  margin-top: 30px;
+  width: 100%;
+  font-weight: 400;
+
+}
+
+.social {
+  border-top: 1px solid gray;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* .registration-form .btn-default {
+  background-color: $spidy-green;
+  border: 0px;
+  width: 100%;
+} */
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+   display: block;
+   box-sizing: border-box;
+   margin-bottom: 20px;
+   padding: 4px;
+   width: 100%;
+   height: 50px;
+   border: none;
+   border-bottom: 1px $spidy-green solid;
+   // font-family: 'Raleway', sans-serif;
+   font-weight: 400;
+   font-size: 15px;
+   transition: 0.2s ease;
+ }
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+  border-bottom: 3px solid $spidy-green;
+  color: #16a085;
+  transition: 0.2s ease;
+}
+
+input[type="submit"] {
+  margin-top: 30px;
+  margin-bottom: 25px;
+  width: 100%;
+  height: 50px;
+  background: #16a085;
+  border: none;
+  /* border-radius: 2px; */
+  color: #FFF;
+  /* font-family: 'Raleway', sans-serif; */
+  font-weight: 400;
+  /* text-transform: uppercase; */
+  font-size: 20px;
+  transition: 0.1s ease;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  opacity: 0.8;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); */
+  transition: 0.1s ease;
+}
+
+input[type="submit"]:active {
+  opacity: 1;
+  /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4); */
+  transition: 0.1s ease;
+}
+
+label {
+  color: gray;
+  font-weight: 500;
 }

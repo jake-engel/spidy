@@ -14,6 +14,7 @@ gem 'omniauth-facebook'
 gem "cocoon"
 gem "pundit"
 gem 'cloudinary'
+gem "bourbon"
 
 gem 'devise'
 gem 'figaro'

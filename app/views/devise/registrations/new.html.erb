@@ -1,8 +1,9 @@
-<div class="signup-banner">
-    <div class="container-signup">
-      <div class="signup-box">
-        <div class="normal-signup">
-          <div class="left-signup">
+<body>
+  <div class="signup-banner">
+    <div class="container-login">
+      <div class="login-box">
+        <div class="normal-login">
+          <div class="left-login">
             <h1 class="text-center">Sign up</h1>
             <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= devise_error_messages! %>
@@ -16,18 +17,18 @@
               <%= f.button :submit, "Sign up" %>
             </div>
 
+            <div class="social">
+
+              <div class="facebook_button">
+                <%= render 'shared/facebook_login'%>
+              </div>
+
+              <% end %>
+            </div>
           </div>
-        </div>
-        <div class="social-signup">
-         <div class="right-signup">
-          <h1 class="r-signup-text">Sign up with</h1>
-          <div class="facebook_button">
-            <%= render 'shared/facebook_login'%>
-          </div>
-          <% end %>
         </div>
       </div>
-
     </div>
   </div>
 </div>
+</body>
