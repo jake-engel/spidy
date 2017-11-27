@@ -5,8 +5,8 @@ Experience.destroy_all
 Freelancer.destroy_all
 User.destroy_all
 
-num_users = 6
-repeats = 2
+num_users = 7
+repeats = 3
 repeats.times.with_index do |index|
   puts "Repeat ##{index + 1}"
   random_person_url_nl = "https://randomuser.me/api/?results=#{num_users}&nat=nl"
