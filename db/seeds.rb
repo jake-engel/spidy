@@ -190,7 +190,7 @@ iter = 0
         starting_date: Faker::Date.between((3..5).to_a.sample.years.ago, (5..10).to_a.sample.years.ago),
         ending_date: Faker::Date.between((1..3).to_a.sample.years.ago, Date.today),
         description: desc,
-        picture: "http://logo.clearbit.com/#{company.split(" ").join("")}.com?size=40"
+        picture: "http://logo.clearbit.com/#{company.split(" ").join("")}.com"
         )
       experience.freelancer = freelancer
       experience.save!
