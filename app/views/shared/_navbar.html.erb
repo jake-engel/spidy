@@ -2,7 +2,7 @@
   <!-- Logo -->
   <div class="logos">
     <%= link_to root_path, class: "navbar-spidy-brand" do %>
-    <%= image_tag "spidy-logo.svg" %>
+      <%= cl_image_tag("Spidy/spidy-logo.svg", :quality=>100, :width=>70, :crop=>"scale") %>
     <% end %>
   </div>
 

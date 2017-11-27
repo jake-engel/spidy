@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
 
   def show
     if @profile.facebook_picture_url.nil?
-      @profile_picture = "avatar.svg"
+      @profile_picture = @profile.photo
     else
       url_temp = @profile.facebook_picture_url[0..-7]
       @profile_picture = "#{url_temp}large"

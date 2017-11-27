@@ -2,25 +2,31 @@ class FreelancersController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
 
   def index
-    location = params[:city] || "Amsterdam"
+    @location = params[:city] || "Amsterdam"
     # range = params[:distance] || 10
-    coordinates = Geocoder.search(location)[0].data["geometry"]["location"]
+    coordinates = Geocoder.search(@location)[0].data["geometry"]["location"]
     @lat = coordinates["lat"]
     @lng = coordinates["lng"]
 
     @mapFreelancers = Freelancer.where(nil)
     filtering_params(params).each do |key, value|
       value.capitalize!
+      @value = value
       @mapFreelancers = @mapFreelancers.public_send(key, value) if value.present?
     end
 
     # @mapFreelancers = Freelancer.all
     # near(location, 50)
     @freelancerCount = @mapFreelancers.count
+    if @freelancerCount == 1
+      @freelancerWord = "PROFESSIONAL"
+    else
+      @freelancerWord= "PROFESSIONALS"
+    end
 
     @list = Gmaps4rails.build_markers(@mapFreelancers) do |worker, marker|
       if worker.user.facebook_picture_url.nil?
-        profile_picture = "http://www.vritansh.com/wp-content/uploads/2017/10/placeholder-avatar.png"
+        profile_picture = worker.user.photo
       else
         profile_picture = worker.user.facebook_picture_url
       end
@@ -37,7 +43,7 @@ class FreelancersController < ApplicationController
         #{star_rating}
       </div>"
     end
-    @freelancers = policy_scope(@mapFreelancers).order(created_at: :desc)
+    @freelancers = policy_scope(@mapFreelancers).order(avg_rating: :desc)
   end
 
   def new
@@ -64,7 +70,7 @@ class FreelancersController < ApplicationController
   def freelancer_params
     params.require(:freelancer).permit(:position, :currency, :hourly_pay, :summary,
       skills_attributes: [ :id, :name, :destroy ],
-      experiences_attributes: [ :id, :title, :company, :location, :description, :destroy, :starting_date, :ending_date ])
+      experiences_attributes: [ :id, :title, :company, :location, :description, :destroy, :starting_date, :ending_date, :photo, :photo_cache])
   end
 
   def filtering_params(params)
