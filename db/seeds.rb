@@ -100,7 +100,7 @@ iter = 0
   freelancer.user.has_freelancer = true
   freelancer.user.save!
   freelancer.save!
-  (5..500).to_a.sample.times do
+  (5..50).to_a.sample.times do
     Offer.create(
       user: users[rand(User.all.length - 1)],
       freelancer: freelancer,
