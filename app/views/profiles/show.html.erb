@@ -30,7 +30,6 @@
 
 
         <div class="pay-rate">
-
           <h3 style="font-size: 30px; font-weight: 700; margin: 2px"><%= @profile.freelancer.currency %><%= @profile.freelancer.hourly_pay.to_f.round(2) %></h3><p style="font-size: 20px; font-weight: 500; margin: 2px;">Hourly rate</p>
           <% if policy(Offer.new(freelancer: @profile.freelancer)).new? && user_signed_in? %>
             <%= link_to new_freelancer_offer_path(@profile.freelancer) do %>
