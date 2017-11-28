@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
 
   def update
     @profile.update(profile_params)
-    if @profile.update(restaurant_params)
+    if @profile.update(profile_params)
       redirect_to profile_path(@profile)
     else
       render :edit

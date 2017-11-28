@@ -24,7 +24,7 @@
 
         <% if current_user == @profile %>
         <%= link_to edit_profile_path(@profile) do %>
-        <i class="fa fa-pencil-square-o"></i> <%= t(".edit", default: "Edit Profile") %>
+          <i class="fa fa-pencil-square-o"></i> <%= t(".edit", default: "Edit Profile") %>
         <% end %>
         <% end %>
 
@@ -125,7 +125,7 @@
                     <span>Description:</span> <%= experience.description %>
                   </h4>
                 </li>
-                   <%= image_tag experience.picture %>
+                   <%= image_tag experience.picture, class: "img-experience" %>
               </div>
             </ul>
             <% end %>

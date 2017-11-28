@@ -163,7 +163,7 @@ iter = 0
     case users[iter].freelancer.position
     when "Painter"
       company = ["Benjamin Moore", "Sherwin-Williams", "Valspar Paint", "Behr", "Dutch Boy",
-        "Royal Paint", "Clark Kent Contractors", "Glidden", "Paint Platoon", "Painters USA", "AAA Paint Co",
+        "Royal Paint", "Clark Kent Contractors", "Glidden", "Paint Platoon", "Paint Northwest", "Paint Illinois",
         "Painters-Online", "Chicago Paint Pros", "USA Painting Pros"].sample
       title = ["Exterior Painter", "Interior Painter", "Industrial Painter", "Home Painter",
          "Bridge Painter", "Maintenence Painter, Plant", "Painter-decorator", "Roof Painter"].sample
@@ -177,9 +177,9 @@ iter = 0
               and spray volume", "Determine, cut and apply wallpaper or fabric to walls.", "Remove previous paint by
               means of sandblasting, scraping, sanding, hydro-blasting and steam-cleaning."].sample
     when "Photographer"
-      company = ["Pinterest", "AgfaPhoto", "Art Chick Photography", "Boots UK", "Canon",
+      company = ["Pinterest", "AgfaPhoto", "Art Chick Photography", "Boots-UK", "Canon",
           "Photobucket", "Photography Life", "Picture Frames", "Picture People", "Image Shack",
-          "Selfies to Selfless", "USA Pictures", "Photography Blog", "Picture Stitch", "Picture Salon"].sample
+          "Selfies to Selfless", "USA-Pictures", "Photography Blog", "Picture Correct", "Picture Salon"].sample
       title = ["Wedding Photographer", "Freelance Photographer", "Magazine Cover Photographer",
         "Movie Photographer", "Chief Photographer", "Forensic Photographer", "News Photographer",
         "Photojournalist", "Scientific Photographer", "Street Photographer", "Still Photographer",
@@ -196,8 +196,8 @@ iter = 0
         encouraging them and directing them.", "Compiling finished products for sale, such as albums and framed prints."].sample
     when "Plumber"
       company = ["Plumbers Stock", "Plumber Mag", "Plumber.ca", "Ferguson", "Watsco",
-            "Winsupply", "Johnstone Solutions", "Interline Brands", "HVAC", "F.W. Webb",
-            "Plumbing Zone", "Plumbing Supply Now", "Pmmag", "Plumbers Crib", "USA Plumbing"].sample
+            "Winsupply Inc", "Johnstone Solutions", "Construction Dive", "HVAC", "F.W. Webb",
+            "Plumbing Zone", "Plumbing Forums", "PM Mag", "Plumbers Crib", "Plumbers Stock"].sample
       title = ["Apprentice Plumber", "Maintenance and Repair Plumber", "Maintenance and Repair Plumber (Insdustry)",
         "Pipefitter", "Plumbing Mechanic", "Master Plumber", "Radiator Plumber", "Residential Construction Plumber",
         "Journeyman Plumber", "Plumbing Installer", "Marine Plumber", "Residential Plumber"].sample
@@ -216,8 +216,8 @@ iter = 0
         and opening clogged drains.", "Direct workers engaged in pipe cutting and preassembly and
         installation of plumbing systems and components."].sample
     when "Event Planner"
-      company = ["Bassett Events", "MKG", "Colin Cowie", "David Tutera", "EventBrite",
-              "Eventful", "Rafanelli Events", "Eventive", "Eventvods", "BizBash", "Meetingsnet",
+      company = ["Ticketfly", "Ticketmaster", "Planner 5D", "Colin Cowie", "David Tutera", "EventBrite",
+              "Eventful", "Rafanelli Events", "Event Tickets Center", "Eventvods", "BizBash", "Meetingsnet",
               "Special Events", "Catersource"].sample
       title = ["Meeting Planner", "Activities and Events Planner", "Meeting and Event Planner",
         "Event Operations Manager", "Conference Planner", "Association Event Planner",
@@ -241,7 +241,7 @@ iter = 0
         starting_date: Faker::Date.between((3..5).to_a.sample.years.ago, (5..10).to_a.sample.years.ago),
         ending_date: Faker::Date.between((1..3).to_a.sample.years.ago, Date.today),
         description: desc,
-        picture: "http://logo.clearbit.com/#{company.split(" ").join("")}.com?size=75"
+        picture: "http://logo.clearbit.com/#{company.split(" ").join("")}.com"
         )
       experience.freelancer = freelancer
       experience.save!
