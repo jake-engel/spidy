@@ -1,0 +1,7 @@
+# config/meta.yml
+
+meta_product_name: "Spidy"
+meta_title: "Spidy | Find Freelancers Near You"
+meta_description: "Join spidy to find one of the thousand nearby freelancers to help you with your needs."
+meta_image: "spidy-facebook-img.png"         # should exist in `app/assets/images/`
+twitter_account: "@ricknmortymeme"   # required for Twitter Cards
