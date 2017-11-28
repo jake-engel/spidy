@@ -2,7 +2,6 @@ class FreelancersController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
 
   def index
-    # @location = params[:city] || "Amsterdam"
     @location = params[:city]
     @location == "" || @location == nil ? @location = "Amsterdam" : @location = params[:city]
     @range = params[:distance] || 10
@@ -22,9 +21,9 @@ class FreelancersController < ApplicationController
     @mapFreelancers = Freelancer.where(id: freetot.map(&:id))
 
     filtering_params(params).each do |key, value|
-      value = value.split.map(&:capitalize).join(' ')
+      # value = value.split.map(&:capitalize).join(' ')
       @value = value
-      @mapFreelancers = @mapFreelancers.public_send(key, value) if value.present?
+      @mapFreelancers = @mapFreelancers.job_search(value)
     end
 
     @freelancerCount = @mapFreelancers.size
@@ -45,11 +44,6 @@ class FreelancersController < ApplicationController
 
       marker.lat worker.user.latitude
       marker.lng worker.user.longitude
-      # marker.picture({
-      #             :url => "spidy-logo.svg",
-      #             :width   => 32,
-      #             :height  => 32
-      #            })
       marker.infowindow "<div id=\"test\" style=\"width:145px; min-height:160px; background-color:$light-grey;\">
       <h5><b>#{user_path}</b></h5>
         <a href=#{profile_path(worker.user)}><img class=\"avatar\" src=\"#{profile_picture}\"></a>
