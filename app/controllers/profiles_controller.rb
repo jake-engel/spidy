@@ -16,7 +16,11 @@ class ProfilesController < ApplicationController
 
   def update
     @profile.update(profile_params)
-    redirect_to profile_path
+    if @profile.update(profile_params)
+      redirect_to profile_path(@profile)
+    else
+      render :edit
+    end
   end
 
   private
@@ -27,8 +31,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:user).permit(:first_name, :last_name, :phone_number, :email, :description)
+    params.require(:user).permit(:first_name, :last_name, :phone_number, :email, :location, :encryped_password)
   end
-
-
 end

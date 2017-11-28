@@ -11,16 +11,17 @@
           </div>
         </div>
           <div class="f-search-container">
-            <input type="text" name="city" onfocus="geolocate()" id="home-search-bar" class="f-search-bar" placeholder="Where are you looking for?" value="<%= @location %>" />
+            <input type="text" name="city" onfocus="geolocate()" id="home-search-bar" class="f-search-bar" placeholder="Where are you looking?" value="<%= @location %>" />
             <span class="icon" id="home-search-map-submit"><i class="fa fa-map-marker"></i></span>
           </div>
           <br>
+
             <label for="distance"><h4 style="font-weight: 600; color: white; font-size: 20px">Range(km):</h4> </label>
             <select name="distance" style="color: black;" id="search-range">
               <option value="3">3</option>
               <option value="5">5</option>
               <option value="10">10</option>
-              <option value="25">25</option>
+              <option value="25" selected>25</option>
               <option value="50">50</option>
               <option value="150">50+</option>
             </select>
@@ -84,7 +85,7 @@
         "elementType": "all",
         "stylers": [{"color": "#7dcdcd"}]}]
         var handler = Gmaps.build('Google');
-        let zoomAmount = 20;
+        let zoomAmount = 11;
         const range = <%= @range %>
         if (range == 3) {
           zoomAmount = 14;
@@ -110,6 +111,28 @@
                         },
                       function() {
         markers = handler.addMarkers(<%= raw @list.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+
+        if(markers.length == 1){
+          handler.fitMapToBounds();
+          handler.getMap().setZoom(14);
+        }
+        var goldStar = {
+          path: 'M 125,5 155,90 245,90 175,145 200,230 125,180 50,230 75,145 5,90 95,90 z',
+          fillColor: 'yellow',
+          fillOpacity: 0.95,
+          scale: 0.15,
+          strokeColor: 'black',
+          strokeWeight: 3,
+          anchor: new google.maps.Point(100, 100),
+        };
+        var marker = new google.maps.Marker({
+          position: { lat: <%= @lat %>, lng: <%= @lng %>},
+          title: 'Entered Location: <%= @location %>',
+          icon: goldStar,
+          map: handler.getMap()
+        });
         });
     </script>
   <% end %>

@@ -23,8 +23,8 @@
         </p>
 
         <% if current_user == @profile %>
-        <%= link_to edit_profile_path(@profile.id) do %>
-        <i class="fa fa-pencil-square-o"></i> <%= t(".edit", default: "Edit Profile") %>
+        <%= link_to edit_profile_path(@profile) do %>
+          <i class="fa fa-pencil-square-o"></i> <%= t(".edit", default: "Edit Profile Info") %>
         <% end %>
         <% end %>
 
@@ -48,10 +48,10 @@
         <div class= "statistic-box">
           <ul class="statistic" >
             <li><h3 style="font-size: 20px; font-weight: 700;"><%= @profile.freelancer.avg_rating %>/5</h3><br><p>Review rating</p></li>
-            <li><h3 style="font-size: 20px; font-weight: 700;"><%= @profile.freelancer.offers.where(status: 3).length %></h3><br><p>Completed Jobs</p></li>
-            <li><h3 style="font-size: 20px; font-weight: 700;"><%= @profile.freelancer.currency %>69K+</h3><br><p>Total Cash earned</p></li>
-            <li><h3 style="font-size: 20px; font-weight: 700;">200</h3><br><p>Hours worked</p></li>
-            <li><h3 style="font-size: 20px; font-weight: 700;">1500</h3><br><p>Profile views</p></li>
+            <li><h3 style="font-size: 20px; font-weight: 700;"><%= completed_jobs(@profile.freelancer) %></h3><br><p>Completed Jobs</p></li>
+            <li><h3 style="font-size: 20px; font-weight: 700;"><%= @profile.freelancer.currency %><%= (completed_jobs(@profile.freelancer) * 295).round(-2) %></h3><br><p>Total Cash earned</p></li>
+            <li><h3 style="font-size: 20px; font-weight: 700;"><%= completed_jobs(@profile.freelancer) * 10 %></h3><br><p>Hours worked</p></li>
+            <li><h3 style="font-size: 20px; font-weight: 700;"><%= completed_jobs(@profile.freelancer) * 35 %></h3><br><p>Profile views</p></li>
           </ul>
         </div>
       </div>
@@ -67,10 +67,12 @@
         <h2 style="margin-bottom: 25px;">About</h2>
         <span class="line-wide"></span>
         <ul class="nav nav-pills nav-stacked">
+          <li><h4><span><i class="fa fa-globe" style="font-size:12px; margin-right: 10px;"></i>Location</li></span></h4>
+          <h7><%= @profile.location %></h7>
           <li><h4 style="margin-top: 1px;"><span><i class="fa fa-mortar-board" style="font-size:12px; margin-right: 10px;"></i>Education</li></span></h4>
-          <h7>University od School</h7>
+          <h7><%= Faker::Educator.university %></h7>
           <li><h4><span><i class="fa fa-home" style="font-size:12px; margin-right: 10px;"></i>Website</li></span></h4>
-          <h7>www.yourwebsite.com</h7>
+          <h7>www.<%= @profile.first_name.downcase %>-<%= @profile.last_name.downcase %>.com</h7>
           <li><h4><span><i class="fa  fa-behance" style="font-size:12px; margin-right: 10px;"></i>Behance</li></span></h4>
           <h7><%= @profile.first_name %>s Profile</h7>
           <li><h4><span><i class="fa fa-linkedin-square" style="font-size:12px; margin-right: 10px;"></i>Linkedin</li></span></h4>
@@ -88,9 +90,6 @@
 
       <div class= container>
         <div class="col-sm-9">
-          <h2 style= "margin-bottom: 25px;">Background</h2>
-          <span class="line-wide"></span>
-
           <h2>Summary</h2>
 
           <span><p text-align: left;>

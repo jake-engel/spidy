@@ -38,12 +38,16 @@ class FreelancersController < ApplicationController
       else
         profile_picture = worker.user.facebook_picture_url
       end
-
       star_rating = helpers.render_stars(worker.avg_rating)
-
       user_path = view_context.link_to worker.user.first_name, profile_path(worker.user)
+
       marker.lat worker.user.latitude
       marker.lng worker.user.longitude
+      # marker.picture({
+      #             :url => "spidy-logo.svg",
+      #             :width   => 32,
+      #             :height  => 32
+      #            })
       marker.infowindow "<div id=\"test\" style=\"width:145px; min-height:160px; background-color:$light-grey;\">
       <h5><b>#{user_path}</b></h5>
         <a href=#{profile_path(worker.user)}><img class=\"avatar\" src=\"#{profile_picture}\"></a>
@@ -81,7 +85,7 @@ class FreelancersController < ApplicationController
   def freelancer_params
     params.require(:freelancer).permit(:position, :currency, :hourly_pay, :summary,
       skills_attributes: [ :id, :name, :destroy ],
-      experiences_attributes: [ :id, :title, :company, :location, :description, :destroy, :starting_date, :ending_date, :photo, :photo_cache])
+      experiences_attributes: [ :id, :title, :company, :location, :description, :destroy, :starting_date, :ending_date, :picture, :photo_cache])
   end
 
   def filtering_params(params)

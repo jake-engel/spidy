@@ -34,9 +34,9 @@ repeats.times.with_index do |index|
         "Zeedijk, Amsterdam", "The-DM Studios, Amsterdam", "Warmoesstraat, Amsterdam",
         "Barndesteeg, Amsterdam", "Koestraat, Amsterdam", "Nieuwe Uilenburgerstraat, Amsterdam",
         "Czaar Peterbuurt, Amsterdam", "Haarlemmerbuurt, Amsterdam", "Dam 9, Amsterdam"].sample,
-        has_freelancer: true,
-        photo: rand_user["picture"]["large"]
-        )
+      has_freelancer: true,
+      photo: rand_user["picture"]["large"]
+    )
   end
 
   puts "Creating US users"
@@ -48,10 +48,14 @@ repeats.times.with_index do |index|
       password: 'password',
       email: "#{rand_user["name"]["first"]}.#{rand_user["name"]["last"]}@gmail.com",
       phone_number: "+1 #{rand_user["cell"]}",
-      location: "#{rand_user["location"]["city"].capitalize}, #{rand_user["location"]["state"].capitalize}",
+      location: ["Manchester Township, NJ", "West New York, NJ", "Hixson, TN", "Jonesboro, GA",
+       "Hinesville, GA", "Hyattsville, MD", "Woodbridge, VA", "Appleton, WI", "Tullahoma, TN",
+        "Lewiston, ME", "Arlington, MA", "Chicago Heights, IL", "Commack, NY", "Brownsburg, IN",
+        "Loganville, GA", "Fairhope, AL", "Utica, NY", "Los Banos, CA", "Floral Park, NY",
+        "Bismarck, ND", "Port Jefferson Station, NY", "Herndon, VA", "Birmingham, AL", "Addison, IL"].sample,
       has_freelancer: true,
       photo: rand_user["picture"]["large"]
-      )
+    )
   end
 
   puts "Creating GB users"
@@ -63,10 +67,15 @@ repeats.times.with_index do |index|
       password: 'password',
       email: "#{rand_user["name"]["first"]}.#{rand_user["name"]["last"]}@gmail.com",
       phone_number: "+44 #{rand_user["cell"]}",
-      location: "#{rand_user["location"]["city"].capitalize}, #{rand_user["location"]["state"].capitalize}",
+      location: ["Spalding, England", "Hever, England", "Usk, England", "Abingdon, England",
+        "Fountains, England", "Hastings, England", "Canderbury, England", "LLawhaden, England",
+        "Darley, England", "Chichester, England", "Ampthill, England", "Bolingbroke, England",
+        "Caister, England", "Hertford, England", "Midurst, England", "Morecambe, England",
+        "Peterborough, England", "Worstead, England", "Wressle, England", "Kirby, England", "Edington, England",
+        "Amersham, England", "Reculver, England", "Stafford, England", "Southampton, England"].sample,
       has_freelancer: true,
       photo: rand_user["picture"]["large"]
-      )
+    )
   end
 
   puts "Creating FR users"
@@ -78,10 +87,15 @@ repeats.times.with_index do |index|
       password: 'password',
       email: "#{rand_user["name"]["first"]}.#{rand_user["name"]["last"]}@gmail.com",
       phone_number: "+33 #{rand_user["cell"]}",
-      location: "#{rand_user["location"]["city"].capitalize}, #{rand_user["location"]["state"].capitalize}",
+      location: ["Frigoulet, France", "Francarville, France", "Fronholtz, France", "Robehomme, France",
+        "Bourgnaudin, France", "Mont, France", "Voglans, France", "Chauconin, France",
+        "Bonnieux, France", "Vaudoeuvre, France", "Longeville, France", "Bousseviller, France",
+        "Erre, France", "Migné, France", "Boutancourt, France", "Socoa, France", "Montbert, France",
+        "Xivray, France", "Charbonnier, France", "Mottier, France", "Treyches, France", "Lafaurie, France",
+        "Challain, France", "Houdent, France", "Valeuil"].sample,
       has_freelancer: true,
       photo: rand_user["picture"]["large"]
-      )
+    )
   end
 end
 
@@ -89,17 +103,57 @@ users = User.all.sample(num_users * repeats + 20)
 iter = 0
 
 (num_users * repeats + 20).times do
+  summary = ["I am a huge people-person and spent several years in Banking, but a few years ago a serendipitous event
+    inspired me to get into Technical Recruiting, and I love it! There is nothing greater than finding opportunities for smart
+    people to do awesome things, and it's a fantastic process that I feel lucky to participate in. When I'm not working,
+    I am usually with my 4 year old Pitbull/German Shepard mix (yup, he's still a pup), who loves to run and exercise even more than I do.
+    I am very much a kid at heart, love to cook, watch football (Niners and Broncos baby!), play video games, and travel whenever I'm awarded the opportunity.
+    I love meeting new people and learning new things, so please feel free to say hello and share a story with me. I am thrilled, and truly blessed to be a part of the Unity family!",
+    "After the realisation set in that I will not be making it as a pro footballer or Wimbledon great (I wasn't close),
+    I spent many evenings trawling the local press and digital job boards seeking the dream role that was out of reach.
+    So it is no surprise that I now work in an industry which rewards me for helping people realise their potential and setting them on their way to achieving great things.
+    After 10+ years in agency, onsite and inhouse recruitment I get as excited today as I did back then when seeing both my business and candidates prosper.
+    Truly partnering with my leaders to help them think differently and coaching the talent I work with to attain the unattainable is what motivates me to continuously improve
+    in this ever evolving industry. I am also focused on putting my passions and skills to good use by supporting organisations and projects that I really care
+    about whether it’s giving some time to the great food sustainability charity OzHarvest or driving key diversity initiatives at CommBank from LGBTI to
+    gender equality to creating greater cultural awareness. If you believe that I can be of help to you or if you would like to learn more about careers
+    @ CommBank please get in touch or connect.", "I thrive in rapidly growing, innovative organizations, I'm passionate about technology and providing the
+    best recruiting experience for candidates and my hiring manager. I love traveling the world and eating my way through the places I visit. In my spare time,
+    I'm searching for travel deals or playing with the nearest dog.", "Outside of the office, I'm committed to education and tutor through CPS.
+    I’m fluent in Spanish (and speak a little Portuguese and Arabic), and am always looking to brush up my language skills over coffee or drinks.
+    If you challenge me to Star Wars trivia, I will win. I live the sweaty life and will probably \"recruit\" you to join me for a barre class or a run.
+    Connect with me over LinkedIn for networking, career opportunities, and more!", "Every brand has stories to tell—stories that will not only engage, inform,
+    surprise, delight, and impact their audience, but that will also deliver on measurable business goals. And I am the conduit between brand and consumer.
+    I help clients find the subject and medium that best fits their unique identity, and then I produce high-quality content that meets their objectives.",
+    "When I was 21, I climbed Mount Everest. Not metaphorically—I literally climbed the highest mountain on Earth. While I was hiking, I thought about quitting
+    approximately 5,000 times. (And that’s a lowball estimate.) But despite the high winds, low altitude, mental and physical fatigue, and trail mix overdose,
+    I kept going. I’m that person. Once I say I’ll do something, it will happen. Now, I put that perseverance to work throughout my freelancing positions.
+    I don’t have to climb any mountains…but I do have to move them.", "A skilled communicator; able to maintain cultural sensitivity, establish rapport with
+    members of diverse groups, and promote team cohesiveness.", "Highly organized and independent; able to effectively coordinate tasks to accomplish projects
+    with timeliness and creativity.", "An organized, detail-oriented, and conscientious self-starter, able to strategize and prioritize effectively to accomplish
+    multiple tasks and stay calm under pressure.", "Flexible and analytical with a keen eye for details; skilled at synthesizing and editing information to achieve overall
+    objectives.", "An effective leader, skilled in enlisting the support of all team members in aligning with project and organizational goals.", "High-energy, confident
+    professional with an infectious enthusiasm for technology.", "Particular strength in bridging cultural gaps among people through education and interpersonal relations.",
+    "An organized and detail-oriented manager, able to prioritize and delegate tasks effectively to ensure timely project completion within a team environment.", "Known for an interactive
+    teaching style that encourages student participation and enthusiasm while facilitating learning.", "Experienced supervisor with a management style that motivates staff productivity.",
+    "Decisive, efficient team approach; outstanding communication skills.", "A dedicated and enthusiastic manager, able to motivate teams to perform at their best in providing excellent service and
+    developing ongoing, profitable client relationships.", "An experienced supervisor and trainer; able to explain information clearly, recognize excellence in individuals,
+    and inspire team members to achieve their potential while working toward common goals.", "Strong meeting planning and facilitation skills; able to communicate effectively with all
+    organizational levels, build relationships of trust and enlist the participation of team members.", "Highly organized and efficient in fast-paced multitasking environments;
+    able to prioritize effectively to accomplish objectives with creativity, enthusiasm and humor.",
+    "Creative, resourceful and flexible, able to adapt to changing priorities and maintain a positive attitude and strong work ethic."].sample
   freelancer = Freelancer.new(
     position: ["Painter", "Photographer", "Plumber", "Event Planner"].sample,
     hourly_pay: (10..45).to_a.sample,
     avg_rating: [2, 2.5, 3, 3.5, 4, 4.5, 5].sample,
-    summary: "#{Faker::Company.catch_phrase}. #{Faker::Company.catch_phrase}.",
-    )
+    summary: summary,
+  )
   user = users[iter]
   freelancer.user = user
   freelancer.user.has_freelancer = true
   freelancer.user.save!
   freelancer.save!
+  puts "Creating Offers"
   (5..50).to_a.sample.times do
     Offer.create(
       user: users[rand(User.all.length - 1)],
@@ -144,13 +198,13 @@ iter = 0
     skill.save!
   end
 
-  puts "Creating experiences"
+  puts "Creating Experiences"
   (3..7).to_a.sample.times do
     case users[iter].freelancer.position
     when "Painter"
       company = ["Benjamin Moore", "Sherwin-Williams", "Valspar Paint", "Behr", "Dutch Boy",
-        "Royal Paint", "Clark + Kensington", "Glidden", "Paint Platoon", "Painters USA", "AAA Painting",
-        "Painters-Online", "Chicago Paint Pros", "USA Painting"].sample
+        "Royal Paint", "Clark Kent Contractors", "Glidden", "Paint Platoon", "Paint Northwest", "Paint Illinois",
+        "Painters-Online", "Chicago Paint Pros", "USA Painting Pros"].sample
       title = ["Exterior Painter", "Interior Painter", "Industrial Painter", "Home Painter",
          "Bridge Painter", "Maintenence Painter, Plant", "Painter-decorator", "Roof Painter"].sample
       desc = ["Reading blueprints/instructions and examining surfaces to determine the kind and
@@ -163,9 +217,9 @@ iter = 0
               and spray volume", "Determine, cut and apply wallpaper or fabric to walls.", "Remove previous paint by
               means of sandblasting, scraping, sanding, hydro-blasting and steam-cleaning."].sample
     when "Photographer"
-      company = ["Pinterest", "AgfaPhoto", "Art Chick Photography", "Boots UK", "Canon",
-          "Photobucket", "Photography Life", "Picture Pub", "Picture People", "Image Shack",
-          "Selfies to Selfies", "USA Pictures", "Photography Blog", "Picture Stitch", "Picture Salon"].sample
+      company = ["Pinterest", "AgfaPhoto", "Art Chick Photography", "Boots-UK", "Canon",
+          "Photobucket", "Photography Life", "Picture Frames", "Picture People", "Image Shack",
+          "Selfies to Selfless", "USA-Pictures", "Photography Blog", "Picture Correct", "Picture Salon"].sample
       title = ["Wedding Photographer", "Freelance Photographer", "Magazine Cover Photographer",
         "Movie Photographer", "Chief Photographer", "Forensic Photographer", "News Photographer",
         "Photojournalist", "Scientific Photographer", "Street Photographer", "Still Photographer",
@@ -181,9 +235,9 @@ iter = 0
         "Preparing proofs for approval.", "Communicating with photographic subjects, putting them at ease,
         encouraging them and directing them.", "Compiling finished products for sale, such as albums and framed prints."].sample
     when "Plumber"
-      company = ["Plumbers Stock", "Plumber Magazine", "Plumber.ca", "Ferguson", "Watsco",
-            "Winsupply", "Johnstone Solutions", "Interline Brands", "HVAC", "F.W. Webb",
-            "Plumbing Zone", "Plumbing Supply Now", "Pmmag", "Plumbers Crib", "USA Plumbing"].sample
+      company = ["Plumbers Stock", "Plumber Mag", "Plumber.ca", "Ferguson", "Watsco",
+            "Winsupply Inc", "Johnstone Solutions", "Construction Dive", "HVAC", "F.W. Webb",
+            "Plumbing Zone", "Plumbing Forums", "PM Mag", "Plumbers Crib", "Plumbers Stock"].sample
       title = ["Apprentice Plumber", "Maintenance and Repair Plumber", "Maintenance and Repair Plumber (Insdustry)",
         "Pipefitter", "Plumbing Mechanic", "Master Plumber", "Radiator Plumber", "Residential Construction Plumber",
         "Journeyman Plumber", "Plumbing Installer", "Marine Plumber", "Residential Plumber"].sample
@@ -202,8 +256,8 @@ iter = 0
         and opening clogged drains.", "Direct workers engaged in pipe cutting and preassembly and
         installation of plumbing systems and components."].sample
     when "Event Planner"
-      company = ["Bassett Events", "MKG", "Colin Cowie", "David Tutera", "EventBrite",
-              "Eventful", "Rafanelli Events", "Eventive", "Eventvods", "BizBash", "Meetingsnet",
+      company = ["Ticketfly", "Ticketmaster", "Planner 5D", "Colin Cowie", "David Tutera", "EventBrite",
+              "Eventful", "Rafanelli Events", "Event Tickets Center", "Eventvods", "BizBash", "Meetingsnet",
               "Special Events", "Catersource"].sample
       title = ["Meeting Planner", "Activities and Events Planner", "Meeting and Event Planner",
         "Event Operations Manager", "Conference Planner", "Association Event Planner",
