@@ -1,65 +1,64 @@
 <div class="footer-wrapper">
 
-<div class="footer-top">
-<div class="footer-container">
-  <ul>
-  <h3><strong>Spidy</strong></h3>
-  <li> </li>
-  <li><a href="#">About us</a></li>
-  <li><a href="#">Careers</a></li>
-  <li><a href="#">Press</a></li>
-  <li><a href="#">Policies</a></li>
-  <li><a href="#">Help</a></li>
-  </ul>
-</div>
+  <div class="footer-top">
+    <div class="footer-container">
+      <ul>
+        <h3><strong>Spidy</strong></h3>
+        <li> </li>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Policies</a></li>
+        <li><a href="#">Help</a></li>
+      </ul>
+    </div>
 
-<div class="continer-language-and-badge">
-<div class="language">
-  <dropdown>
-  <input id="toggle2" type="checkbox">
-  <label for="toggle2" class="animate">Language</label>
-  <ul class="animate">
-    <li class="animate">English</li>
-  </ul>
-</dropdown>
-</div>
+    <div class="continer-language-and-badge">
+      <div class="language">
+        <dropdown>
+          <input id="toggle2" type="checkbox">
+          <label for="toggle2" class="animate">Language</label>
+          <ul class="animate">
+            <li class="animate">English</li>
+          </ul>
+        </dropdown>
+      </div>
 
-    <div class="badge-container">
+      <div class="badge-container">
         <a class="app-store-button" href="#">
-            <img width="100%" src="http://svgshare.com/i/2xo.svg">
+          <img width="100%" src="http://svgshare.com/i/2xo.svg">
         </a>
         <a class="google-play-button" href="#">
-            <img width="100%" src="http://svgshare.com/i/2yX.svg">
+          <img width="100%" src="http://svgshare.com/i/2yX.svg">
         </a>
+      </div>
     </div>
-    </div>
-</div>
-
-
-<div class="footer">
-    <div class="spidy-logo-footer">
-    <%= cl_image_tag("Spidy/spidy-logo-footer.svg", :quality=>100, :crop=>"scale") %>
-    </div>
-    <div class="footer-copyright">
-    Terms
-    Privacy
-    Sitemap
-   </div>
-   </div>
-
-  <div class="footer-links">
-    <%= link_to "https://www.facebook.com/#{ current_user.uid if user_signed_in? }" do %>
-      <i class="fa fa-facebook"></i>
-    <% end %>
-    <a href="#"><i class="fa fa-linkedin"></i></a>
-    <a href="#"><i class="fa fa-google-plus"></i></a>
-    <a href="#"><i class="fa fa-vimeo"></i></a>
-    <a href="#"><i class="fa fa-github"></i></a>
-    <a href="#"><i class="fa fa-instagram"></i></a>
-    <a href="#"><i class="fa fa-twitter"></i></a>
-    <a href="#"><i class="fa fa-tumblr"></i></a>
   </div>
 
+  <div class="footer">
+    <div class="spidy-logo-footer">
+    <%= cl_image_tag("Spidy/spidy-logo-footer.svg", :quality=>100, :crop=>"scale") %>
+
+      <div class="footer-copyright">
+        Terms
+        Privacy
+        Sitemap
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <%= link_to "https://www.facebook.com/#{ current_user.uid if user_signed_in? }" do %>
+      <i class="fa fa-facebook"></i>
+      <% end %>
+      <a href="#"><i class="fa fa-linkedin"></i></a>
+      <a href="#"><i class="fa fa-google-plus"></i></a>
+      <a href="#"><i class="fa fa-vimeo"></i></a>
+      <a href="#"><i class="fa fa-github"></i></a>
+      <a href="#"><i class="fa fa-instagram"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-tumblr"></i></a>
+    </div>
+  </div>
 </div>
 
 </div>
