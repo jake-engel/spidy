@@ -55,7 +55,7 @@
                   <button type="hire" class="btn btn-primary flip-card-btn">Job Completed</button>
                 <% end %>
               <% end %>
-            <% else %>
+            <% elsif buttons == 2 %>
               <% if offer.status == 1 %>
                 <%= link_to accept_my_offer_path( offer ), method: :patch do  %>
                   <button type="hire" class="btn btn-success flip-card-btn">Accept Offer</button>
@@ -63,6 +63,10 @@
                 <%= link_to decline_my_offer_path( offer ), method: :patch do  %>
                   <button type="hire" class="btn btn-danger flip-card-btn">Decline Offer</button>
                 <% end %>
+              <% end %>
+            <% else %>
+              <%= link_to profile_path(to) do %>
+                Contact <%= to.first_name %>
               <% end %>
             <% end %>
           </div>
