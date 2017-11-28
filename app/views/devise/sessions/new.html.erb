@@ -13,9 +13,6 @@
               <%= render "devise/shared/forgot_password" %>
               <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
               <%= f.button :submit, "Login" %>
-              <div>
-                <%= render "devise/shared/links" %>
-              </div>
             </div>
             <div class="social">
 

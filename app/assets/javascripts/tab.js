@@ -11,5 +11,6 @@ document.addEventListener("click", function (event) {
     activeTab.classList.toggle("non-active");
     fromText.classList.toggle("hidden");
     toText.classList.toggle("hidden");
+    event.preventDefault();
   }
 });
