@@ -24,7 +24,7 @@
 
         <% if current_user == @profile %>
         <%= link_to edit_profile_path(@profile) do %>
-          <i class="fa fa-pencil-square-o"></i> <%= t(".edit", default: "Edit Profile") %>
+          <i class="fa fa-pencil-square-o"></i> <%= t(".edit", default: "Edit Profile Info") %>
         <% end %>
         <% end %>
 
@@ -48,10 +48,10 @@
         <div class= "statistic-box">
           <ul class="statistic" >
             <li><h3 style="font-size: 20px; font-weight: 700;"><%= @profile.freelancer.avg_rating %>/5</h3><br><p>Review rating</p></li>
-            <li><h3 style="font-size: 20px; font-weight: 700;"><%= @profile.freelancer.offers.where(status: 3).length %></h3><br><p>Completed Jobs</p></li>
-            <li><h3 style="font-size: 20px; font-weight: 700;"><%= @profile.freelancer.currency %>69K+</h3><br><p>Total Cash earned</p></li>
-            <li><h3 style="font-size: 20px; font-weight: 700;">200</h3><br><p>Hours worked</p></li>
-            <li><h3 style="font-size: 20px; font-weight: 700;">1500</h3><br><p>Profile views</p></li>
+            <li><h3 style="font-size: 20px; font-weight: 700;"><%= completed_jobs(@profile.freelancer) %></h3><br><p>Completed Jobs</p></li>
+            <li><h3 style="font-size: 20px; font-weight: 700;"><%= @profile.freelancer.currency %><%= (completed_jobs(@profile.freelancer) * 295).round(-2) %></h3><br><p>Total Cash earned</p></li>
+            <li><h3 style="font-size: 20px; font-weight: 700;"><%= completed_jobs(@profile.freelancer) * 10 %></h3><br><p>Hours worked</p></li>
+            <li><h3 style="font-size: 20px; font-weight: 700;"><%= completed_jobs(@profile.freelancer) * 35 %></h3><br><p>Profile views</p></li>
           </ul>
         </div>
       </div>
@@ -90,9 +90,6 @@
 
       <div class= container>
         <div class="col-sm-9">
-          <h2 style= "margin-bottom: 25px;">Background</h2>
-          <span class="line-wide"></span>
-
           <h2>Summary</h2>
 
           <span><p text-align: left;>
