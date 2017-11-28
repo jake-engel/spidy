@@ -1,4 +1,5 @@
 class Freelancer < ApplicationRecord
+  include PgSearch
   belongs_to :user
   has_many :skills, dependent: :destroy, inverse_of: :freelancer
   has_many :experiences, dependent: :destroy, inverse_of: :freelancer
@@ -11,5 +12,9 @@ class Freelancer < ApplicationRecord
   # validates :skills, :length => { :minimum => 1 }
   # validates :experiences, :length => { :minimum => 1 }
 
-  scope :job_title, -> (position) { where("position like ?", "%#{position}%")}
+  # scope :job_title, -> (position) { where("position like ?", "%#{position}%")}
+  pg_search_scope :job_search, :against => { :position => 'A' }, :associated_against => {
+    :skills => :name,
+    :experiences => :title
+  }
 end
