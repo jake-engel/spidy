@@ -156,30 +156,49 @@
 
           <div class="row">
             <div class="col-sm-2 text-center">
-              <%= image_tag "avatar.svg", class: "img-circle" %>
+              <% rand_user = User.all.sample(2) %>
+              <%= image_tag rand_user[0].photo, class: "img-circle" %>
             </div>
             <div class="col-sm-10">
 
-              <h4>Anja <small>Sep 29, 2017, 9:12 PM</small></h4>
-              <p>Keep up the GREAT work! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              <h4><%= rand_user[0].first_name %> <%= rand_user[0].last_name %> <small>Sep 29, 2017, 9:12 PM</small></h4>
+              <p>Keep up the GREAT work! <%= rand_user[0].first_name %> was a pleasure to do business with. Clever and imaginative when confronted with obstacles, and funny! Would love to hire again!
               </p>
               <br>
             </div>
             <div class="col-sm-2 text-center">
-              <%= image_tag "avatar.svg", class: "img-circle" %>
+              <%= image_tag rand_user[1].photo, class: "img-circle" %>
             </div>
             <div class="col-sm-10">
-              <h4>John Row <small>Sep 25, 2017, 8:25 PM</small></h4>
-              <p>I am so happy for you man! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <h4><%= rand_user[1].first_name %> <%= rand_user[1].last_name %> <small>Sep 29, 2017, 9:12 PM</small></h4>
+              <p>
+                I am so happy with the work you did for me! <%= rand_user[1].first_name %> would regularly communicate with me whenever there was an issue. As well as think
+                of solutions that I never even thought were possible! Can't wait to hire
+                <%= rand_user[1].first_name %> again!!
+              </p>
               <br>
-              <p><span class="badge">1</span> Review:</p><br>
+              <p><span class="badge">2</span> Replies:</p><br>
               <div class="row">
                 <div class="col-sm-2 text-center">
                  <%= image_tag @profile_picture, class: "img-circle" %>
                </div>
                <div class="col-xs-10">
-                <h4>Nested Bro <small>Sep 25, 2017, 8:28 PM</small></h4>
-                <p>Me too! WOW!</p>
+                <h4> <%= @profile.first_name  %> <%= @profile.last_name %> <small>Sep 25, 2017, 8:28 PM</small></h4>
+                <p>
+                  <%= rand_user[1].first_name %>, thanks for the review! It was a pleasure working with you as well! I am looking forward to our next meeting in the future. Hope everything is going well with you!
+                </p>
+                <br>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2 text-center">
+                 <%= image_tag rand_user[1].photo, class: "img-circle" %>
+               </div>
+               <div class="col-xs-10">
+                <h4> <%= rand_user[1].first_name %> <%= rand_user[1].last_name %> <small>Sep 25, 2017, 8:28 PM</small></h4>
+                <p>
+                  Thanks all has been going just great. Will contact you soon!
+                </p>
                 <br>
               </div>
             </div>
