@@ -87,7 +87,7 @@ margin-bottom: 10px;
 .list-page-container {
   margin-top: 15px;
   width: 1080px;
-  height: 100%px;
+  height: 100%;
   position: relative;
   background-color: white;
 }
@@ -285,7 +285,16 @@ h3{
   text-decoration: none;
 }
 
-
+#search-range {
+border-radius: 0px;
+height: 60px;
+width: 60px;
+opacity: 0.7;
+margin-left: 10px;
+text-align: center;
+text-decoration: none;
+box-shadow: none;
+}
 
 
 

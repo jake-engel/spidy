@@ -25,24 +25,6 @@
   margin-top: -150px;
 }
 
-.btn-treehouse {
-  color: white;
-  padding: 10px 15px;
-  border-radius: 4px;
-  font-weight: bold;
-  background: #6AD58B;
-  transition: background 0.3s ease;
-  position: absolute;
-  right: 10px;
-}
-.btn-treehouse:hover {
-  opacity: 1;
-  background: #3ac162;
-  text-decoration: none;
-  color: white;
-}
-
-
 h1 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
@@ -140,7 +122,7 @@ width: 850px;
   position: absolute;
 
   height: 100px;
-   position: fixed;
+  position: fixed;
   top: 50%;
   left: 50%;
   margin-top: -50px;
@@ -298,7 +280,7 @@ h9 {
   margin-bottom: 30px;
 }
 
-.btn-primary {
+/* .btn-primary {
   background-color: $spidy-green;
   border: none;
 }
@@ -307,7 +289,7 @@ h9 {
   opacity: 1;
   text-decoration: none;
   color: #ABFFD7;
-}
+} */
 
 .bottomline .home-page-container {
   margin: 0 auto;

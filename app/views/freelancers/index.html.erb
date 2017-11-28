@@ -15,7 +15,7 @@
             <span class="icon" id="home-search-map-submit"><i class="fa fa-map-marker"></i></span>
           </div>
           <br>
-            <label for="distance">Range (km) : </label>
+            <label for="distance"><h4 style="font-weight: 600; color: white; font-size: 20px">Range(km):</h4> </label>
             <select name="distance" style="color: black;" id="search-range">
               <option value="3">3</option>
               <option value="5">5</option>
@@ -26,7 +26,7 @@
             </select>
           <br>
           <br>
-          <input type="submit" class="btn btn-primary" value="Search" />
+          <input type="submit" class="btn btn-primary" style="margin: 0px;" value="Search" />
         </form>
     </div>
   </div>
@@ -41,7 +41,7 @@
         <div class="maps" id="freelancer-index-map"></div>
             <div class="inline-text">
               <h2><span><i class="fa fa-rocket"></i>  <%= @freelancerCount %> <%= @freelancerWord %></span> FOUND IN YOUR AREA FOR: <strong><%= @value %></strong> IN <strong><%= @location %></strong></h2>
-            <a href="#freelancer-search-field" class="btn btn-primary" style="margin: 10px;">Edit Search Details</a>
+            <a href="#freelancer-search-field" class="btn btn-primary" style="margin-left: 20px; margin-bottom: 30px;">Edit Search Details</a>
             </div>
          <div class="line-list"></div>
   </div>
