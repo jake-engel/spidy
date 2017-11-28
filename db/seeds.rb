@@ -114,7 +114,7 @@ iter = 0
   freelancer.user.has_freelancer = true
   freelancer.user.save!
   freelancer.save!
-  (5..60).to_a.sample.times do
+  (5..50).to_a.sample.times do
     Offer.create(
       user: users[rand(User.all.length - 1)],
       freelancer: freelancer,
@@ -163,8 +163,8 @@ iter = 0
     case users[iter].freelancer.position
     when "Painter"
       company = ["Benjamin Moore", "Sherwin-Williams", "Valspar Paint", "Behr", "Dutch Boy",
-        "Royal Paint", "Clark + Kensington", "Glidden", "Paint Platoon", "Painters USA", "AAA Painting",
-        "Painters-Online", "Chicago Paint Pros", "USA Painting"].sample
+        "Royal Paint", "Clark Kent Contractors", "Glidden", "Paint Platoon", "Painters USA", "AAA Paint Co",
+        "Painters-Online", "Chicago Paint Pros", "USA Painting Pros"].sample
       title = ["Exterior Painter", "Interior Painter", "Industrial Painter", "Home Painter",
          "Bridge Painter", "Maintenence Painter, Plant", "Painter-decorator", "Roof Painter"].sample
       desc = ["Reading blueprints/instructions and examining surfaces to determine the kind and
@@ -178,8 +178,8 @@ iter = 0
               means of sandblasting, scraping, sanding, hydro-blasting and steam-cleaning."].sample
     when "Photographer"
       company = ["Pinterest", "AgfaPhoto", "Art Chick Photography", "Boots UK", "Canon",
-          "Photobucket", "Photography Life", "Picture Pub", "Picture People", "Image Shack",
-          "Selfies to Selfies", "USA Pictures", "Photography Blog", "Picture Stitch", "Picture Salon"].sample
+          "Photobucket", "Photography Life", "Picture Frames", "Picture People", "Image Shack",
+          "Selfies to Selfless", "USA Pictures", "Photography Blog", "Picture Stitch", "Picture Salon"].sample
       title = ["Wedding Photographer", "Freelance Photographer", "Magazine Cover Photographer",
         "Movie Photographer", "Chief Photographer", "Forensic Photographer", "News Photographer",
         "Photojournalist", "Scientific Photographer", "Street Photographer", "Still Photographer",
@@ -195,7 +195,7 @@ iter = 0
         "Preparing proofs for approval.", "Communicating with photographic subjects, putting them at ease,
         encouraging them and directing them.", "Compiling finished products for sale, such as albums and framed prints."].sample
     when "Plumber"
-      company = ["Plumbers Stock", "Plumber Magazine", "Plumber.ca", "Ferguson", "Watsco",
+      company = ["Plumbers Stock", "Plumber Mag", "Plumber.ca", "Ferguson", "Watsco",
             "Winsupply", "Johnstone Solutions", "Interline Brands", "HVAC", "F.W. Webb",
             "Plumbing Zone", "Plumbing Supply Now", "Pmmag", "Plumbers Crib", "USA Plumbing"].sample
       title = ["Apprentice Plumber", "Maintenance and Repair Plumber", "Maintenance and Repair Plumber (Insdustry)",
@@ -241,7 +241,7 @@ iter = 0
         starting_date: Faker::Date.between((3..5).to_a.sample.years.ago, (5..10).to_a.sample.years.ago),
         ending_date: Faker::Date.between((1..3).to_a.sample.years.ago, Date.today),
         description: desc,
-        picture: "http://logo.clearbit.com/#{company.split(" ").join("")}.com"
+        picture: "http://logo.clearbit.com/#{company.split(" ").join("")}.com?size=75"
         )
       experience.freelancer = freelancer
       experience.save!
