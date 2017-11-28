@@ -2,7 +2,9 @@ class FreelancersController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
 
   def index
-    @location = params[:city] || "Amsterdam"
+    # @location = params[:city] || "Amsterdam"
+    @location = params[:city]
+    @location == "" || @location == nil ? @location = "Amsterdam" : @location = params[:city]
     @range = params[:distance] || 10
     coordinates = Geocoder.search(@location)[0].data["geometry"]["location"]
     @lat = coordinates["lat"]
@@ -20,7 +22,7 @@ class FreelancersController < ApplicationController
     @mapFreelancers = Freelancer.where(id: freetot.map(&:id))
 
     filtering_params(params).each do |key, value|
-      value.capitalize!
+      value = value.split.map(&:capitalize).join(' ')
       @value = value
       @mapFreelancers = @mapFreelancers.public_send(key, value) if value.present?
     end
