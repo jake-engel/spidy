@@ -81,7 +81,7 @@ class FreelancersController < ApplicationController
   def freelancer_params
     params.require(:freelancer).permit(:position, :currency, :hourly_pay, :summary,
       skills_attributes: [ :id, :name, :destroy ],
-      experiences_attributes: [ :id, :title, :company, :location, :description, :destroy, :starting_date, :ending_date, :photo, :photo_cache])
+      experiences_attributes: [ :id, :title, :company, :location, :description, :destroy, :starting_date, :ending_date, :picture, :photo_cache])
   end
 
   def filtering_params(params)

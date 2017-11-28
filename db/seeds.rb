@@ -48,7 +48,11 @@ repeats.times.with_index do |index|
       password: 'password',
       email: "#{rand_user["name"]["first"]}.#{rand_user["name"]["last"]}@gmail.com",
       phone_number: "+1 #{rand_user["cell"]}",
-      location: "#{rand_user["location"]["city"].capitalize}, #{rand_user["location"]["state"].capitalize}",
+      location: ["Manchester Township, NJ", "West New York, NJ", "Hixson, TN", "Jonesboro, GA",
+       "Hinesville, GA", "Hyattsville, MD", "Woodbridge, VA", "Appleton, WI", "Tullahoma, TN",
+        "Lewiston, ME", "Arlington, MA", "Chicago Heights, IL", "Commack, NY", "Brownsburg, IN",
+        "Loganville, GA", "Fairhope, AL", "Utica, NY", "Los Banos, CA", "Floral Park, NY",
+        "Bismarck, ND", "Port Jefferson Station, NY", "Herndon, VA", "Birmingham, AL", "Addison, IL"].sample,
       has_freelancer: true,
       photo: rand_user["picture"]["large"]
       )
@@ -63,7 +67,12 @@ repeats.times.with_index do |index|
       password: 'password',
       email: "#{rand_user["name"]["first"]}.#{rand_user["name"]["last"]}@gmail.com",
       phone_number: "+44 #{rand_user["cell"]}",
-      location: "#{rand_user["location"]["city"].capitalize}, #{rand_user["location"]["state"].capitalize}",
+      location: ["Spalding, England", "Hever, England", "Usk, England", "Abingdon, England",
+        "Fountains, England", "Hastings, England", "Canderbury, England", "LLawhaden, England",
+        "Darley, England", "Chichester, England", "Ampthill, England", "Bolingbroke, England",
+        "Caister, England", "Hertford, England", "Midurst, England", "Morecambe, England",
+        "Peterborough, England", "Worstead, England", "Wressle, England", "Kirby, England", "Edington, England",
+        "Amersham, England", "Reculver, England", "Stafford, England", "Southampton, England"].sample,
       has_freelancer: true,
       photo: rand_user["picture"]["large"]
       )
@@ -78,7 +87,12 @@ repeats.times.with_index do |index|
       password: 'password',
       email: "#{rand_user["name"]["first"]}.#{rand_user["name"]["last"]}@gmail.com",
       phone_number: "+33 #{rand_user["cell"]}",
-      location: "#{rand_user["location"]["city"].capitalize}, #{rand_user["location"]["state"].capitalize}",
+      location: ["Frigoulet, France", "Francarville, France", "Fronholtz, France", "Robehomme, France",
+        "Bourgnaudin, France", "Mont, France", "Voglans, France", "Chauconin, France",
+        "Bonnieux, France", "Vaudoeuvre, France", "Longeville, France", "Bousseviller, France",
+        "Erre, France", "Migné, France", "Boutancourt, France", "Socoa, France", "Montbert, France",
+        "Xivray, France", "Charbonnier, France", "Mottier, France", "Treyches, France", "Lafaurie, France",
+        "Challain, France", "Houdent, France", "Valeuil"].sample,
       has_freelancer: true,
       photo: rand_user["picture"]["large"]
       )
@@ -149,8 +163,8 @@ iter = 0
     case users[iter].freelancer.position
     when "Painter"
       company = ["Benjamin Moore", "Sherwin-Williams", "Valspar Paint", "Behr", "Dutch Boy",
-        "Royal Paint", "Clark + Kensington", "Glidden", "Paint Platoon", "Painters USA", "AAA Painting",
-        "Painters-Online", "Chicago Paint Pros", "USA Painting"].sample
+        "Royal Paint", "Clark Kent Contractors", "Glidden", "Paint Platoon", "Paint Northwest", "Paint Illinois",
+        "Painters-Online", "Chicago Paint Pros", "USA Painting Pros"].sample
       title = ["Exterior Painter", "Interior Painter", "Industrial Painter", "Home Painter",
          "Bridge Painter", "Maintenence Painter, Plant", "Painter-decorator", "Roof Painter"].sample
       desc = ["Reading blueprints/instructions and examining surfaces to determine the kind and
@@ -163,9 +177,9 @@ iter = 0
               and spray volume", "Determine, cut and apply wallpaper or fabric to walls.", "Remove previous paint by
               means of sandblasting, scraping, sanding, hydro-blasting and steam-cleaning."].sample
     when "Photographer"
-      company = ["Pinterest", "AgfaPhoto", "Art Chick Photography", "Boots UK", "Canon",
-          "Photobucket", "Photography Life", "Picture Pub", "Picture People", "Image Shack",
-          "Selfies to Selfies", "USA Pictures", "Photography Blog", "Picture Stitch", "Picture Salon"].sample
+      company = ["Pinterest", "AgfaPhoto", "Art Chick Photography", "Boots-UK", "Canon",
+          "Photobucket", "Photography Life", "Picture Frames", "Picture People", "Image Shack",
+          "Selfies to Selfless", "USA-Pictures", "Photography Blog", "Picture Correct", "Picture Salon"].sample
       title = ["Wedding Photographer", "Freelance Photographer", "Magazine Cover Photographer",
         "Movie Photographer", "Chief Photographer", "Forensic Photographer", "News Photographer",
         "Photojournalist", "Scientific Photographer", "Street Photographer", "Still Photographer",
@@ -181,9 +195,9 @@ iter = 0
         "Preparing proofs for approval.", "Communicating with photographic subjects, putting them at ease,
         encouraging them and directing them.", "Compiling finished products for sale, such as albums and framed prints."].sample
     when "Plumber"
-      company = ["Plumbers Stock", "Plumber Magazine", "Plumber.ca", "Ferguson", "Watsco",
-            "Winsupply", "Johnstone Solutions", "Interline Brands", "HVAC", "F.W. Webb",
-            "Plumbing Zone", "Plumbing Supply Now", "Pmmag", "Plumbers Crib", "USA Plumbing"].sample
+      company = ["Plumbers Stock", "Plumber Mag", "Plumber.ca", "Ferguson", "Watsco",
+            "Winsupply Inc", "Johnstone Solutions", "Construction Dive", "HVAC", "F.W. Webb",
+            "Plumbing Zone", "Plumbing Forums", "PM Mag", "Plumbers Crib", "Plumbers Stock"].sample
       title = ["Apprentice Plumber", "Maintenance and Repair Plumber", "Maintenance and Repair Plumber (Insdustry)",
         "Pipefitter", "Plumbing Mechanic", "Master Plumber", "Radiator Plumber", "Residential Construction Plumber",
         "Journeyman Plumber", "Plumbing Installer", "Marine Plumber", "Residential Plumber"].sample
@@ -202,8 +216,8 @@ iter = 0
         and opening clogged drains.", "Direct workers engaged in pipe cutting and preassembly and
         installation of plumbing systems and components."].sample
     when "Event Planner"
-      company = ["Bassett Events", "MKG", "Colin Cowie", "David Tutera", "EventBrite",
-              "Eventful", "Rafanelli Events", "Eventive", "Eventvods", "BizBash", "Meetingsnet",
+      company = ["Ticketfly", "Ticketmaster", "Planner 5D", "Colin Cowie", "David Tutera", "EventBrite",
+              "Eventful", "Rafanelli Events", "Event Tickets Center", "Eventvods", "BizBash", "Meetingsnet",
               "Special Events", "Catersource"].sample
       title = ["Meeting Planner", "Activities and Events Planner", "Meeting and Event Planner",
         "Event Operations Manager", "Conference Planner", "Association Event Planner",

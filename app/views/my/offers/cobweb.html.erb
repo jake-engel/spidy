@@ -2,10 +2,7 @@
   <% offer.freelancer.user == current_user %>
 <% end %>
 <% hired_by.compact! %>
-<% you_hired = @offers.select do |offer| %>
-  <% offer.user == current_user %>
-<% end %>
-<% you_hired.compact! %>
+<% you_hired = @offers.where(user: current_user) %>
 <h1>
   My Cobweb
 </h1>
