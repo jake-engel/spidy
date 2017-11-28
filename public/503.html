@@ -56,15 +56,15 @@
      }
 
      .clearfix {
-         clear:both;
-         zoom: 1;
+	       clear:both;
+	       zoom: 1;
      }
      .clearfix:before, .clearfix:after {
          content: "\0020";
          display: block;
          height: 0;
          visibility: hidden;
-     }
+     } 
      .clearfix:after {
          clear: both;
      }
@@ -358,33 +358,35 @@
   </head>
   <body class="sign error-page-wrapper background-color background-image">
     <div class="sign-container">
-  <div class="nob"></div>
-  <div class="post left"></div>
-  <div class="post right"></div>
-  <div class="pane">
-    <div class="headline sign-text-color">
-      422
-    </div>
-    <div class="context sign-text-color">
-      The change you wanted <br>
-      was rejected.
-    </div>
-  </div>
+	<div class="nob"></div>
+	<div class="post left"></div>
+	<div class="post right"></div>
+	<div class="pane">
+		<div class="headline sign-text-color">
+			503
+		</div>
+		<div class="context sign-text-color">
+			Looks like we're having<br>
+			some server issues.
+		</div>
+	</div>
 </div>
 <div class="text-container">
-  <div class="headline secondary-text-color">
-    422
-  </div>
+	<div class="headline secondary-text-color">
+		503
+	</div>
   <div class="context primary-text-color">
+    
     <p>
-      You may want to head back to the homepage.<br>
+      Go back to the previous page and try again.
       If you think something is broken, report a problem.
     </p>
+
+
   </div>
-  <div class="buttons-container">
-    <a class="border-button" href="http://www.spidy-marketplace.com/" target="_blank"><span class="fa fa-home"></span> Home Page</a>
-    <a class="border-button" href="mailto:jakeengel01@gmail.com" target="_blank"><span class="fa fa-warning"></span> Report Problem</a>
-  </div>
+	<div class="buttons-container">
+		<a class="border-button" href="mailto:jakeengel01@gmail.com" target="_blank"><span class="fa fa-warning"></span> Report Problem</a>
+	</div>
 </div>
 
 
@@ -468,7 +470,7 @@
 
      ErrorPage.prototype.fetchStatus = function (pageUrl, pageType) {
        //console.log('in app.js fetch');
-       if (!pageUrl || !pageType || pageType == '422') return;
+       if (!pageUrl || !pageType || pageType == '404') return;
 
        var url = ''
          , self = this;
@@ -492,7 +494,7 @@
        });
 
      };
-     var ep = new ErrorPage('body', "422", "sign");
+     var ep = new ErrorPage('body', "503", "sign");
      ep.initialize();
 
      // hack to make sure content stays centered >_<
@@ -502,6 +504,6 @@
 
     </script>
 
-
+    
   </body>
 </html>
