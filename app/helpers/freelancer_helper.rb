@@ -27,6 +27,10 @@ module FreelancerHelper
     output.html_safe
   end
 
+  def completed_jobs(freelancer)
+    freelancer.offers.where(status: 3).length
+  end
+
   def toDate(hashDate)
     # hashDate.to_date
     hashDate
