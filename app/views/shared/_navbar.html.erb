@@ -27,7 +27,7 @@
     <div class="navbar-spidy-item">
       <div class="dropdown ">
         <% avatar_url = current_user.facebook_picture_url || current_user.photo %>
-        <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-spidy-menu", "data-toggle" => "dropdown" %>
+        <%= image_tag avatar_url, class: "avatar dropdown-toggle scaleup-btn", id: "navbar-spidy-menu", "data-toggle" => "dropdown" %>
         <ul class="dropdown-menu dropdown-menu-right navbar-spidy-dropdown-menu">
           <% if current_user.has_freelancer %>
           <li>

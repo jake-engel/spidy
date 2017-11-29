@@ -143,15 +143,15 @@ h7 {
 }
 
 .right-buttons {
-position: absolute;
-right: 10px;
-top: -20px;
+  position: absolute;
+  right: 10px;
+  top: -20px;
 }
 
 .pay-rate {
-position: absolute;
-left: 100px;
-top: 20px;
+  position: absolute;
+  left: 100px;
+  top: 20px;
 }
 
 .pay-rate button {
@@ -329,9 +329,9 @@ height: 200px; */
   width: 100%
 }
 
-.similar-profile-container div {
-  width: 60px;
-  height: 60px;
-  display: inline-block;
-  margin: 3px;
+.image-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
 }

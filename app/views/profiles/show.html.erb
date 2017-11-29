@@ -91,12 +91,17 @@
           <% sim_users = sim_freelancers.map { |freelancer| freelancer.user } %>
 
           <div class="similar-profile-container">
-            <% sim_users.each do |user| %>
-              <div>
+            <% sim_users.each_slice(3) do |slice| %>
+            <div class="image-row">
+              <% slice.each do |user| %>
+            <div>
                 <%= link_to profile_path(user) do %>
                   <%= image_tag user.photo, class: "img-circle" %>
                 <% end %>
               </div>
+              <% end %>
+            </div>
+
             <% end %>
           </div>
 

@@ -185,4 +185,12 @@
   color: white;
 }
 
+.scaleup-btn{
+  transition: transform 150ms ease;
+  &:hover {
+    color: white;
+    transform: scale(1.1);
+  }
+}
+
 
