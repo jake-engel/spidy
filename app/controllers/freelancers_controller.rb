@@ -17,13 +17,18 @@ class FreelancersController < ApplicationController
     end
 
     freetot.compact!
-
     @mapFreelancers = Freelancer.where(id: freetot.map(&:id))
 
     filtering_params(params).each do |key, value|
-      # value = value.split.map(&:capitalize).join(' ')
-      @value = value
-      @mapFreelancers = @mapFreelancers.job_search(value)
+      if value == ""
+        @value = "All Jobs"
+        @job_placeholder = value
+      else
+        value = value.split.map(&:capitalize).join(' ')
+        @value = value
+        @job_placeholder = value
+        @mapFreelancers = @mapFreelancers.job_search(value)
+      end
     end
 
     @freelancerCount = @mapFreelancers.size
