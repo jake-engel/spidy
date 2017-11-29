@@ -9,7 +9,7 @@
       <% end %>
     </div>
     <div class="info-text">
-      <%= link_to profile_path(user) do %>
+      <%= link_to profile_path(user), class: "font-bold-hover" do %>
       <%= "#{user.first_name} #{user.last_name}" %>
       <% end %>
       <br>
@@ -61,7 +61,7 @@
 
     <% if policy(Offer.new(freelancer: freelancer)).new? && user_signed_in? %>
     <%= link_to new_freelancer_offer_path(freelancer) do %>
-    <%= render "shared/button", text: "Hire #{user.first_name}", type: "apply" %>
+    <%= render "shared/button", text: "Hire #{user.first_name}", type: "apply font-bold-hover" %>
     <% end %>
     <% end %>
   </div>

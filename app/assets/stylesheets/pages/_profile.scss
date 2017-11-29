@@ -143,15 +143,15 @@ h7 {
 }
 
 .right-buttons {
-position: absolute;
-right: 10px;
-top: -20px;
+  position: absolute;
+  right: 10px;
+  top: -20px;
 }
 
 .pay-rate {
-position: absolute;
-left: 100px;
-top: 20px;
+  position: absolute;
+  left: 100px;
+  top: 20px;
 }
 
 .pay-rate button {
@@ -314,9 +314,10 @@ footer {
 
 .fa-heart {
   color: #BFBFBF;
-  transition: color 300ms ease;
+  transition: all 150ms ease;
   &:hover {
     color: #C83B30;
+    transform: scale(1.5);
   }
 }
 
@@ -328,10 +329,9 @@ height: 200px; */
   width: 100%
 }
 
-.similar-profile-container div {
-  width: 60px;
-  height: 60px;
-  display: inline-block;
-  display: wrap;
-  margin: 3px;
+.image-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
 }

@@ -20,11 +20,11 @@
 }
 
 .footer-top {
-    display: flex;
-    justify-content: space-between;
-    align-items:baseline;
-    border-top: 1px solid gray;
-    margin-top: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items:baseline;
+  border-top: 1px solid gray;
+  margin-top: 35px;
 }
 
 .footer {
@@ -69,15 +69,14 @@ ul {
 }
 
 a {
-    color: #999999;
-    text-decoration: none;
-    transition: all 150ms ease;
-}
-
-a:hover{
-     color: $spidy-green;
-     text-decoration:none;
-     cursor:pointer;
+  color: #999999;
+  text-decoration: none;
+  transition: all 150ms ease;
+  &:hover {
+    color: $spidy-green;
+    text-decoration:none;
+    cursor:pointer;
+  }
 }
 
 h3 {
@@ -105,7 +104,7 @@ float-right{
 
 .fa{
  font-size: .8em;
-  line-height: 22px !important;
+ line-height: 22px !important;
 }
 /* dropdown{
    display: inline-block;
@@ -159,8 +158,8 @@ $colors: #E74C3C, #0072B5, #2C3E50;
       color: nth($colors, $i);
     }
     &:hover {
-        background: nth($colors, $i);
-        color: white;
+      background: nth($colors, $i);
+      color: white;
       .fa{
         color: white;
       }
@@ -182,17 +181,26 @@ $colors: #E74C3C, #0072B5, #2C3E50;
 
 
 .app-store-button {
-    display: inline-block;
-    padding: 0 10px;
-    width: 50%;
-    max-width: 190px;
+  display: inline-block;
+  padding: 0 10px;
+  width: 50%;
+  max-width: 190px;
+  transition: transform 150ms ease;
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 .google-play-button{
-    display: inline-block;
-    padding: 0 10px;
-    width: 50%;
-    max-width: 190px;
+  display: inline-block;
+  padding: 0 10px;
+  width: 50%;
+  max-width: 190px;
+  transition: transform 150ms ease;
+  &:hover {
+    transform: scale(1.1);
+  }
 }
+
 .badge-container {
-    margin: 0 -10px;
+  margin: 0 -10px;
 }

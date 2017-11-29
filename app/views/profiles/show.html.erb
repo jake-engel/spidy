@@ -13,7 +13,9 @@
       </div>
       <div class="text-info-avatar text-center">
         <h2><br> <%= "#{@profile.first_name} #{@profile.last_name}" %> <br></h2>
-        <h3>FREELANCER</h3>
+        <h3>
+          <%= @profile.freelancer.position.upcase %>
+        </h3>
         <span class="line"></span>
         <p>
           <%= @profile.phone_number %>
@@ -85,17 +87,23 @@
           <h2 style="margin-bottom: 25px;">Similar Profile</h2>
           <span class="line-wide"></span>
 
-<div class="similar-profile-container">
-<div><%= image_tag "spidy-logo.svg", class: "img-circle" %></div>
-<div><%= image_tag "spidy-logo.svg", class: "img-circle" %></div>
-<div><%= image_tag "spidy-logo.svg", class: "img-circle" %></div>
-<div><%= image_tag "spidy-logo.svg", class: "img-circle" %></div>
-<div><%= image_tag "spidy-logo.svg", class: "img-circle" %></div>
-<div><%= image_tag "spidy-logo.svg", class: "img-circle" %></div>
-<div><%= image_tag "spidy-logo.svg", class: "img-circle" %></div>
-<div><%= image_tag "spidy-logo.svg", class: "img-circle" %></div>
-<div><%= image_tag "spidy-logo.svg", class: "img-circle" %></div>
-</div>
+          <% sim_freelancers = Freelancer.where(position: @profile.freelancer.position).shuffle[0..14] %>
+          <% sim_users = sim_freelancers.map { |freelancer| freelancer.user } %>
+
+          <div class="similar-profile-container">
+            <% sim_users.each_slice(3) do |slice| %>
+            <div class="image-row">
+              <% slice.each do |user| %>
+            <div>
+                <%= link_to profile_path(user) do %>
+                  <%= image_tag user.photo, class: "img-circle" %>
+                <% end %>
+              </div>
+              <% end %>
+            </div>
+
+            <% end %>
+          </div>
 
         </div>
 
@@ -133,9 +141,6 @@
                         <span>Description:</span> <%= experience.description %>
                       </h4>
                     </li>
-
-                    <%= image_tag "spidy-logo.svg", class: "img-circle" %>
-
                   </div>
                 </ul>
                 <% end %>
@@ -169,58 +174,72 @@
               <p><span class="badge">2</span> Review</p><br>
 
 
-          <div class="row">
-            <div class="col-sm-2 text-center">
-              <% rand_user = User.all.sample(2) %>
-              <%= image_tag rand_user[0].photo, class: "img-circle" %>
-            </div>
-            <div class="col-sm-10">
-
-              <h4><%= rand_user[0].first_name %> <%= rand_user[0].last_name %> <small>Sep 29, 2017, 9:12 PM</small></h4>
-              <p>Keep up the GREAT work! <%= rand_user[0].first_name %> was a pleasure to do business with. Clever and imaginative when confronted with obstacles, and funny! Would love to hire again!
-              </p>
-              <br>
-            </div>
-            <div class="col-sm-2 text-center">
-              <%= image_tag rand_user[1].photo, class: "img-circle" %>
-            </div>
-            <div class="col-sm-10">
-              <h4><%= rand_user[1].first_name %> <%= rand_user[1].last_name %> <small>Sep 29, 2017, 9:12 PM</small></h4>
-              <p>
-                I am so happy with the work you did for me! <%= rand_user[1].first_name %> would regularly communicate with me whenever there was an issue. As well as think
-                of solutions that I never even thought were possible! Can't wait to hire
-                <%= rand_user[1].first_name %> again!!
-              </p>
-              <br>
-              <p><span class="badge">2</span> Replies:</p><br>
               <div class="row">
                 <div class="col-sm-2 text-center">
-                 <%= image_tag @profile_picture, class: "img-circle" %>
-               </div>
-               <div class="col-xs-10">
-                <h4> <%= @profile.first_name  %> <%= @profile.last_name %> <small>Sep 25, 2017, 8:28 PM</small></h4>
-                <p>
-                  <%= rand_user[1].first_name %>, thanks for the review! It was a pleasure working with you as well! I am looking forward to our next meeting in the future. Hope everything is going well with you!
-                </p>
-                <br>
-              </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2 text-center">
-                 <%= image_tag rand_user[1].photo, class: "img-circle" %>
-               </div>
-               <div class="col-xs-10">
-                <h4> <%= rand_user[1].first_name %> <%= rand_user[1].last_name %> <small>Sep 25, 2017, 8:28 PM</small></h4>
-                <p>
-                  Thanks all has been going just great. Will contact you soon!
-                </p>
-                <br>
+                  <% rand_user = User.all.sample(2) %>
+                  <%= image_tag rand_user[0].photo, class: "img-circle" %>
+                </div>
+                <div class="col-sm-10">
 
+                  <h4><%= rand_user[0].first_name %> <%= rand_user[0].last_name %> <small>Sep 29, 2017, 9:12 PM</small></h4>
+                  <p>Keep up the GREAT work! <%= rand_user[0].first_name %> was a pleasure to do business with. Clever and imaginative when confronted with obstacles, and funny! Would love to hire again!
+                  </p>
+                  <br>
+                </div>
+                <div class="col-sm-2 text-center">
+                  <%= image_tag rand_user[1].photo, class: "img-circle" %>
+                </div>
+                <div class="col-sm-10">
+                  <h4><%= rand_user[1].first_name %> <%= rand_user[1].last_name %> <small>Sep 29, 2017, 9:12 PM</small></h4>
+                  <p>
+                    I am so happy with the work you did for me! <%= rand_user[1].first_name %> would regularly communicate with me whenever there was an issue. As well as think
+                    of solutions that I never even thought were possible! Can't wait to hire
+                    <%= rand_user[1].first_name %> again!!
+                  </p>
+                  <br>
+                  <p><span class="badge">2</span> Replies:</p><br>
+                  <div class="row">
+                    <div class="col-sm-2 text-center">
+                     <%= image_tag @profile_picture, class: "img-circle" %>
+                   </div>
+                   <div class="col-xs-10">
+                    <h4> <%= @profile.first_name  %> <%= @profile.last_name %> <small>Sep 25, 2017, 8:28 PM</small></h4>
+                    <p>
+                      <%= rand_user[1].first_name %>, thanks for the review! It was a pleasure working with you as well! I am looking forward to our next meeting in the future. Hope everything is going well with you!
+                    </p>
+                    <br>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-2 text-center">
+                    <% if rand_user[1].has_freelancer %>
+                      <%= link_to profile_path(rand_user[1]) do %>
+                        <%= image_tag rand_user[1].photo, class: "img-circle" %>
+                      <% end %>
+                    <% else %>
+                      <%= image_tag rand_user[1].photo, class: "img-circle" %>
+                    <% end %>
+                 </div>
+                 <div class="col-xs-10">
+                  <h4>
+                    <% if rand_user[1].has_freelancer %>
+                      <%= link_to profile_path(rand_user[1]) do %>
+                        <%= rand_user[1].first_name %> <%= rand_user[1].last_name %>
+                      <% end %>
+                    <% else %>
+                      <%= rand_user[1].first_name %> <%= rand_user[1].last_name %>
+                    <% end %>
+                    <small>Sep 25, 2017, 8:28 PM</small></h4>
+                  <p>
+                    Thanks all has been going just great. Will contact you soon!
+                  </p>
+                  <br>
+
+                </div>
               </div>
             </div>
           </div>
+          <% end %>
         </div>
-        <% end %>
-      </div>
 
 

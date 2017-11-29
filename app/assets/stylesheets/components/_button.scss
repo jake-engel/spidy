@@ -61,8 +61,10 @@
 
 .apply {
   background: $spidy-green;
+  transition: all 150ms ease;
   &:hover {
     background: darken($spidy-green, 10%);
+    transform: scale(1.05);
   }
   &:active,
   &:focus {
@@ -181,6 +183,14 @@
   opacity: 0.6;
   text-decoration: none;
   color: white;
+}
+
+.scaleup-btn{
+  transition: transform 150ms ease;
+  &:hover {
+    color: white;
+    transform: scale(1.1);
+  }
 }
 
 
