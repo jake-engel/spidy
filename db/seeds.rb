@@ -95,10 +95,10 @@ repeats.times.with_index do |index|
   end
 end
 
-users = User.all.sample(num_users * repeats)
+users = User.all.sample(num_users * repeats + 20)
 iter = 0
 
-(num_users * repeats).times do
+(num_users * repeats + 20).times do
   summary = ["I am a huge people-person and spent several years in Banking, but a few years ago a serendipitous event
     inspired me to get into Technical Recruiting, and I love it! There is nothing greater than finding opportunities for smart
     people to do awesome things, and it's a fantastic process that I feel lucky to participate in. When I'm not working,
