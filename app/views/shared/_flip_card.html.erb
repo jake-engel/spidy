@@ -9,11 +9,15 @@
           <%= to.first_name %> <%= to.last_name %>
           <br>
           <div class="small-stars">
-            <%= render_stars(to.freelancer.avg_rating) %>
+            <% if to.has_freelancer %>
+              <%= render_stars(to.freelancer.avg_rating) %>
+            <% end %>
           </div>
         </h1>
           <h5>
-            <%= to.freelancer.position %>
+            <% if to.has_freelancer %>
+              <%= to.freelancer.position %>
+            <% end %>
           </h5>
         <h4>
           Status:
@@ -25,21 +29,27 @@
 
       <div class="flip-card-back flip-card-side">
         <h3 class="flip-card-name">
-          <%= link_to profile_path(to) do %>
+          <% if to.has_freelancer %>
+            <%= link_to profile_path(to) do %>
+              <%= to.first_name %> <%= to.last_name %>
+            <% end %>
+          <% else %>
             <%= to.first_name %> <%= to.last_name %>
           <% end %>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <strong>
-            <%= to.freelancer.currency %> <%= offer.price %> / <%= offer.price_unit %>
+            <%= to.has_freelancer ? to.freelancer.currency : from.freelancer.currency %> <%= offer.price %> / <%= offer.price_unit %>
           </strong>
           <br>
-          <%= to.freelancer.position %>
+          <% if to.has_freelancer %>
+            <%= to.freelancer.position %>
+          <% end %>
         </h3>
         <h5>
           <strong>
             Budget:
           </strong>
-          <%= to.freelancer.currency %><%= offer.budget %>
+          <%= to.has_freelancer ? to.freelancer.currency : from.freelancer.currency %><%= offer.budget %>
         </h5>
         <div class="flip-card-info">
           <p>
