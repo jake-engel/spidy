@@ -5,7 +5,7 @@ Experience.destroy_all
 Freelancer.destroy_all
 User.destroy_all
 
-num_users = 7
+num_users = 10
 repeats = 3
 repeats.times.with_index do |index|
   puts "Repeat ##{index + 1}"
@@ -47,12 +47,17 @@ repeats.times.with_index do |index|
       password: 'password',
       email: "#{rand_user["name"]["first"]}.#{rand_user["name"]["last"]}@gmail.com",
       phone_number: "+1 #{rand_user["cell"]}",
-      location: ["Manchester Township, NJ", "West New York, NJ", "Hixson, TN", "Jonesboro, GA",
-       "Hinesville, GA", "Hyattsville, MD", "Woodbridge, VA", "Appleton, WI", "Tullahoma, TN",
-        "Lewiston, ME", "Arlington, MA", "Chicago Heights, IL", "Commack, NY", "Brownsburg, IN",
-        "Loganville, GA", "Fairhope, AL", "Utica, NY", "Los Banos, CA", "Floral Park, NY",
-        "Bismarck, ND", "Port Jefferson Station, NY", "Herndon, VA", "Birmingham, AL", "Addison, IL"].sample,
-      photo: rand_user["picture"]["large"]
+      location: ["Woodlawn, MD", "Parkville, MD", "Pikesville, MD", "Carney, MD", "Towson, MD",
+        "Middle River, MD", "Essex, MD", "Dundalk, MD", "Milford Mill, MD", "Perry Hall, MD",
+        "Randallstown, MD", "Owings Mill, MD", "Cockeysville, MD", "Rosedale, MD", "Arbutus, MD", "Columbia, MD", "Timonium, MD",
+        "Baltimore, MD", "Catonsville, MD", "Allegany County, MD", "Anne Arundel County, MD",
+        "Carroll County, MD", "Harford County, MD", "St. Mary's County, MD", "Cecil County, MD",
+        "Howard County, MD", "Somerset County, MD", "Baltimore City, MD", "Charles County, MD",
+        "Kent County, MD", "Talbot County, MD", "Baltimore County, MD", "Dorchester County, MD",
+        "Montgomery County, MD", "Washington County, MD", "Calvert County, MD", "Frederick County, MD",
+        "Prince George's County, MD", "Wicomico County, MD", "Caroline County, MD", "Garrett County, MD",
+        "Queen Anne's County, MD", "Worcester County, MD", "University of Maryland, Baltimore County, MD"].sample,
+      photo: rand_user["picture"]["large"],
     )
   end
 
