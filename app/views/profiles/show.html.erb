@@ -24,7 +24,7 @@
 
         <% if current_user == @profile %>
         <%= link_to edit_profile_path(@profile) do %>
-          <i class="fa fa-pencil-square-o"></i> <%= t(".edit", default: "Edit Profile Info") %>
+        <i class="fa fa-pencil-square-o"></i> <%= t(".edit", default: "Edit Profile Info") %>
         <% end %>
         <% end %>
 
@@ -33,9 +33,9 @@
 
           <h3 style="font-size: 30px; font-weight: 700; margin: 2px"><%= @profile.freelancer.currency %><%= @profile.freelancer.hourly_pay.to_f.round(2) %></h3><p style="font-size: 20px; font-weight: 500; margin: 2px;">Hourly rate</p>
           <% if policy(Offer.new(freelancer: @profile.freelancer)).new? && user_signed_in? %>
-            <%= link_to new_freelancer_offer_path(@profile.freelancer) do %>
-              <%= render "shared/button", text: "Hire", type: "apply profile-apply" %>
-            <% end %>
+          <%= link_to new_freelancer_offer_path(@profile.freelancer) do %>
+          <%= render "shared/button", text: "Hire", type: "apply profile-apply" %>
+          <% end %>
           <% end %>
         </div>
 
@@ -58,138 +58,150 @@
     </div>
   </div>
   <% if @profile.has_freelancer %>
-    <div class="container-fluid">
-      <div class="row content">
-        <div class="col-sm-3 sidenav">
+  <div class="container-fluid">
+    <div class="row content">
+      <div class="col-sm-3 sidenav">
 
 
-          <ul class="nav nav-pills nav-stacked">
-        <h2 style="margin-bottom: 25px;">About</h2>
-        <span class="line-wide"></span>
         <ul class="nav nav-pills nav-stacked">
-          <li><h4><span><i class="fa fa-globe" style="font-size:12px; margin-right: 10px;"></i>Location</li></span></h4>
-          <h7><%= @profile.location %></h7>
-          <li><h4 style="margin-top: 1px;"><span><i class="fa fa-mortar-board" style="font-size:12px; margin-right: 10px;"></i>Education</li></span></h4>
-          <h7><%= Faker::Educator.university %></h7>
-          <li><h4><span><i class="fa fa-home" style="font-size:12px; margin-right: 10px;"></i>Website</li></span></h4>
-          <h7>www.<%= @profile.first_name.downcase %>-<%= @profile.last_name.downcase %>.com</h7>
-          <li><h4><span><i class="fa  fa-behance" style="font-size:12px; margin-right: 10px;"></i>Behance</li></span></h4>
-          <h7><%= @profile.first_name %>s Profile</h7>
-          <li><h4><span><i class="fa fa-linkedin-square" style="font-size:12px; margin-right: 10px;"></i>Linkedin</li></span></h4>
-          <h7><%= @profile.first_name %>s Profile</h7>
-          <li><h4><span><i class="fa fa-facebook" style="font-size:12px;"></i>Facebook</li></span></h4>
-          <%= link_to "https://www.facebook.com/#{ @profile.uid }" do %>
+          <h2 style="margin-bottom: 25px;">About</h2>
+          <span class="line-wide"></span>
+          <ul class="nav nav-pills nav-stacked">
+            <li><h4><span><i class="fa fa-globe" style="font-size:12px; margin-right: 10px;"></i>Location</li></span></h4>
+            <h7><%= @profile.location %></h7>
+            <li><h4 style="margin-top: 1px;"><span><i class="fa fa-mortar-board" style="font-size:12px; margin-right: 10px;"></i>Education</li></span></h4>
+            <h7><%= Faker::Educator.university %></h7>
+            <li><h4><span><i class="fa fa-home" style="font-size:12px; margin-right: 10px;"></i>Website</li></span></h4>
+            <h7>www.<%= @profile.first_name.downcase %>-<%= @profile.last_name.downcase %>.com</h7>
+            <li><h4><span><i class="fa  fa-behance" style="font-size:12px; margin-right: 10px;"></i>Behance</li></span></h4>
             <h7><%= @profile.first_name %>s Profile</h7>
-          <% end %>
-        </ul>
-
-        <h2 style="margin-bottom: 25px;">Similar Profile</h2>
-        <span class="line-wide"></span>
-
-      </div>
-
-      <div class= container>
-        <div class="col-sm-9">
-          <h2>Summary</h2>
-
-          <span><p text-align: left;>
-            <%= @profile.freelancer.summary %>
-          <span class="line-wide"></span></p></span>
-
-          <div class="container-central">
-           <h2>
-            Experiences:
-          </h2>
-          <div class="profile-experiences-card">
-
-            <% @profile.freelancer.experiences.each do |experience| %>
-            <ul style="list-style: none;">
-              <div class="profiles-experience-listing">
-                <li>
-                  <h5>
-                    <%= experience.title %>
-                  </h5>
-                  <h5>
-                    Company: <%= experience.company %>
-                  </h5>
-                  <h4>
-                    <span>City:</span> <%= experience.location %>
-                  </h4>
-                  <h4>
-                    <span>Period:</span> <%= toDate(experience.starting_date) %> - to - <%= toDate(experience.ending_date) %>
-                  </h4>
-                  <h4>
-                    <span>Description:</span> <%= experience.description %>
-                  </h4>
-                </li>
-
-                   <%= image_tag "spidy-logo.svg", class: "img-circle" %>
-
-              </div>
-            </ul>
+            <li><h4><span><i class="fa fa-linkedin-square" style="font-size:12px; margin-right: 10px;"></i>Linkedin</li></span></h4>
+            <h7><%= @profile.first_name %>s Profile</h7>
+            <li><h4><span><i class="fa fa-facebook" style="font-size:12px;"></i>Facebook</li></span></h4>
+            <%= link_to "https://www.facebook.com/#{ @profile.uid }" do %>
+            <h7><%= @profile.first_name %>s Profile</h7>
             <% end %>
-          </div>
+          </ul>
 
+          <h2 style="margin-bottom: 25px;">Similar Profile</h2>
           <span class="line-wide"></span>
 
-          <% if @profile.has_freelancer %>
-          <div class="profile-skills-card">
-            <h2>Skills</h2>
-            <h5><ul style="list-style: none;" class="list-inline">
-              <% @profile.freelancer.skills.each do |skill| %>
-              <li><%= skill.name %></li>
+<div class="similar-profile-container">
+<div><%= image_tag "spidy-logo.svg", class: "img-circle" %></div>
+<div><%= image_tag "spidy-logo.svg", class: "img-circle" %></div>
+<div><%= image_tag "spidy-logo.svg", class: "img-circle" %></div>
+<div><%= image_tag "spidy-logo.svg", class: "img-circle" %></div>
+<div><%= image_tag "spidy-logo.svg", class: "img-circle" %></div>
+<div><%= image_tag "spidy-logo.svg", class: "img-circle" %></div>
+<div><%= image_tag "spidy-logo.svg", class: "img-circle" %></div>
+<div><%= image_tag "spidy-logo.svg", class: "img-circle" %></div>
+<div><%= image_tag "spidy-logo.svg", class: "img-circle" %></div>
+</div>
+
+        </div>
+
+        <div class= container>
+          <div class="col-sm-9">
+            <h2>Summary</h2>
+
+            <span><p text-align: left;>
+              <%= @profile.freelancer.summary %>
+              <span class="line-wide"></span></p></span>
+
+              <div class="container-central">
+               <h2>
+                Experiences:
+              </h2>
+              <div class="profile-experiences-card">
+
+                <% @profile.freelancer.experiences.each do |experience| %>
+                <ul style="list-style: none;">
+                  <div class="profiles-experience-listing">
+                    <li>
+                      <h5>
+                        <%= experience.title %>
+                      </h5>
+                      <h5>
+                        Company: <%= experience.company %>
+                      </h5>
+                      <h4>
+                        <span>City:</span> <%= experience.location %>
+                      </h4>
+                      <h4>
+                        <span>Period:</span> <%= toDate(experience.starting_date) %> - to - <%= toDate(experience.ending_date) %>
+                      </h4>
+                      <h4>
+                        <span>Description:</span> <%= experience.description %>
+                      </h4>
+                    </li>
+
+                    <%= image_tag "spidy-logo.svg", class: "img-circle" %>
+
+                  </div>
+                </ul>
+                <% end %>
+              </div>
+
+              <span class="line-wide"></span>
+
+              <% if @profile.has_freelancer %>
+              <div class="profile-skills-card">
+                <h2>Skills</h2>
+                <h5><ul style="list-style: none;" class="list-inline">
+                  <% @profile.freelancer.skills.each do |skill| %>
+                  <li><%= skill.name %></li>
+                  <% end %>
+                </ul></h5>
+              </div>
               <% end %>
-            </ul></h5>
-          </div>
-          <% end %>
 
-          <span class="line-wide"></span>
+              <span class="line-wide"></span>
 
-          <h4>Write a review</h4>
-          <form role="form" action="/">
-            <div class="form-group">
-              <textarea class="form-control" rows="3" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-success">Submit</button>
-          </form>
-          <br><br>
+              <h4>Write a review</h4>
+              <form role="form" action="/">
+                <div class="form-group">
+                  <textarea class="form-control" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+              </form>
+              <br><br>
 
-          <p><span class="badge">2</span> Review</p><br>
+              <p><span class="badge">2</span> Review</p><br>
 
-          <div class="row">
-            <div class="col-sm-2 text-center">
-              <%= image_tag "avatar.svg", class: "img-circle" %>
-            </div>
-            <div class="col-sm-10">
-
-              <h4>Anja <small>Sep 29, 2017, 9:12 PM</small></h4>
-              <p>Keep up the GREAT work! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-              <br>
-            </div>
-            <div class="col-sm-2 text-center">
-              <%= image_tag "avatar.svg", class: "img-circle" %>
-            </div>
-            <div class="col-sm-10">
-              <h4>John Row <small>Sep 25, 2017, 8:25 PM</small></h4>
-              <p>I am so happy for you man! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              <br>
-              <p><span class="badge">1</span> Review:</p><br>
               <div class="row">
                 <div class="col-sm-2 text-center">
-                 <%= image_tag @profile_picture, class: "img-circle" %>
-               </div>
-               <div class="col-xs-10">
-                <h4>Nested Bro <small>Sep 25, 2017, 8:28 PM</small></h4>
-                <p>Me too! WOW!</p>
-                <br>
+                  <%= image_tag "avatar.svg", class: "img-circle" %>
+                </div>
+                <div class="col-sm-10">
+
+                  <h4>Anja <small>Sep 29, 2017, 9:12 PM</small></h4>
+                  <p>Keep up the GREAT work! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
+                  <br>
+                </div>
+                <div class="col-sm-2 text-center">
+                  <%= image_tag "avatar.svg", class: "img-circle" %>
+                </div>
+                <div class="col-sm-10">
+                  <h4>John Row <small>Sep 25, 2017, 8:25 PM</small></h4>
+                  <p>I am so happy for you man! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <br>
+                  <p><span class="badge">1</span> Review:</p><br>
+                  <div class="row">
+                    <div class="col-sm-2 text-center">
+                     <%= image_tag @profile_picture, class: "img-circle" %>
+                   </div>
+                   <div class="col-xs-10">
+                    <h4>Nested Bro <small>Sep 25, 2017, 8:28 PM</small></h4>
+                    <p>Me too! WOW!</p>
+                    <br>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <% end %>
       </div>
-    </div>
-  <% end %>
-</div>
 
 
