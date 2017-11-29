@@ -322,3 +322,16 @@ footer {
 
 /* background-color: white;
 height: 200px; */
+
+.similar-profile-container {
+  /* display: flex; */
+  width: 100%
+}
+
+.similar-profile-container div {
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+  display: wrap;
+  margin: 3px;
+}
