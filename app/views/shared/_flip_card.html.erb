@@ -1,9 +1,10 @@
+<% photo = to.facebook_picture_url || to.photo %>
+
 <div class="col-sm-6 col-xs-12">
   <div class="flip-card-container">
     <div class="flip-card">
-
       <div class="flip-card-front flip-card-side">
-        <%= image_tag to.photo, class: "img-circle" %>
+        <%= image_tag photo, class: "img-circle" %>
         <h1 class="flip-card-logo">
           <%= to.first_name %> <%= to.last_name %>
           <br>
@@ -41,6 +42,12 @@
           <%= to.freelancer.currency %><%= offer.budget %>
         </h5>
         <div class="flip-card-info">
+          <p>
+            <span class="flip-card-property">
+              Original Offer:
+            </span>
+            <%= offer.created_at.to_date %>
+          </p>
           <p>
             <span class="flip-card-property">
               Job Description:
