@@ -6,7 +6,7 @@
         <form id="home-map-search" action="#map-anchor">
         <div class="f-search-box">
           <div class="f-search-container">
-            <input type="text" class="f-search-bar" name="job_title" id="f-search" placeholder="What are you looking for?" value="<%= @value %>" />
+            <input type="text" class="f-search-bar" name="job_title" id="f-search" placeholder="What are you looking for?" value="<%= @job_placeholder %>" />
             <span class="icon"><i class="fa fa-search"></i></span>
           </div>
         </div>
@@ -23,7 +23,7 @@
               <option value="10">10</option>
               <option value="25" selected>25</option>
               <option value="50">50</option>
-              <option value="150">50+</option>
+              <option value="500">50+</option>
             </select>
           <br>
           <br>
@@ -41,7 +41,7 @@
       <div class="home-page-container">
         <div class="maps" id="freelancer-index-map"></div>
             <div class="inline-text">
-              <h2><span><i class="fa fa-rocket"></i>  <%= @freelancerCount %> <%= @freelancerWord %></span> FOUND IN YOUR AREA FOR: <strong><%= @value %></strong> IN <strong><%= @location %></strong></h2>
+              <h2><span><i class="fa fa-rocket"></i>  <%= @freelancerCount %> <%= @freelancerWord %></span> FOUND IN YOUR RANGE FOR: <strong><%= @value %></strong> IN <strong><%= @location %></strong></h2>
             <a href="#freelancer-search-field" class="btn btn-primary" style="margin-left: 20px; margin-bottom: 30px;">Edit Search Details</a>
             </div>
          <div class="line-list"></div>
@@ -97,42 +97,39 @@
           zoomAmount = 11;
         } else if (range == 50) {
           zoomAmount = 10;
-        } else if (range == 150) {
-          zoomAmount = 9;
+        } else if (range == 500) {
+          zoomAmount = 8;
         } else {
           zoomAmount = 13;
         }
         handler.buildMap({ internal: { id: 'freelancer-index-map' },
                            provider: {
                             zoom: zoomAmount,
-                            center: new google.maps.LatLng(<%= @lat %>, <%= @lng %>),
+                            // center: new google.maps.LatLng(<%= @lat %>, <%= @lng %>),
                             styles: mapStyle
                           }
                         },
                       function() {
         markers = handler.addMarkers(<%= raw @list.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
 
-        if(markers.length == 1){
-          handler.fitMapToBounds();
-          handler.getMap().setZoom(14);
-        }
         var goldStar = {
           path: 'M 125,5 155,90 245,90 175,145 200,230 125,180 50,230 75,145 5,90 95,90 z',
           fillColor: 'yellow',
           fillOpacity: 0.95,
-          scale: 0.15,
+          scale: 0.125,
           strokeColor: 'black',
           strokeWeight: 3,
           anchor: new google.maps.Point(100, 100),
         };
-        var marker = new google.maps.Marker({
-          position: { lat: <%= @lat %>, lng: <%= @lng %>},
-          title: 'Entered Location: <%= @location %>',
-          icon: goldStar,
-          map: handler.getMap()
-        });
+
+        var marker = handler.addMarker({lat: <%= @lat %>, lng: <%= @lng %>})
+        marker.serviceObject.setIcon(goldStar);
+        marker.serviceObject.title = 'Entered Location: <%= @location %>';
+
+        markers.push(marker);
+
+        handler.bounds.extendWith(markers)
+        handler.fitMapToBounds();
         });
     </script>
   <% end %>
