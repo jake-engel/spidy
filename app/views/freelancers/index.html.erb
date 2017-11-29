@@ -129,6 +129,11 @@
 
         handler.bounds.extendWith(markers)
         handler.fitMapToBounds();
+        console.log(markers.length)
+        if (markers.length == 1) {
+          handler.getMap().setZoom(15);
+        }
+
         });
     </script>
   <% end %>
