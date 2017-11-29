@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.3.5'
 
+gem 'pg_search'
+
 gem "coffee-rails"
 gem "gmaps4rails"
 

@@ -2,7 +2,7 @@ class My::OffersController < ApplicationController
   before_action :set_offer, only: [ :decline, :accept, :complete ]
 
   def index
-    @offers = policy_scope(Offer).order(created_at: :desc)
+    @offers = policy_scope(Offer).order(updated_at: :desc)
   end
 
   def decline
@@ -27,7 +27,7 @@ class My::OffersController < ApplicationController
   end
 
   def cobweb
-    @offers = Offer.where(status: 3)
+    @offers = Offer.where(status: 3).order(updated_at: :desc)
     authorize @offers
   end
 

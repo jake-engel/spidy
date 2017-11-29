@@ -34,7 +34,6 @@ repeats.times.with_index do |index|
         "Zeedijk, Amsterdam", "The-DM Studios, Amsterdam", "Warmoesstraat, Amsterdam",
         "Barndesteeg, Amsterdam", "Koestraat, Amsterdam", "Nieuwe Uilenburgerstraat, Amsterdam",
         "Czaar Peterbuurt, Amsterdam", "Haarlemmerbuurt, Amsterdam", "Dam 9, Amsterdam"].sample,
-      has_freelancer: true,
       photo: rand_user["picture"]["large"]
     )
   end
@@ -53,7 +52,6 @@ repeats.times.with_index do |index|
         "Lewiston, ME", "Arlington, MA", "Chicago Heights, IL", "Commack, NY", "Brownsburg, IN",
         "Loganville, GA", "Fairhope, AL", "Utica, NY", "Los Banos, CA", "Floral Park, NY",
         "Bismarck, ND", "Port Jefferson Station, NY", "Herndon, VA", "Birmingham, AL", "Addison, IL"].sample,
-      has_freelancer: true,
       photo: rand_user["picture"]["large"]
     )
   end
@@ -73,7 +71,6 @@ repeats.times.with_index do |index|
         "Caister, England", "Hertford, England", "Midurst, England", "Morecambe, England",
         "Peterborough, England", "Worstead, England", "Wressle, England", "Kirby, England", "Edington, England",
         "Amersham, England", "Reculver, England", "Stafford, England", "Southampton, England"].sample,
-      has_freelancer: true,
       photo: rand_user["picture"]["large"]
     )
   end
@@ -93,7 +90,6 @@ repeats.times.with_index do |index|
         "Erre, France", "Migné, France", "Boutancourt, France", "Socoa, France", "Montbert, France",
         "Xivray, France", "Charbonnier, France", "Mottier, France", "Treyches, France", "Lafaurie, France",
         "Challain, France", "Houdent, France", "Valeuil"].sample,
-      has_freelancer: true,
       photo: rand_user["picture"]["large"]
     )
   end
@@ -154,12 +150,14 @@ iter = 0
   freelancer.user.save!
   freelancer.save!
   puts "Creating Offers"
-  (5..50).to_a.sample.times do
+  (1..10).to_a.sample.times do
     Offer.create(
       user: users[rand(User.all.length - 1)],
       freelancer: freelancer,
-      status: 3,
+      status: (1..3).to_a.sample,
+      budget: (50..200).to_a.sample,
       price: (10..50).to_a.sample,
+      description: Faker::Company.bs,
     )
   end
 

@@ -1,0 +1,101 @@
+<% photo = to.facebook_picture_url || to.photo %>
+
+<div class="col-sm-6 col-xs-12">
+  <div class="flip-card-container">
+    <div class="flip-card">
+      <div class="flip-card-front flip-card-side">
+        <%= image_tag photo, class: "img-circle" %>
+        <h1 class="flip-card-logo">
+          <%= to.first_name %> <%= to.last_name %>
+          <br>
+          <div class="small-stars">
+            <% if to.has_freelancer %>
+              <%= render_stars(to.freelancer.avg_rating) %>
+            <% end %>
+          </div>
+        </h1>
+          <h5>
+            <% if to.has_freelancer %>
+              <%= to.freelancer.position %>
+            <% end %>
+          </h5>
+        <h4>
+          <% if offer.status == 3 %>
+            Jobs: <%= (1..6).to_a.sample %>
+          <% else %>
+            <strong>
+              <%= status(offer) %>
+            </strong>
+          <% end %>
+        </h4>
+      </div>
+
+      <div class="flip-card-back flip-card-side">
+        <h3 class="flip-card-name">
+          <% if to.has_freelancer %>
+            <%= link_to profile_path(to) do %>
+              <%= to.first_name %> <%= to.last_name %>
+            <% end %>
+          <% else %>
+            <%= to.first_name %> <%= to.last_name %>
+          <% end %>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <strong>
+            <%= to.has_freelancer ? to.freelancer.currency : from.freelancer.currency %> <%= offer.price %> / <%= offer.price_unit %>
+          </strong>
+          <br>
+          <% if to.has_freelancer %>
+            <%= to.freelancer.position %>
+          <% end %>
+        </h3>
+        <h5>
+          <strong>
+            Budget:
+          </strong>
+          <%= to.has_freelancer ? to.freelancer.currency : from.freelancer.currency %><%= offer.budget %>
+        </h5>
+        <div class="flip-card-info">
+          <p>
+            <span class="flip-card-property">
+              Original Offer:
+            </span>
+            <%= offer.created_at.to_date %>
+          </p>
+          <p>
+            <span class="flip-card-property">
+              Job Description:
+            </span>
+            <%= offer.description[0..150] %>
+            <%= "..." if offer.description.length > 150 %>
+          </p>
+          <div class="flip-card-btn-wrapper">
+            <% if buttons == 1 %>
+              <% if offer.status == 2 %>
+                <%= link_to complete_my_offer_path( offer ), method: :patch do  %>
+                  <button type="hire" class="btn btn-primary flip-card-btn">Job Completed</button>
+                <% end %>
+              <% elsif offer.status == 3 %>
+                <%= link_to "#" do%>
+                  <button type="hire" class="btn btn-primary flip-card-btn">Contact</button>
+                <% end %>
+              <% end %>
+            <% elsif buttons == 2 %>
+              <% if offer.status == 1 %>
+                <%= link_to accept_my_offer_path( offer ), method: :patch do  %>
+                  <button type="hire" class="btn btn-success flip-card-btn">Accept Offer</button>
+                <% end %>
+                <%= link_to decline_my_offer_path( offer ), method: :patch do  %>
+                  <button type="hire" class="btn btn-danger flip-card-btn">Decline Offer</button>
+                <% end %>
+              <% end %>
+            <% else %>
+              <%= link_to profile_path(to) do %>
+                Contact <%= to.first_name %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

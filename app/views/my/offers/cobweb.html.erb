@@ -3,39 +3,39 @@
 <% end %>
 <% hired_by.compact! %>
 <% you_hired = @offers.where(user: current_user) %>
-<h1>
-  My Cobweb
-</h1>
-<div class="my-offers-container">
-  <% if current_user.has_freelancer %>
+
+<div class="my-offers-tab-wrapper">
+  <div class="my-offers-container">
+    <% if current_user.has_freelancer %>
     <div class="tab">
-      <%= render "shared/tab", tab1: "Hired By", tab2: "You Hired" %>
+      <%= render "shared/tab", tab1: "Received Offers", tab2: "Sent Offers" %>
     </div>
     <div class="from-freelancer">
-      <h3>
-        <%= "You Have Not Completed Any Offers" if hired_by.empty? %>
+      <h3 class="text-center">
+        <%= "You Have No Pending Offers From Freelancers" if hired_by.empty? %>
       </h3>
       <% hired_by.each do |offer| %>
-        <%= render "shared/freelancer_card", user: offer.user, freelancer: offer.freelancer %>
+        <%= render "shared/flip_card", offer: offer, to: offer.user, from: offer.freelancer.user, buttons: 1 %>
       <% end %>
     </div>
 
     <div class="to-freelancer hidden">
-      <h3>
-        <%= "You Have Not Yet Hired A Freelancer" if you_hired.empty? %>
+      <h3 class="text-center">
+        <%= "You Have No Pending Offers To Freelancers" if you_hired.empty? %>
       </h3>
       <% you_hired.each do |offer| %>
-        <%= render "shared/freelancer_card", user: offer.freelancer.user, freelancer: offer.freelancer %>
+      <%= render "shared/flip_card", offer: offer, to: offer.freelancer.user, from: offer.user, buttons: 1 %>
       <% end %>
     </div>
-  <% else %>
+    <% else %>
     <div class="to-freelancer">
-      <h3>
-        <%= "You Have Not Yet Hired A Freelancer" if you_hired.empty? %>
+      <h3 class="text-center">
+        <%= "You Have No Pending Offers To Freelancers" if you_hired.empty? %>
       </h3>
       <% you_hired.each do |offer| %>
-        <%= render "shared/freelancer_card", user: offer.freelancer.user, freelancer: offer.freelancer %>
+      <%= render "shared/flip_card", offer: offer, to: offer.freelancer.user, from: offer.user, buttons: 1 %>
       <% end %>
     </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
