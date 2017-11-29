@@ -27,7 +27,7 @@ class My::OffersController < ApplicationController
   end
 
   def cobweb
-    @offers = Offer.where(status: 3)
+    @offers = Offer.where(status: 3).order(updated_at: :desc)
     authorize @offers
   end
 

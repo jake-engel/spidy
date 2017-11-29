@@ -20,10 +20,13 @@
             <% end %>
           </h5>
         <h4>
-          Status:
-          <strong>
-            <%= status(offer) %>
-          </strong>
+          <% if offer.status == 3 %>
+            Jobs: <%= (1..10).to_a.sample %>
+          <% else %>
+            <strong>
+              <%= status(offer) %>
+            </strong>
+          <% end %>
         </h4>
       </div>
 
@@ -70,6 +73,10 @@
               <% if offer.status == 2 %>
                 <%= link_to complete_my_offer_path( offer ), method: :patch do  %>
                   <button type="hire" class="btn btn-primary flip-card-btn">Job Completed</button>
+                <% end %>
+              <% elsif offer.status == 3 %>
+                <%= link_to "#" do%>
+                  <button type="hire" class="btn btn-primary flip-card-btn">Contact</button>
                 <% end %>
               <% end %>
             <% elsif buttons == 2 %>
