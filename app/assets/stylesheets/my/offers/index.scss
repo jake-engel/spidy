@@ -2,11 +2,37 @@
   margin-bottom: 5vh;
   min-height: 0;
   background-color: white;
-  width: 80%;
+  width: 78%;
   margin-top: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .my-offers-tab-wrapper {
   display: flex;
   justify-content: center;
 }
+
+.from-freelancer {
+    text-align: center;
+    justify-content: center;
+    border-bottom: 1px solid gray;
+
+
+h3 {
+  padding-bottom: 10px;
+  }
+
+}
+
+.to-freelancer {
+    text-align: center;
+    justify-content: center;
+    border-bottom: 1px solid gray;
+
+h3 {
+  padding-bottom: 10px;
+  }
+
+}
+

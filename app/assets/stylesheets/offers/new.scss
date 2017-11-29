@@ -8,23 +8,80 @@
 }
 
 .new-offer-card {
-  width: 55vw;
-  height: 80vh;
+  border-bottom: 6px solid;
+  color: $spidy-green;
+  width: 40vw;
+  height: 60vh;
   background-color: $white;
   margin: 15px;
-  border-radius: 2px;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
   position: absolute;
   padding: 20px;
+
+  h1{
+    margin: 0 0 50px 0;
+    font-weight: 600;
+    color: #79C8A1;
+    text-align: center;
+    font-size: 30px;
+  }
 }
 
+.form-inline {
+  label {
+    padding-right: 6px;
+  }
+}
 
 .set-budget {
   label {
     float: left;
+    padding-top: 6px;
+    padding-right: 6px;
   }
   input {
     width: 10%;
     float: left;
+
   }
+}
+
+.apply-new-job {
+  display: flex;
+  justify-content : center;
+  margin-bottom: 10px;
+  margin-top:30px;
+}
+
+.cancel-application {
+  display: flex;
+  justify-content : center;
+  /* margin-bottom: 10px; */
+}
+
+.new-offer-card {
+/*   width: 1000px;
+display: flex;
+justify-content: center;
+padding: 50px; */
+
+input[type="number"], input[type="budget"], input[type="description"] {
+   display: block;
+   box-sizing: border-box;
+   margin-bottom: 20px;
+   padding: 4px;
+   width: 100%;
+   height: 50px;
+   border: none;
+   border-bottom: 1px $spidy-green solid;
+   // font-family: 'Raleway', sans-serif;
+   font-weight: 400;
+   font-size: 15px;
+   transition: 0.2s ease;
+ }
+
+input[type="number"]:focus, input[type="budget"]:focus, input[type="description"]:focus {
+  border-bottom: 3px solid $spidy-green;
+  color: #16a085;
+  transition: 0.2s ease;
+}
 }

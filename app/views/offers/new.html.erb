@@ -1,23 +1,30 @@
 <div class="new-offer-container">
-<% @user = @offer.user %>
-<% @freelancer = @offer.freelancer %>
+  <% @user = @offer.user %>
+  <% @freelancer = @offer.freelancer %>
 
-<div class="new-offer-card">
-<h1>
-  Create a new Job Request for <%= @freelancer.user.first_name %>!
-</h1>
-<%= simple_form_for [@freelancer, @offer] do |f| %>
-  <div class="form-inline form-group">
-    <%= f.input :price, label: "Pay: #{@freelancer.currency}", input_html: { min: '8', step: 'any', value: 8 } %>
-    <%= f.input :price_unit, label: false, collection: %w(contract hr day week), selected: "hr" %>
+  <div class="new-offer-card">
+    <h1>
+      Create a new Job Request for <%= @freelancer.user.first_name %>!
+    </h1>
+    <%= simple_form_for [@freelancer, @offer] do |f| %>
+    <div class="form-inline form-group">
+      <%= f.input :price, label: "Pay: #{@freelancer.currency}", input_html: { min: '8', step: 'any', value: 8 } %>
+      <%= f.input :price_unit, label: false, collection: %w(contract hr day week), selected: "hr" %>
+    </div>
+    <div class="set-budget">
+      <%= f.input :budget, label: "Budget: #{@freelancer.currency}", input_html: {width: 30, min: 8, value: 50} %>
+    </div>
+    <br><br>
+
+    <%= f.input :description %>
+
+    <div class="apply-new-job">
+      <%= f.submit "Apply for Contract", class: "btn btn-primary" %>
+    </div>
+    <div class="cancel-application">
+      <%= link_to "Cancel", :back, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+
   </div>
-  <div class="set-budget">
-    <%= f.input :budget, label: "Budget: #{@freelancer.currency}", input_html: {width: 30, min: 8, value: 50} %>
-  </div>
-  <br><br>
-  <%= f.input :description %>
-  <%= f.submit "Apply for Contract", class: "btn btn-default" %>
-  <%= link_to "Cancel", :back, class: "btn btn-default" %>
-<% end %>
-</div>
 </div>
