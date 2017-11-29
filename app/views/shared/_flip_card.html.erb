@@ -72,20 +72,20 @@
             <% if buttons == 1 %>
               <% if offer.status == 2 %>
                 <%= link_to complete_my_offer_path( offer ), method: :patch do  %>
-                  <button type="hire" class="btn btn-primary flip-card-btn">Job Completed</button>
+                  <button type="hire" class="btn btn-primary flip-card-btn scaleup-btn font-bold-hover">Job Completed</button>
                 <% end %>
               <% elsif offer.status == 3 %>
                 <%= link_to "#" do%>
-                  <button type="hire" class="btn btn-primary flip-card-btn">Contact</button>
+                  <button type="hire" class="btn btn-primary flip-card-btn scaleup-btn font-bold-hover">Contact</button>
                 <% end %>
               <% end %>
             <% elsif buttons == 2 %>
               <% if offer.status == 1 %>
                 <%= link_to accept_my_offer_path( offer ), method: :patch do  %>
-                  <button type="hire" class="btn btn-success flip-card-btn">Accept Offer</button>
+                  <button type="hire" class="btn btn-success flip-card-btn scaleup-btn font-bold-hover">Accept Offer</button>
                 <% end %>
                 <%= link_to decline_my_offer_path( offer ), method: :patch do  %>
-                  <button type="hire" class="btn btn-danger flip-card-btn">Decline Offer</button>
+                  <button type="hire" class="btn btn-danger flip-card-btn scaleup-btn font-bold-hover">Decline Offer</button>
                 <% end %>
               <% end %>
             <% else %>

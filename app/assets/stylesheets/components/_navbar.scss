@@ -169,3 +169,10 @@
   }
 }
 
+.font-bold-hover {
+  transition: all 150ms ease;
+  &:hover{
+    font-weight: bolder;
+  }
+}
+

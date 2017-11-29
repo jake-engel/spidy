@@ -61,8 +61,10 @@
 
 .apply {
   background: $spidy-green;
+  transition: all 150ms ease;
   &:hover {
     background: darken($spidy-green, 10%);
+    transform: scale(1.05);
   }
   &:active,
   &:focus {

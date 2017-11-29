@@ -9,7 +9,7 @@
       <% end %>
     </div>
     <div class="info-text">
-      <%= link_to profile_path(user) do %>
+      <%= link_to profile_path(user), class: "font-bold-hover" do %>
       <%= "#{user.first_name} #{user.last_name}" %>
       <% end %>
       <br>
@@ -24,7 +24,7 @@
       <ul class="list-inline product-controls hidden-sm hidden-xs" style="margin-left:0px;">
         <% unless freelancer.offers.empty? %>
         <%= render_stars(freelancer.avg_rating) %> (<%= freelancer.offers.where(status: 3).length %>)
-        <li><strong>Last Spidy Position:</strong> <%= freelancer.offers.last.updated_at.to_date %></a></li>
+        <li><strong>Last Spidy Position:</strong> <%= freelancer.offers.last.updated_at.to_date %></li>
         <% end %>
       </ul>
     </div>
@@ -59,7 +59,7 @@
 
     <% if policy(Offer.new(freelancer: freelancer)).new? && user_signed_in? %>
     <%= link_to new_freelancer_offer_path(freelancer) do %>
-    <%= render "shared/button", text: "Hire #{user.first_name}", type: "apply" %>
+    <%= render "shared/button", text: "Hire #{user.first_name}", type: "apply font-bold-hover" %>
     <% end %>
     <% end %>
   </div>

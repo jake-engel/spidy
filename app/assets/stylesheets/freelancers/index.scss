@@ -3,6 +3,10 @@
     width: 100px;
     height: 100px;
   }
+  transition: transform 150ms ease;
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .first-line-container {
@@ -275,9 +279,10 @@ h3{
 
 .fa-share {
   color: #BFBFBF;
-  transition: color 300ms ease;
+  transition: all 150ms ease;
   &:hover {
     color: $spidy-green;
+    transform: scale(1.5);
   }
 }
 
@@ -296,5 +301,11 @@ text-decoration: none;
 box-shadow: none;
 }
 
-
+.scaleup-btn{
+  transition: transform 150ms ease;
+  &:hover {
+    color: white;
+    transform: scale(1.1);
+  }
+}
 

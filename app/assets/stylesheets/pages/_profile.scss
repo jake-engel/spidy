@@ -314,9 +314,10 @@ footer {
 
 .fa-heart {
   color: #BFBFBF;
-  transition: color 300ms ease;
+  transition: all 150ms ease;
   &:hover {
     color: #C83B30;
+    transform: scale(1.5);
   }
 }
 
