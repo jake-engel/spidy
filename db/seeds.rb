@@ -100,10 +100,10 @@ repeats.times.with_index do |index|
   end
 end
 
-users = User.all.sample(num_users * repeats + 20)
+users = User.all.sample(User.all.length - 10)
 iter = 0
 
-(num_users * repeats + 20).times do
+(User.all.length - 10).times do
   summary = ["I am a huge people-person and spent several years in Banking, but a few years ago a serendipitous event
     inspired me to get into Technical Recruiting, and I love it! There is nothing greater than finding opportunities for smart
     people to do awesome things, and it's a fantastic process that I feel lucky to participate in. When I'm not working,
@@ -144,7 +144,7 @@ iter = 0
     able to prioritize effectively to accomplish objectives with creativity, enthusiasm and humor.",
     "Creative, resourceful and flexible, able to adapt to changing priorities and maintain a positive attitude and strong work ethic."].sample
   freelancer = Freelancer.new(
-    position: ["Painter", "Photographer", "Plumber", "Event Planner"].sample,
+    position: ["Painter", "Photographer","Plumber", "Event Planner"].sample,
     hourly_pay: (10..45).to_a.sample,
     avg_rating: [2, 2.5, 3, 3.5, 4, 4.5, 5].sample,
     summary: summary,
