@@ -22,9 +22,11 @@
 
 
       <ul class="list-inline product-controls hidden-sm hidden-xs" style="margin-left:0px;">
-        <% unless freelancer.offers.empty? %>
+        <% if freelancer.offers.where(status: 3).empty? %>
+        <li><strong>No Completed Jobs Yet</strong></li>
+        <% else %>
         <%= render_stars(freelancer.avg_rating) %> (<%= freelancer.offers.where(status: 3).length %>)
-        <li><strong>Last Spidy Position:</strong> <%= freelancer.offers.last.updated_at.to_date %></li>
+        <li><strong>Last Spidy Position:</strong> <%= freelancer.offers.last.updated_at %></a></li>
         <% end %>
       </ul>
     </div>
