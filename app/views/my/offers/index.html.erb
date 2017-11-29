@@ -1,8 +1,8 @@
 <% from_users = @offers.select do |offer| %>
-  <% offer.status != 3 && offer.status != 0 && offer.freelancer.user == current_user %>
+<% offer.status != 3 && offer.status != 0 && offer.freelancer.user == current_user %>
 <% end %>
 <% to_freelancers = @offers.select do |offer| %>
-  <% offer.status != 3 && offer.status != 0 && offer.user == current_user %>
+<% offer.status != 3 && offer.status != 0 && offer.user == current_user %>
 <% end %>
 <!--
   MUST CHECK THIS LATER AND CORRECT PUNDIT WITH NAMESPACE
@@ -10,72 +10,38 @@
 <%= from_users.length %>
 <%= @offers.length %>
 -->
-
-<div class="my-offers-container">
-  <% if current_user.has_freelancer %>
+<div class="my-offers-tab-wrapper">
+  <div class="my-offers-container">
+    <% if current_user.has_freelancer %>
     <div class="tab">
       <%= render "shared/tab", tab1: "Received Offers", tab2: "Sent Offers" %>
     </div>
     <div class="from-freelancer">
-      <h3>
+      <h3 class="text-center">
         <%= "You Have No Pending Offers From Freelancers" if from_users.empty? %>
       </h3>
       <% from_users.each do |offer| %>
-        <strong>FROM:</strong><%= offer.user.first_name %>
-        <strong>Current Price: </strong> <%= offer.freelancer.currency %> <%= offer.price %>/<%= offer.price_unit %> <br>
-        <strong>Status: </strong> <%= status(offer) %> <br>
-        <strong>Job Description: </strong> <%= offer.description %><br>
-        <% if offer.status == 1 %>
-          <%= link_to accept_my_offer_path( offer ), method: :patch do  %>
-            <button type="hire" class="btn btn-success">Accept Offer</button>
-          <% end %>
-        <% end %>
-        <% if offer.status == 1 %>
-          <%= link_to decline_my_offer_path( offer ), method: :patch do  %>
-            <button type="hire" class="btn btn-danger">Decline Offer</button>
-          <% end %>
-        <% end %>
-        <br><br>
+        <%= render "shared/flip_card", offer: offer, to: offer.user, from: offer.freelancer.user, buttons: 2 %>
       <% end %>
     </div>
 
     <div class="to-freelancer hidden">
-      <h3>
+      <h3 class="text-center">
         <%= "You Have No Pending Offers To Freelancers" if to_freelancers.empty? %>
       </h3>
       <% to_freelancers.each do |offer| %>
-        <strong>FREELANCER:</strong> <%= offer.freelancer.user.first_name %><br>
-        <strong>Current Price: </strong> <%= offer.freelancer.currency %> <%= offer.price %>/<%= offer.price_unit %> <br>
-        <strong>Your Budget: </strong> <%= offer.freelancer.currency %> <%= offer.budget %><br>
-        <strong>Status: </strong> <%= status(offer) %> <br>
-        <strong>Job Description: </strong> <%= offer.description %> <br>
-        <% if offer.status == 2 %>
-          <%= link_to complete_my_offer_path( offer ), method: :patch do  %>
-            <button type="hire" class="btn btn-primary">Offer Completed</button>
-          <% end %>
-        <% end %>
-        <br><br>
+      <%= render "shared/flip_card", offer: offer, to: offer.freelancer.user, from: offer.user, buttons: 1 %>
       <% end %>
     </div>
-  <% else %>
+    <% else %>
     <div class="to-freelancer">
-      <h3>
+      <h3 class="text-center">
         <%= "You Have No Pending Offers To Freelancers" if to_freelancers.empty? %>
       </h3>
       <% to_freelancers.each do |offer| %>
-        <strong>FREELANCER:</strong> <%= offer.freelancer.user.first_name %><br>
-        <strong>Position: </strong> <%= offer.freelancer.position %> <br>
-        <strong>Current Price: </strong> <%= offer.freelancer.currency %> <%= offer.price %>/<%= offer.price_unit %> <br>
-        <strong>Your Budget: </strong> <%= offer.freelancer.currency %> <%= offer.budget %><br>
-        <strong>Status: </strong> <%= status(offer) %> <br>
-        <strong>Job Description: </strong> <%= offer.description %> <br>
-        <% if offer.status == 2 %>
-            <%= link_to complete_my_offer_path( offer ), method: :patch do  %>
-              <button type="hire" class="btn btn-primary">Offer Completed</button>
-            <% end %>
-          <% end %>
-        <br><br>
+      <%= render "shared/flip_card", offer: offer, to: offer.freelancer.user, from: offer.user, buttons: 1 %>
       <% end %>
     </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
