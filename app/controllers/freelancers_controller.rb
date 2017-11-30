@@ -9,6 +9,8 @@ class FreelancersController < ApplicationController
     @lat = coordinates["lat"]
     @lng = coordinates["lng"]
 
+    @response = @location
+
     freetot = []
     free = User.near(@location, @range)
 
@@ -22,10 +24,12 @@ class FreelancersController < ApplicationController
     filtering_params(params).each do |key, value|
       if value == ""
         @value = "All Jobs"
+        @response = @location
         @job_placeholder = value
       else
         value = value.split.map(&:capitalize).join(' ')
         @value = value
+        @response = "#{@value} IN #{@location}"
         @job_placeholder = value
         @mapFreelancers = @mapFreelancers.job_search(value)
       end
