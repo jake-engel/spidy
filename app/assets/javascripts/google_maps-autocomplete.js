@@ -10,6 +10,7 @@ var componentForm = {
 google.maps.event.addDomListener(window, 'load', initAutocomplete);
 
 function initAutocomplete() {
+
   autocomplete = new google.maps.places.Autocomplete((document.getElementById('home-search-bar')),
     {types: ['geocode']});
   autocomplete.addListener('place_changed', fillInAddress);
