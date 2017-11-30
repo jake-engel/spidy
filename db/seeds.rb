@@ -160,7 +160,7 @@ iter = 0
       user: users[rand(User.all.length - 1)],
       freelancer: freelancer,
       status: (1..3).to_a.sample,
-      budget: (50..200).to_a.sample,
+      budget: (50..200).to_a.sample.round(-1),
       price: (10..50).to_a.sample,
       description: Faker::Company.bs,
     )

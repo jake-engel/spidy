@@ -1,15 +1,43 @@
 <div class="freelancer-index-card">
   <div class="first-line-container">
-
-    <div class="card-image">
+    <% if to.has_freelancer %>
+      <div class="card-image-scale">
+    <% else %>
+      <div class="card-image-non-scale">
+    <% end %>
       <% picture = to.facebook_picture_url || to.photo %>
-      <%= link_to profile_path(to) do %>
+      <% if to.has_freelancer %>
+        <%= link_to profile_path(to) do %>
+          <%= image_tag picture, class: "img-circle" %>
+        <% end %>
+      <% else %>
         <%= image_tag picture, class: "img-circle" %>
       <% end %>
     </div>
     <div class="info-text">
-      <%= link_to profile_path(to), class: "font-bold-hover" do %>
-        <%= "#{to.first_name} #{to.last_name}" %>
+      <% if to.has_freelancer %>
+        <%= link_to profile_path(to), class: "font-bold-hover" do %>
+          <%= "#{to.first_name} #{to.last_name}" %> <br>
+        <% end %>
+      <% else %>
+        <%= "#{to.first_name} #{to.last_name}" %> <br>
+      <% end %>
+      <% if offer.status != 3 %>
+        Status:
+      <% end %>
+      <% if offer.status == 1 %>
+        <strong class="offer-pending">
+          <%= status(offer) %>
+       </strong>
+      <% elsif offer.status == 2 %>
+        <strong class="offer-accepted">
+          <%= status(offer) %>
+        </strong>
+      <% elsif offer.status == 3 %>
+          Jobs Completed:
+          <strong>
+            <%= (1..6).to_a.sample %>
+          </strong>
       <% end %>
       <br>
       <% if to.has_freelancer %>
@@ -20,6 +48,7 @@
       <br>
       Budget:
         <strong>
+          <%= to.has_freelancer ? to.freelancer.currency : from.freelancer.currency %>
           <%= offer.budget %>
         </strong>
 
@@ -40,19 +69,19 @@
           <% else %>
             <%= render_stars(to.freelancer.avg_rating) %> (<%= to.freelancer.offers.where(status: 3).length %>)
           <% end %>
-          <li>
-
-          </li>
         <% end %>
+        <li>
+            Offer Description: <%= offer.description %>
+        </li>
       </ul>
     </div>
     <div class="icon-right">
       <br>
       <%= link_to "#", class: "freelancer-links" do %>
-      <i class="fa fa-heart" aria-hidden="true"></i>
+        <i class="fa fa-heart" aria-hidden="true"></i>
       <% end %>
       <%= link_to "#", class: "freelancer-links" do %>
-      <i class="fa fa-share" aria-hidden="true"></i>
+        <i class="fa fa-share" aria-hidden="true"></i>
       <% end %>
       <br>
     </div>
@@ -65,11 +94,34 @@
   <br>
   <div class="hire-container">
     <h3>
-      <% if to.has_freelancer %>
-        Current Offer: <%= to.freelancer.currency %><%= offer.price %> / <%= offer.price_unit %>
-      <% end %>
+      Current Offer: <%= to.has_freelancer ? to.freelancer.currency : from.freelancer.currency %><%= offer.price %> / <%= offer.price_unit %>
     </h3>
   </div>
-
+  <div>
+  <% if buttons == 1 %>
+    <% if offer.status == 2 %>
+      <%= link_to complete_my_offer_path( offer ), method: :patch do  %>
+        <button type="hire" class="btn btn-primary flip-card-btn scaleup-btn font-bold-hover">Job Completed</button>
+      <% end %>
+    <% elsif offer.status == 3 %>
+      <%= link_to "#" do%>
+        <button type="hire" class="btn btn-primary flip-card-btn scaleup-btn font-bold-hover">Contact</button>
+      <% end %>
+    <% end %>
+  <% elsif buttons == 2 %>
+    <% if offer.status == 1 %>
+      <%= link_to accept_my_offer_path( offer ), method: :patch do  %>
+        <button type="hire" class="btn btn-success flip-card-btn scaleup-btn font-bold-hover">Accept Offer</button>
+      <% end %>
+      <%= link_to decline_my_offer_path( offer ), method: :patch do  %>
+        <button type="hire" class="btn btn-danger flip-card-btn scaleup-btn font-bold-hover">Decline Offer</button>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= link_to profile_path(to) do %>
+      Contact <%= to.first_name %>
+    <% end %>
+  <% end %>
+</div>
 
 </div>
