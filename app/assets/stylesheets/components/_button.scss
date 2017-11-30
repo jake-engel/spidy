@@ -185,12 +185,45 @@
   color: white;
 }
 
-.scaleup-btn{
+/* .scaleup-btn{
   transition: transform 150ms ease;
   &:hover {
     color: white;
     transform: scale(1.1);
   }
+} */
+
+.btn-success {
+  background-color: $spidy-green;
+  font-weight: 500;
+  border:none;
+  padding: 10px 15px;
+  width: 200px;
 }
+
+.btn-success:hover {
+  background-color: $spidy-green;
+  opacity: 0.6;
+  text-decoration: none;
+  color: white;
+  border: none;
+}
+
+.btn-danger {
+  background-color: #DE423E;
+  font-weight: 500;
+  border:none;
+  padding: 10px 15px;
+  width: 200px;
+}
+
+.btn-danger:hover {
+  background-color: #DE423E;
+  opacity: 0.6;
+  text-decoration: none;
+  color: white;
+  border: none;
+}
+
 
 

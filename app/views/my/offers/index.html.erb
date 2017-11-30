@@ -4,45 +4,48 @@
 <% to_freelancers = @offers.select do |offer| %>
 <% offer.status != 3 && offer.status != 0 && offer.user == current_user %>
 <% end %>
-<!--
-  MUST CHECK THIS LATER AND CORRECT PUNDIT WITH NAMESPACE
-<%= to_freelancers.length %>
-<%= from_users.length %>
-<%= @offers.length %>
--->
-<div class="list-page-wrapper">
-  <div class="list-page-container">
-    <div class="freelancer-row">
-      <% if current_user.has_freelancer %>
-        <div class="tab">
-          <%= render "shared/tab", tab1: "Received Offers", tab2: "Sent Offers" %>
-        </div>
-        <div class="from-freelancer">
-          <h3 class="text-center">
-            <%= "You Have No Pending Offers From Freelancers" if from_users.empty? %>
-          </h3>
-          <% from_users.each do |offer| %>
-            <%= render "shared/offer_card", offer: offer, to: offer.user, from: offer.freelancer.user, buttons: 2 %>
-          <% end %>
-        </div>
-        <div class="to-freelancer hidden">
-          <h3 class="text-center">
-            <%= "You Have No Pending Offers To Freelancers" if to_freelancers.empty? %>
-          </h3>
-          <% to_freelancers.each do |offer| %>
-            <%= render "shared/offer_card", offer: offer, to: offer.freelancer.user, from: offer.user, buttons: 1 %>
-          <% end %>
-        </div>
-      <% else %>
-        <div class="to-freelancer">
-          <h3 class="text-center">
-            <%= "You Have No Pending Offers To Freelancers" if to_freelancers.empty? %>
-          </h3>
-          <% to_freelancers.each do |offer| %>
-            <%= render "shared/offer_card", offer: offer, to: offer.freelancer.user, from: offer.user, buttons: 1 %>
-          <% end %>
-        </div>
+
+<div class="my-offers-tab-wrapper">
+  <div class="my-offers-container">
+    <div class="title-bar">
+      <h3 class="text-center" style="padding-bottom: 20px;">Pending Request</h3>
+    </div>
+    <% if current_user.has_freelancer %>
+    <div class="tab">
+      <%= render "shared/tab", tab1: "Received Offers", tab2: "Sent Offers" %>
+    </div>
+    <div class="from-freelancer">
+      <h3>
+        <%= "You Have No Pending Offers From Freelancers" if from_users.empty? %>
+      </h3>
+
+      <% from_users.each do |offer| %>
+        <%= render "shared/offer_card", offer: offer, to: offer.user, from: offer.freelancer.user, buttons: 2 %>
       <% end %>
     </div>
+
+
+    <div class="to-freelancer hidden">
+      <h3>
+        <%= "You Have No Pending Offers To Freelancers" if to_freelancers.empty? %>
+      </h3>
+      <% to_freelancers.each do |offer| %>
+      <%= render "shared/offer_card", offer: offer, to: offer.freelancer.user, from: offer.user, buttons: 1 %>
+      <% end %>
+    </div>
+    <% else %>
+    <div class="to-freelancer">
+      <h3>
+        <%= "You Have No Pending Offers To Freelancers" if to_freelancers.empty? %>
+      </h3>
+
+      <% to_freelancers.each do |offer| %>
+      <%= render "shared/offer_card", offer: offer, to: offer.freelancer.user, from: offer.user, buttons: 1 %>
+      <% end %>
+    </div>
+
+    <% end %>
+
+
   </div>
 </div>
