@@ -40,10 +40,6 @@
           </strong>
       <% end %>
       <br>
-      <% if to.has_freelancer %>
-        <%= to.freelancer.position %>
-        <br>
-      <% end %>
       <%= to.location %>
       <br>
       Budget:
@@ -51,7 +47,11 @@
           <%= to.has_freelancer ? to.freelancer.currency : from.freelancer.currency %>
           <%= offer.budget %>
         </strong>
-
+      <br>
+      Last Update:
+      <strong>
+        <%= offer.updated_at.to_date %>
+      </strong>
 
       <div class="line-info">
       </div>
