@@ -189,6 +189,10 @@ $colors: #E74C3C, #0072B5, #2C3E50;
   &:hover {
     transform: scale(1.1);
   }
+  img {
+  border-left: 4px solid gray;
+  background-color: white;
+  }
 }
 .google-play-button{
   display: inline-block;
@@ -198,6 +202,10 @@ $colors: #E74C3C, #0072B5, #2C3E50;
   transition: transform 150ms ease;
   &:hover {
     transform: scale(1.1);
+  }
+    img {
+  border-left: 4px solid gray;
+  background-color: white;
   }
 }
 
