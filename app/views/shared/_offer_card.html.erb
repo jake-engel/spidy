@@ -1,0 +1,75 @@
+<div class="freelancer-index-card">
+  <div class="first-line-container">
+
+    <div class="card-image">
+      <% picture = to.facebook_picture_url || to.photo %>
+      <%= link_to profile_path(to) do %>
+        <%= image_tag picture, class: "img-circle" %>
+      <% end %>
+    </div>
+    <div class="info-text">
+      <%= link_to profile_path(to), class: "font-bold-hover" do %>
+        <%= "#{to.first_name} #{to.last_name}" %>
+      <% end %>
+      <br>
+      <% if to.has_freelancer %>
+        <%= to.freelancer.position %>
+        <br>
+      <% end %>
+      <%= to.location %>
+      <br>
+      Budget:
+        <strong>
+          <%= offer.budget %>
+        </strong>
+
+
+      <div class="line-info">
+      </div>
+
+
+
+      <ul class="list-inline product-controls hidden-sm hidden-xs" style="margin-left:0px;">
+        <% if to.has_freelancer %>
+          <% if to.freelancer.offers.where(status: 3).empty? %>
+            <li>
+              <strong>
+                No Completed Jobs Yet
+              </strong>
+            </li>
+          <% else %>
+            <%= render_stars(to.freelancer.avg_rating) %> (<%= to.freelancer.offers.where(status: 3).length %>)
+          <% end %>
+          <li>
+
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="icon-right">
+      <br>
+      <%= link_to "#", class: "freelancer-links" do %>
+      <i class="fa fa-heart" aria-hidden="true"></i>
+      <% end %>
+      <%= link_to "#", class: "freelancer-links" do %>
+      <i class="fa fa-share" aria-hidden="true"></i>
+      <% end %>
+      <br>
+    </div>
+  </div>
+
+
+  <div class="line-list"></div>
+
+  <!-- STILL MUST ADD PUNDIT TO THIS -->
+  <br>
+  <div class="hire-container">
+    <h3>
+      <% if to.has_freelancer %>
+        Current Offer: <%= to.freelancer.currency %><%= offer.price %> / <%= offer.price_unit %>
+      <% end %>
+    </h3>
+  </div>
+
+
+</div>
