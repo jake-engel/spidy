@@ -49,10 +49,10 @@
         <div class= "statistic-box">
           <ul class="statistic" >
             <li><h3 style="font-size: 20px; font-weight: 700;"><%= @profile.freelancer.avg_rating %>/5</h3><br><p>Review rating</p></li>
-            <li><h3 style="font-size: 20px; font-weight: 700;"><%= completed_jobs(@profile.freelancer) %></h3><br><p>Completed Jobs</p></li>
-            <li><h3 style="font-size: 20px; font-weight: 700;"><%= @profile.freelancer.currency %><%= (completed_jobs(@profile.freelancer) * 295).round(-2) %></h3><br><p>Total Cash earned</p></li>
-            <li><h3 style="font-size: 20px; font-weight: 700;"><%= completed_jobs(@profile.freelancer) * 10 %></h3><br><p>Hours worked</p></li>
-            <li><h3 style="font-size: 20px; font-weight: 700;"><%= completed_jobs(@profile.freelancer) * 35 %></h3><br><p>Profile views</p></li>
+            <li><h3 style="font-size: 20px; font-weight: 700;"><%= @profile.freelancer.offers.where(status: 3).length %></h3><br><p>Completed Jobs</p></li>
+            <li><h3 style="font-size: 20px; font-weight: 700;"><%= @profile.freelancer.currency %><%= (@profile.freelancer.offers.where(status: 3).length * 295).round(-2) %></h3><br><p>Total Cash earned</p></li>
+            <li><h3 style="font-size: 20px; font-weight: 700;"><%= @profile.freelancer.offers.where(status: 3).length * 10 %></h3><br><p>Hours worked</p></li>
+            <li><h3 style="font-size: 20px; font-weight: 700;"><%= @profile.freelancer.offers.where(status: 3).length * 35 %></h3><br><p>Profile views</p></li>
           </ul>
         </div>
       </div>
@@ -120,8 +120,8 @@
                 Experiences:
               </h2>
               <div class="profile-experiences-card">
-
-                <% @profile.freelancer.experiences.each do |experience| %>
+                <% experiences = @profile.freelancer.experiences.sort_by { |experience| experience.starting_date }.reverse %>
+                <% experiences.each do |experience| %>
                 <ul style="list-style: none;">
                   <div class="profiles-experience-listing">
                     <li>

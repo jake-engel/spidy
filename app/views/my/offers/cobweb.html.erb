@@ -15,7 +15,7 @@
         <%= "You Have No Pending Offers From Freelancers" if hired_by.empty? %>
       </h3>
       <% hired_by.each do |offer| %>
-        <%= render "shared/flip_card", offer: offer, to: offer.user, from: offer.freelancer.user, buttons: 1 %>
+        <%= render "shared/offer_card", offer: offer, to: offer.user, from: offer.freelancer.user, buttons: 1 %>
       <% end %>
     </div>
 
@@ -24,7 +24,7 @@
         <%= "You Have No Pending Offers To Freelancers" if you_hired.empty? %>
       </h3>
       <% you_hired.each do |offer| %>
-      <%= render "shared/flip_card", offer: offer, to: offer.freelancer.user, from: offer.user, buttons: 1 %>
+      <%= render "shared/offer_card", offer: offer, to: offer.freelancer.user, from: offer.user, buttons: 1 %>
       <% end %>
     </div>
     <% else %>
@@ -33,7 +33,7 @@
         <%= "You Have No Pending Offers To Freelancers" if you_hired.empty? %>
       </h3>
       <% you_hired.each do |offer| %>
-      <%= render "shared/flip_card", offer: offer, to: offer.freelancer.user, from: offer.user, buttons: 1 %>
+      <%= render "shared/offer_card", offer: offer, to: offer.freelancer.user, from: offer.user, buttons: 1 %>
       <% end %>
     </div>
     <% end %>

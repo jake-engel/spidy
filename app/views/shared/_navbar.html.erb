@@ -161,3 +161,16 @@
     </div>
   </div>
 </div>
+
+<script>
+  var url = window.location.pathname;
+  var navbarOptions = document.querySelectorAll("a.navbar-spidy-item")
+  navbarOptions.forEach(function(element) {
+    if (element.innerText == "Help") {
+    } else {
+      if (url == (element.pathname)) {
+          element.classList.add("active");
+      }
+    }
+  });
+</script>
