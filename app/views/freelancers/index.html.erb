@@ -45,10 +45,10 @@
             <a href="#freelancer-search-field" class="btn btn-primary scaleup-btn" style="margin-left: 20px; margin-bottom: 30px;">Edit Search Details</a>
             </div>
          <div class="line-list"></div>
+    </div>
   </div>
-</div>
 
-   <div class="freelancer-row">
+  <div class="freelancer-row">
     <% @freelancers.each do |freelancer| %>
     <%= render "shared/freelancer_card", user: freelancer.user, freelancer: freelancer %>
     <% end %>

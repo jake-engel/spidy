@@ -1,10 +1,3 @@
-<% from_users = @offers.select do |offer| %>
-<% offer.status != 3 && offer.status != 0 && offer.freelancer.user == current_user %>
-<% end %>
-<% to_freelancers = @offers.select do |offer| %>
-<% offer.status != 3 && offer.status != 0 && offer.user == current_user %>
-<% end %>
-
 <div class="my-offers-tab-wrapper">
   <div class="my-offers-container">
     <% if current_user.has_freelancer %>
@@ -20,9 +13,6 @@
         <%= render "shared/flip_card", offer: offer, to: offer.user, from: offer.freelancer.user, buttons: 2 %>
       <% end %>
     </div>
-    <div class="image-empty">
-    <%= image_tag "opened-white-box.svg" if from_users.empty? %>
-  </div>
 
     <div class="to-freelancer hidden">
       <h3 class="text-center">
@@ -37,15 +27,11 @@
       <h3 class="text-center">
         <%= "You Have No Pending Offers To Freelancers" if to_freelancers.empty? %>
       </h3>
-
       <% to_freelancers.each do |offer| %>
       <%= render "shared/flip_card", offer: offer, to: offer.freelancer.user, from: offer.user, buttons: 1 %>
       <% end %>
     </div>
-    <div class="image-empty">
-    <%= image_tag "opened-white-box.svg" if from_users.empty? %>
     <% end %>
-   </div>
 
   </div>
 </div>

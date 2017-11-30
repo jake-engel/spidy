@@ -25,27 +25,22 @@
   justify-content: center;
 }
 
-.from-freelancer {
-    text-align: center;
-    justify-content: center;
-    border-bottom: 1px solid gray;
-
-
-h3 {
-  padding-bottom: 10px;
+.card-image-scale {
+  .img-circle {
+    width: 100px;
+    height: 100px;
   }
-
+  transition: transform 150ms ease;
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
-.to-freelancer {
-    text-align: center;
-    justify-content: center;
-    border-bottom: 1px solid gray;
-
-h3 {
-  padding-bottom: 10px;
+.card-image-non-scale {
+  .img-circle {
+    width: 100px;
+    height: 100px;
   }
-
 }
 
 
