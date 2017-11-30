@@ -1,6 +1,6 @@
 <% from_users = [] %>
 <% to_freelancers = [] %>
-<% from_users = @offers.select do |offer| %>
+<% @offers.each do |offer| %>
   <% from_users << offer if offer.freelancer.user == current_user %>
   <% to_freelancers << offer if offer.user == current_user %>
 <% end %>
