@@ -59,7 +59,7 @@ class FreelancersController < ApplicationController
       </div>"
     end
 
-    @freelancers = policy_scope(@mapFreelancers).order(avg_rating: :desc)
+    @freelancers = policy_scope(@mapFreelancers).order(created_at: :desc)
   end
 
   def new

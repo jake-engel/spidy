@@ -26,7 +26,7 @@
         <li><strong>No Completed Jobs Yet</strong></li>
         <% else %>
         <%= render_stars(freelancer.avg_rating) %> (<%= freelancer.offers.where(status: 3).length %>)
-        <li><strong>Last Spidy Position:</strong> <%= freelancer.offers.last.updated_at %></a></li>
+        <li><strong>Last Spidy Position:</strong> <%= freelancer.offers.last.updated_at.to_date %></a></li>
         <% end %>
       </ul>
     </div>
