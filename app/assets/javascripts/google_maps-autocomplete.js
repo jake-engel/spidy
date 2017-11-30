@@ -7,10 +7,11 @@ var componentForm = {
   country: 'long_name',
   postal_code: 'short_name'
 };
+if (window.location.pathname == "/" || window.location.pathname == "/freelancers") {
 google.maps.event.addDomListener(window, 'load', initAutocomplete);
+}
 
 function initAutocomplete() {
-
   autocomplete = new google.maps.places.Autocomplete((document.getElementById('home-search-bar')),
     {types: ['geocode']});
   autocomplete.addListener('place_changed', fillInAddress);
@@ -18,18 +19,8 @@ function initAutocomplete() {
 
 function fillInAddress() {
   var place = autocomplete.getPlace();
-  // for (var component in componentForm) {
-  //   document.getElementById(component).value = '';
-  //   document.getElementById(component).disabled = false;
-  // }
-  // for (var i = 0; i < place.address_components.length; i++) {
-  //     var addressType = place.address_components[i].types[0];
-  //     if (componentForm[addressType]) {
-  //       var val = place.address_components[i][componentForm[addressType]];
-  //       document.getElementById(addressType).value = val;
-  //       }
-  //     }
 }
+
 function geolocate() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
