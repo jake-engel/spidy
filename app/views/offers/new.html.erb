@@ -8,7 +8,7 @@
     </h1>
     <%= simple_form_for [@freelancer, @offer] do |f| %>
     <div class="form-inline form-group">
-      <%= f.input :price, label: "Pay: #{@freelancer.currency}", input_html: { min: '8', step: 'any', value: 8 } %>
+      <%= f.input :price, label: "Pay: #{@freelancer.currency}", input_html: { min: '10', step: 'any', value: @freelancer.hourly_pay } %>
       <%= f.input :price_unit, label: false, collection: %w(contract hr day week), selected: "hr" %>
     </div>
     <div class="set-budget">
