@@ -14,7 +14,7 @@ class OffersController < ApplicationController
     @offer.user = @user
     authorize @offer
     if @offer.save
-      redirect_to freelancers_path
+      redirect_to my_offers_path
     else
       render :new
     end
