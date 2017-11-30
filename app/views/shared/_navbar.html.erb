@@ -10,6 +10,7 @@
   <div class="navbar-spidy-right hidden-xs hidden-sm">
 
     <% if user_signed_in? %>
+    <div class="true" id="are-they-signed-in"></div>
     <% unless current_user.has_freelancer %>
     <%= link_to "Register as Freelancer", new_freelancer_path, class: "navbar-spidy-item navbar-spidy-link text-center" %>
     <% end %>
@@ -70,6 +71,7 @@
     <%= link_to "Help", "#", class: "navbar-spidy-item navbar-spidy-link" %>
     <%= link_to "Sign-up", new_user_registration_path, class: "navbar-spidy-item navbar-spidy-link" %>
     <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-spidy-item navbar-spidy-link" %>
+      <div class="false" id="are-they-signed-in"></div>
     <% end %>
   </div>
 
@@ -165,12 +167,16 @@
 <script>
   var url = window.location.pathname;
   var navbarOptions = document.querySelectorAll("a.navbar-spidy-item")
+  var loggedOn = document.getElementById("are-they-signed-in")
   navbarOptions.forEach(function(element) {
     if (element.innerText == "Help") {
     } else {
       if (url == (element.pathname)) {
           element.classList.add("active");
+      } else if (element.innerText == "Nearby Freelancers" && url == "/" && loggedOn.classList.contains("true")) {
+          element.classList.add("active");
       }
     }
   });
 </script>
+
