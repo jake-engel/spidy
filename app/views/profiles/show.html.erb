@@ -120,8 +120,8 @@
                 Experiences:
               </h2>
               <div class="profile-experiences-card">
-
-                <% @profile.freelancer.experiences.each do |experience| %>
+                <% experiences = @profile.freelancer.experiences.sort_by { |experience| experience.starting_date } %>
+                <% experiences.each do |experience| %>
                 <ul style="list-style: none;">
                   <div class="profiles-experience-listing">
                     <li>
