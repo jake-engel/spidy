@@ -94,10 +94,10 @@
   <br>
   <div class="hire-container">
     <h3>
-      Current Offer: <%= to.has_freelancer ? to.freelancer.currency : from.freelancer.currency %><%= offer.price %> / <%= offer.price_unit %>
+      <span style="color: gray; font-weight: 300;">Current Offer:</span> <%= to.has_freelancer ? to.freelancer.currency : from.freelancer.currency %><%= offer.price %> / <%= offer.price_unit %>
     </h3>
-  </div>
-  <div>
+    <div>
+      <div class="buttons-offer-card">
   <% if buttons == 1 %>
     <% if offer.status == 2 %>
       <%= link_to complete_my_offer_path( offer ), method: :patch do  %>
@@ -123,5 +123,8 @@
     <% end %>
   <% end %>
 </div>
+</div>
+  </div>
+
 
 </div>
