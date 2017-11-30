@@ -2,7 +2,7 @@ class My::OffersController < ApplicationController
   before_action :set_offer, only: [ :decline, :accept, :complete ]
 
   def index
-    @offers = policy_scope(Offer).order(updated_at: :desc)
+    @offers = policy_scope(Offer).where("status = ? OR status = ?", 1 , 2).order(updated_at: :desc)
   end
 
   def decline

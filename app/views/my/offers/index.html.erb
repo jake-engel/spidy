@@ -1,8 +1,8 @@
+<% from_users = [] %>
+<% to_freelancers = [] %>
 <% from_users = @offers.select do |offer| %>
-<% offer.status != 3 && offer.status != 0 && offer.freelancer.user == current_user %>
-<% end %>
-<% to_freelancers = @offers.select do |offer| %>
-<% offer.status != 3 && offer.status != 0 && offer.user == current_user %>
+  <% from_users << offer if offer.freelancer.user == current_user %>
+  <% to_freelancers << offer if offer.user == current_user %>
 <% end %>
 
 <div class="my-offers-tab-wrapper">
